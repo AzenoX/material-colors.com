@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9fe01adb-99fc-440e-9669-8305b7eb500e" name="HeavenOVH">
+        <fileTransfer rootFolder="/var/www/beta.material-colors.com" accessType="SFTP" host="vps717945.ovh.net" port="22" sshConfigId="5f5c911e-7cc9-4276-83a7-c372cfbe0f16" sshConfig="root@vps717945.ovh.net:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
