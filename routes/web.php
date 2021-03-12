@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', ['as' => 'home', 'middleware' => 'maintenance', function () {
-    return view('welcome');
+Route::get('/', ['as' => 'home', function () {
+    return view('home');
 }]);
