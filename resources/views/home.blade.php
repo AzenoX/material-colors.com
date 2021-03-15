@@ -39,7 +39,7 @@
                 <div class="picker shadowed">
                     <table class="picker__table">
                         <tr class="picker__table__header">
-                            <td class="bold">Pick a color</td>
+                            <td class="bold montserrat">Pick a color</td>
                             <th>50</th>
                             <th>100</th>
                             <th>200</th>
@@ -83,7 +83,7 @@
                             <p class="flex flex-middle fs14 bold">Color: <span style="background:#EF5350;" class="selected__wrapper__header__square m-05"></span><span class="selected__wrapper__header__color bold montserrat">Red 400</span></p>
                         </div>
                         <div class="selected__wrapper__body">
-                            <div class="selected__wrapper__body__table">
+                            <div class="selected__wrapper__body__table shadowed">
                                 <table>
                                     <tr>
                                         <td>
