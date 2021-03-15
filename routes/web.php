@@ -13,6 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', ['as' => 'home', function () {
-    return view('home');
-}]);
+Route::get('/', ['as' => 'home', 'uses' => '\App\Http\Controllers\PaletteMaterial@getIndex']);

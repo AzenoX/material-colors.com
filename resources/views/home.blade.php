@@ -6,41 +6,40 @@
 
         <div class="flex flex-sparound flex-middle">
 
-            <div class="w40 home_wrappers">
-
-                <h1 class="main__title fs30 twhite montserrat tcenter">Palette: Material</h1>
+            <div class="w40 home_wrappers flex flex-col flex-cent">
 
                 <div>
                     <p class="preview_title fs20 twhite montserrat bold mb-1">Live Preview</p>
 
                     <div class="preview shadowed">
-                        <div class="preview__header" style="border-bottom: 8px solid #EF5350;">
-                            <p class="preview__header__title fs20 bold" style="color: #EF5350;">Your Website</p>
+                        <div class="preview__header shadowed" style="background: #EF5350;">
+                            <p class="preview__header__title fs20 bold">Your Website</p>
                         </div>
                         <div class="preview__body">
                             <p class="preview__body__title fs20 tcenter twhite bold roboto">Hello world</p>
                             <div class="preview__body__panels flex flex-sparound">
-                                <div class="preview__body__panel" style="border: 2px solid #EF5350;"></div>
-                                <div class="preview__body__panel" style="border: 2px solid #EF5350;"></div>
-                                <div class="preview__body__panel" style="border: 2px solid #EF5350;"></div>
-                                <div class="preview__body__panel" style="border: 2px solid #EF5350;"></div>
-                                <div class="preview__body__panel" style="border: 2px solid #EF5350;"></div>
-                                <div class="preview__body__panel" style="border: 2px solid #EF5350;"></div>
-                                <div class="preview__body__panel" style="border: 2px solid #EF5350;"></div>
-                                <div class="preview__body__panel" style="border: 2px solid #EF5350;"></div>
-                                <div class="preview__body__panel" style="border: 2px solid #EF5350;"></div>
+                                <div class="preview__body__panel shadowed" style="background: #EF5350;"></div>
+                                <div class="preview__body__panel shadowed" style="background: #EF5350;"></div>
+                                <div class="preview__body__panel shadowed" style="background: #EF5350;"></div>
+                                <div class="preview__body__panel shadowed" style="background: #EF5350;"></div>
+                                <div class="preview__body__panel shadowed" style="background: #EF5350;"></div>
+                                <div class="preview__body__panel shadowed" style="background: #EF5350;"></div>
+                                <div class="preview__body__panel shadowed" style="background: #EF5350;"></div>
+                                <div class="preview__body__panel shadowed" style="background: #EF5350;"></div>
+                                <div class="preview__body__panel shadowed" style="background: #EF5350;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="w40 home_wrappers">
-                <p class="fs20 twhite montserrat bold m-1">Pick a color</p>
+            <div class="w40 home_wrappers flex flex-col flex-beet">
+                <h1 class="main__title fs30 twhite bold m-1 montserrat">Palette: Material</h1>
+{{--                <p class="fs20 twhite montserrat bold m-1"></p>--}}
                 <div class="picker shadowed">
                     <table class="picker__table">
                         <tr class="picker__table__header">
-                            <td></td>
+                            <td class="bold">Pick a color</td>
                             <th>50</th>
                             <th>100</th>
                             <th>200</th>
@@ -53,110 +52,21 @@
                             <th>900</th>
                         </tr>
                         <!--Générer les lignes-->
-                        <tr>
-                            <th>Red</th>
-                            <td><span class="picker__table__header__color_item" style="background:#FFEBEE;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#FFCDD2;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF9A9A;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E57373;"></span></td>
-                            <td><span class="picker__table__header__color_item active" style="background:#EF5350;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#F44336;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E53935;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#D32F2F;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#C62828;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#B71C1C;"></span></td>
-                        </tr>
-                        <tr>
-                            <th>Red</th>
-                            <td><span class="picker__table__header__color_item" style="background:#FFEBEE;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#FFCDD2;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF9A9A;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E57373;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF5350;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#F44336;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E53935;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#D32F2F;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#C62828;"></span></td>
-                            <td ><span class="picker__table__header__color_item" style="background:#B71C1C;"></span></td>
-                        </tr>
-                        <tr>
-                            <th>Red</th>
-                            <td><span class="picker__table__header__color_item" style="background:#FFEBEE;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#FFCDD2;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF9A9A;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E57373;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF5350;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#F44336;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E53935;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#D32F2F;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#C62828;"></span></td>
-                            <td ><span class="picker__table__header__color_item" style="background:#B71C1C;"></span></td>
-                        </tr>
-                        <tr>
-                            <th>Red</th>
-                            <td><span class="picker__table__header__color_item" style="background:#FFEBEE;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#FFCDD2;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF9A9A;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E57373;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF5350;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#F44336;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E53935;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#D32F2F;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#C62828;"></span></td>
-                            <td ><span class="picker__table__header__color_item" style="background:#B71C1C;"></span></td>
-                        </tr>
-                        <tr>
-                            <th>Red</th>
-                            <td><span class="picker__table__header__color_item" style="background:#FFEBEE;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#FFCDD2;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF9A9A;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E57373;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF5350;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#F44336;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E53935;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#D32F2F;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#C62828;"></span></td>
-                            <td ><span class="picker__table__header__color_item" style="background:#B71C1C;"></span></td>
-                        </tr>
-                        <tr>
-                            <th>Red</th>
-                            <td><span class="picker__table__header__color_item" style="background:#FFEBEE;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#FFCDD2;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF9A9A;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E57373;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF5350;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#F44336;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E53935;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#D32F2F;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#C62828;"></span></td>
-                            <td ><span class="picker__table__header__color_item" style="background:#B71C1C;"></span></td>
-                        </tr>
-                        <tr>
-                            <th>Red</th>
-                            <td><span class="picker__table__header__color_item" style="background:#FFEBEE;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#FFCDD2;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF9A9A;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E57373;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF5350;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#F44336;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E53935;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#D32F2F;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#C62828;"></span></td>
-                            <td ><span class="picker__table__header__color_item" style="background:#B71C1C;"></span></td>
-                        </tr>
-                        <tr>
-                            <th>Red</th>
-                            <td><span class="picker__table__header__color_item" style="background:#FFEBEE;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#FFCDD2;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF9A9A;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E57373;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#EF5350;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#F44336;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#E53935;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#D32F2F;"></span></td>
-                            <td><span class="picker__table__header__color_item" style="background:#C62828;"></span></td>
-                            <td ><span class="picker__table__header__color_item" style="background:#B71C1C;"></span></td>
-                        </tr>
+                        @foreach($data as $dat)
+                            <tr>
+                                <th>{{ str_replace('_', ' ', ucfirst($dat['name'])) }}</th>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c50'] }};"></span></td>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c100'] }};"></span></td>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c200'] }};"></span></td>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c300'] }};"></span></td>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c400'] }};"></span></td>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c500'] }};"></span></td>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c600'] }};"></span></td>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c700'] }};"></span></td>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c800'] }};"></span></td>
+                                <td><span class="picker__table__header__color_item" style="background:#{{ $dat['c900'] }};"></span></td>
+                            </tr>
+                        @endforeach
                     </table>
                 </div>
                 <div class="selected shadowed">

@@ -2014,11 +2014,12 @@ color_pickers_items.forEach(function (el) {
 
     var preview_title = document.querySelector('.preview__header__title');
     var preview_bar = document.querySelector('.preview__header');
-    var preview_panels = document.querySelectorAll('.preview__body__panel');
-    preview_title.style.color = bg;
-    preview_bar.style.borderColor = bg;
+    var preview_panels = document.querySelectorAll('.preview__body__panel'); //preview_title.style.color = bg;
+
+    preview_bar.style.backgroundColor = bg; //preview_bar.style.borderColor = bg;
+
     preview_panels.forEach(function (el) {
-      el.style.borderColor = bg;
+      el.style.backgroundColor = bg;
     }); //Selected Color
 
     var selected_square = document.querySelector('.selected__wrapper__header__square');
@@ -2032,6 +2033,10 @@ color_pickers_items.forEach(function (el) {
     var colTint = el.parentElement.parentElement.parentElement.firstElementChild.children[getElementIndex(el.parentElement)].innerHTML;
     selected_text.innerHTML = "".concat(capitalizeFirstLetter(colName), " ").concat(colTint);
   });
+}); //Init
+
+window.addEventListener('DOMContentLoaded', function () {
+  color_pickers_items[4].classList.add('active');
 });
 
 /***/ }),

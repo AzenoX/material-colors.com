@@ -31,10 +31,11 @@ color_pickers_items.forEach((el) => {
         const preview_bar = document.querySelector('.preview__header');
         const preview_panels = document.querySelectorAll('.preview__body__panel');
 
-        preview_title.style.color = bg;
-        preview_bar.style.borderColor = bg;
+        //preview_title.style.color = bg;
+        preview_bar.style.backgroundColor = bg;
+        //preview_bar.style.borderColor = bg;
         preview_panels.forEach((el) => {
-            el.style.borderColor = bg
+            el.style.backgroundColor = bg
         });
 
         //Selected Color
@@ -53,4 +54,10 @@ color_pickers_items.forEach((el) => {
 
         selected_text.innerHTML = `${capitalizeFirstLetter(colName)} ${colTint}`
     });
+});
+
+
+//Init
+window.addEventListener('DOMContentLoaded', () => {
+    color_pickers_items[4].classList.add('active');
 });
