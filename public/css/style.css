@@ -1,0 +1,475 @@
+/*============================
+    Globals
+=============================*/
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+a:focus {
+  text-decoration: none;
+}
+
+/*==============================================
+
+        Classes
+
+==============================================*/
+.shadowed {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/*============================
+    Widths
+=============================*/
+.w40 {
+  width: 40%;
+}
+
+.w45 {
+  width: 45%;
+}
+
+/*============================
+    Margins
+=============================*/
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.m-05 {
+  margin: 0.5rem;
+}
+
+/*============================
+    Flex
+=============================*/
+.flex {
+  display: flex;
+}
+
+.flex-sparound {
+  justify-content: space-around;
+}
+
+.flex-middle {
+  align-items: center;
+}
+
+/*============================
+    Fonts
+=============================*/
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+/*============================
+    Positioning
+=============================*/
+.tcenter {
+  text-align: center;
+}
+
+/*============================
+    Styles
+=============================*/
+.bold {
+  font-weight: 700;
+}
+
+/*============================
+    Sizes
+=============================*/
+.fs09 {
+  font-size: 0.9rem;
+}
+
+.fs11 {
+  font-size: 1.1rem;
+}
+
+.fs12 {
+  font-size: 1.2rem;
+}
+
+.fs14 {
+  font-size: 1.4rem;
+}
+
+.fs20 {
+  font-size: 2rem;
+}
+
+.fs25 {
+  font-size: 2.5rem;
+}
+
+.fs30 {
+  font-size: 3rem;
+}
+
+/*============================
+    Colors
+=============================*/
+.twhite {
+  color: #fff;
+}
+
+.tblack {
+  color: #000;
+}
+
+/*============================
+    Transform
+=============================*/
+.uppercase {
+  text-transform: uppercase;
+}
+
+/*==============================================
+
+        Reset CSS
+
+==============================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+#header_svgs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+#header_svgs > svg {
+  position: absolute;
+  left: 0;
+  width: 110vw;
+}
+#header_svgs svg:nth-child(1) {
+  top: 0;
+  z-index: 3;
+}
+#header_svgs svg:nth-child(3) {
+  top: 150px;
+  z-index: 2;
+}
+#header_svgs svg:nth-child(5) {
+  top: 300px;
+  z-index: 1;
+}
+#header_svgs .box_extended {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 150px;
+  width: 100vw;
+}
+#header_svgs .box_extended.box_middle {
+  top: 0px;
+  background: #3042A1;
+}
+#header_svgs .box_extended.box_bottom {
+  top: 150px;
+  background: #3F51B5;
+}
+
+nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 4;
+}
+nav ul {
+  margin: 2em;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+nav ul li {
+  margin: 1em;
+  display: flex;
+  align-items: center;
+}
+nav ul li a {
+  padding: 0.1em 0.5em 1em 0.5em;
+  white-space: nowrap;
+  color: #fff;
+  cursor: pointer;
+}
+
+ul.dropdown-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: none;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background: #eee;
+  list-style-type: none;
+  z-index: 99999;
+}
+ul.dropdown-content li {
+  position: relative;
+  padding: 0.8em 3em 0.8em 1.4em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #eee;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.4s ease-out, color 0.4s ease-out;
+}
+ul.dropdown-content li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: #333;
+  transition: width 0.15s ease-in-out;
+}
+ul.dropdown-content li:hover::before {
+  width: 12%;
+}
+ul.dropdown-content li:hover a {
+  font-weight: 600;
+  transform: translateX(10px);
+}
+ul.dropdown-content li a {
+  color: #000;
+  font-weight: 400;
+  transform: translateX(0);
+  transition: transform 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+}
+ul.dropdown-content li svg {
+  margin: 0 15px 0 0;
+  fill: #000;
+  transition: fill 0.4s ease-out;
+}
+ul.dropdown-content li.divider {
+  height: 1px;
+  width: 80%;
+  margin: 1em auto;
+  padding: 0;
+  background: #333;
+}
+ul.dropdown-content li.logout:hover {
+  background: red;
+}
+
+.main {
+  position: relative;
+  z-index: 10;
+}
+
+.home_wrappers {
+  height: 70vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+/*==============================================
+
+        Live Preview
+
+==============================================*/
+.preview {
+  height: 45vh;
+  overflow: hidden;
+}
+.preview__header {
+  background: #1E293B;
+  transition: border 0.2s ease-out;
+}
+.preview__header__title {
+  padding: 0.6em;
+  transition: color 0.2s ease-out;
+}
+.preview__body {
+  background: #334155;
+}
+.preview__body__title {
+  padding: 1rem;
+}
+.preview__body__panels {
+  flex-wrap: wrap;
+  padding: 0 5%;
+}
+.preview__body__panels > div {
+  margin: 1rem 0;
+  height: 120px;
+  flex: 0 0 26%;
+  transition: border 0.2s ease-out;
+}
+
+/*==============================================
+
+        Picker
+
+==============================================*/
+.picker {
+  width: 100%;
+  height: 40vh;
+  background: #eee;
+  overflow-y: auto;
+}
+.picker__table {
+  width: 80%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.picker__table__header th {
+  width: 40px;
+}
+.picker__table tr:not(:first-child) th {
+  border-bottom: 1px solid #999;
+}
+.picker__table td {
+  height: 40px;
+}
+.picker__table td span {
+  display: block;
+  height: 40px;
+  width: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  transition: width 0.2s ease-out, height 0.2s ease-out;
+}
+.picker__table td span.active {
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+.picker__table td:not(:first-child) {
+  border: 1px solid #999;
+}
+
+.selected {
+  background: #eee;
+  height: 30vh;
+  margin-top: 2em;
+  position: relative;
+}
+.selected__svg_top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50%;
+  filter: drop-shadow(0 0 2px black);
+  z-index: 11;
+}
+.selected__svg_top path {
+  transition: fill 0.2s ease-out;
+}
+.selected__svg_bot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+  filter: drop-shadow(0 0 2px black);
+  z-index: 11;
+}
+.selected__svg_bot path {
+  transition: fill 0.2s ease-out;
+}
+.selected__wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  z-index: 12;
+}
+.selected__wrapper__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1em 3em;
+  flex: 1;
+}
+.selected__wrapper__header__square {
+  height: 30px;
+  width: 30px;
+  box-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  transition: background 0.2s ease-out;
+}
+.selected__wrapper__header__color {
+  letter-spacing: 2px;
+  color: #fff;
+  -webkit-text-stroke: 1.4px #000;
+}
+.selected__wrapper__body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 1em 1em 1em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.selected__wrapper__body__table table {
+  border-collapse: collapse;
+}
+.selected__wrapper__body__table table th, .selected__wrapper__body__table table td {
+  padding: 1em;
+  border: 1px solid #ddd;
+}
+.selected__wrapper__body__table table th p, .selected__wrapper__body__table table td p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.selected__wrapper__body__table table th p span:first-child, .selected__wrapper__body__table table td p span:first-child {
+  padding-right: 1em;
+}
+.selected__wrapper__body__table table th p span:last-child, .selected__wrapper__body__table table td p span:last-child {
+  cursor: pointer;
+}
+.selected__wrapper__body__table table tr:nth-child(odd) {
+  background: #fff;
+}
+.selected__wrapper__body__table table tr:nth-child(even) {
+  background: #e0e0e0;
+}
+.selected__wrapper__body__variations {
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+.selected__wrapper__body__variations > div {
+  height: 100%;
+}
+.selected__wrapper__body__variations__lighter__title {
+  color: #eee;
+}
+.selected__wrapper__body__variations__lighter__text {
+  color: #eee;
+}
+.selected__wrapper__body__variations__darker__title {
+  color: #111;
+}
+.selected__wrapper__body__variations__darker__text {
+  color: #111;
+}
