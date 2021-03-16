@@ -6,14 +6,11 @@ use App\Models\Palette_Material;
 
 class PaletteMaterial extends Controller
 {
-    //
     public static function getIndex(){
 
         $data = Palette_Material::all()->toArray();
+        $title = 'Material';
 
-        //dd($data);
-        //dd($data['items']['attributes']);
-
-        return view('home', ['data' => $data]);
+        return view('home', ['data' => $data, 'title' => $title]);
     }
 }

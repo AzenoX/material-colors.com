@@ -34,7 +34,7 @@
             </div>
 
             <div class="w40 home_wrappers flex flex-col flex-beet">
-                <h1 class="main__title fs30 twhite bold m-1 montserrat">Palette: Material</h1>
+                <h1 class="main__title fs30 twhite bold m-1 montserrat">Palette: <?= $title ?></h1>
 {{--                <p class="fs20 twhite montserrat bold m-1"></p>--}}
                 <div class="picker shadowed">
                     <table class="picker__table">

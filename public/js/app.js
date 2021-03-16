@@ -1992,51 +1992,52 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+var editors = {
+  '.preview__header': 'backgroundColor',
+  '.preview__header__title': 'backgroundColor',
+  '.selected__wrapper__header__square': 'backgroundColor',
+  '.selected__svg_top path': 'fill',
+  '.selected__svg_bot path': 'fill',
+  '.preview__body__panel': 'backgroundColor'
+};
+
+function editColor(newColor, el) {
+  //Toggle classes
+  color_pickers_items.forEach(function (el) {
+    return el.classList.remove('active');
+  });
+  el.classList.add('active');
+
+  var _loop = function _loop(property) {
+    var els = document.querySelectorAll(property);
+    els.forEach(function (el) {
+      el.style[editors[property]] = newColor;
+    });
+  };
+
+  for (var property in editors) {
+    _loop(property);
+  } //Change text values
+
+
+  var selected_text = document.querySelector('.selected__wrapper__header__color');
+  var colName = el.parentElement.parentElement.firstElementChild.innerHTML;
+  var colTint = el.parentElement.parentElement.parentElement.firstElementChild.children[getElementIndex(el.parentElement)].innerHTML;
+  selected_text.innerHTML = "".concat(capitalizeFirstLetter(colName), " ").concat(colTint);
+}
+
 var color_pickers_items = document.querySelectorAll('.picker__table__header__color_item');
 color_pickers_items.forEach(function (el) {
   el.addEventListener('click', function () {
-    /*============================
-        Get bg
-    =============================*/
     var bg = el.style.backgroundColor;
-    /*============================
-        Remove active class to all and add it to selected
-    =============================*/
-
-    color_pickers_items.forEach(function (el) {
-      return el.classList.remove('active');
-    });
-    el.classList.add('active');
-    /*============================
-        Apply bg to each items
-    =============================*/
-    //Preview
-
-    var preview_title = document.querySelector('.preview__header__title');
-    var preview_bar = document.querySelector('.preview__header');
-    var preview_panels = document.querySelectorAll('.preview__body__panel'); //preview_title.style.color = bg;
-
-    preview_bar.style.backgroundColor = bg; //preview_bar.style.borderColor = bg;
-
-    preview_panels.forEach(function (el) {
-      el.style.backgroundColor = bg;
-    }); //Selected Color
-
-    var selected_square = document.querySelector('.selected__wrapper__header__square');
-    var selected_svgTop = document.querySelector('.selected__svg_top path');
-    var selected_svgBot = document.querySelector('.selected__svg_bot path');
-    selected_square.style.backgroundColor = bg;
-    selected_svgTop.style.fill = bg;
-    selected_svgBot.style.fill = bg;
-    var selected_text = document.querySelector('.selected__wrapper__header__color');
-    var colName = el.parentElement.parentElement.firstElementChild.innerHTML;
-    var colTint = el.parentElement.parentElement.parentElement.firstElementChild.children[getElementIndex(el.parentElement)].innerHTML;
-    selected_text.innerHTML = "".concat(capitalizeFirstLetter(colName), " ").concat(colTint);
+    editColor(bg, el);
   });
 }); //Init
 
 window.addEventListener('DOMContentLoaded', function () {
-  color_pickers_items[4].classList.add('active');
+  var el = color_pickers_items[4];
+  el.classList.add('active');
+  editColor(el.style.backgroundColor, el);
 });
 
 /***/ }),
