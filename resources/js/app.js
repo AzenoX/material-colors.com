@@ -1,6 +1,7 @@
 require('./bootstrap');
 
 require('./color_picker');
+require('./color_copy');
 
 
 

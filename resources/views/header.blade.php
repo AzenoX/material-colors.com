@@ -41,7 +41,7 @@
     <ul class="dropdown-content" id="dropdown-account">
         <li><a href="{{ route('home') }}" class="roboto fs09">Material</a></li>
         <li><a href="{{ route('p_tailwind') }}" class="roboto fs09">Tailwind</a></li>
-        <li><a href="" class="roboto fs09">Flat</a></li>
+        <li><a href="{{ route('p_flat') }}" class="roboto fs09">Flat</a></li>
     </ul>
 
 @endsection

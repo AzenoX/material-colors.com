@@ -1843,6 +1843,8 @@ module.exports = {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./color_picker */ "./resources/js/color_picker.js");
+
+__webpack_require__(/*! ./color_copy */ "./resources/js/color_copy.js");
 /*=====================================
 
     Dropdown
@@ -1978,6 +1980,22 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/color_copy.js":
+/*!************************************!*\
+  !*** ./resources/js/color_copy.js ***!
+  \************************************/
+/***/ (() => {
+
+var copiers = document.querySelectorAll('.selected__body__table__text__copy');
+copiers.forEach(function (el) {
+  el.addEventListener('click', function () {
+    var col = el.previousElementSibling.innerHTML;
+    navigator.clipboard.writeText(col);
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/color_picker.js":
 /*!**************************************!*\
   !*** ./resources/js/color_picker.js ***!
@@ -2021,10 +2039,82 @@ function editColor(newColor, el) {
 
 
   var selected_text = document.querySelector('.selected__wrapper__header__color');
-  var colName = el.parentElement.parentElement.firstElementChild.innerHTML;
-  var colTint = el.parentElement.parentElement.parentElement.firstElementChild.children[getElementIndex(el.parentElement)].innerHTML;
-  selected_text.innerHTML = "".concat(capitalizeFirstLetter(colName), " ").concat(colTint);
+  /*const colName = el.parentElement.parentElement.firstElementChild.innerHTML;
+  const colTint = el.parentElement.parentElement.parentElement.firstElementChild.children[getElementIndex(el.parentElement)].innerHTML;*/
+
+  var colName = el.getAttribute('data-name').replaceAll('_', ' ');
+  var colTint = el.getAttribute('data-tint');
+  selected_text.innerHTML = "".concat(capitalizeFirstLetter(colName), " ").concat(colTint); //Change Color values
+
+  var rgb = newColor.substring(4, newColor.length - 1).replace(/ /g, '').split(',');
+  console.log(rgb);
+  document.querySelector('.selected__body__table__text_hex').innerHTML = rgbToHex(rgb[0], rgb[1], rgb[2]);
+  document.querySelector('.selected__body__table__text_hexa').innerHTML = rgbToHex(rgb[0], rgb[1], rgb[2], true);
+  document.querySelector('.selected__body__table__text_rgb').innerHTML = rgbToRgb(rgb[0], rgb[1], rgb[2]);
+  document.querySelector('.selected__body__table__text_rgba').innerHTML = rgbToRgb(rgb[0], rgb[1], rgb[2], true);
+  document.querySelector('.selected__body__table__text_hsl').innerHTML = rgbToHsl(rgb[0], rgb[1], rgb[2]);
+  document.querySelector('.selected__body__table__text_hsla').innerHTML = rgbToHsl(rgb[0], rgb[1], rgb[2], true);
 }
+/*Color convertors*/
+
+
+function hexToRgb(currColor) {
+  var isAlpha = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var red = parseInt(currColor.substring(1, 3), 16);
+  var green = parseInt(currColor.substring(3, 5), 16);
+  var blue = parseInt(currColor.substring(5, 7), 16);
+  if (isAlpha) return "rgb(".concat(red, ",").concat(green, ",").concat(blue, ",1.0)");else return "rgb(".concat(red, ",").concat(green, ",").concat(blue, ")");
+}
+
+function rgbToHex(r, g, b) {
+  var isAlpha = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  r = parseInt(r).toString(16);
+  g = parseInt(g).toString(16);
+  b = parseInt(b).toString(16);
+  if (r.length === 1) r = "0" + r;
+  if (g.length === 1) g = "0" + g;
+  if (b.length === 1) b = "0" + b;
+  if (isAlpha) return "#" + r + g + b + 'ff';else return "#" + r + g + b;
+}
+
+function rgbToHsl(r, g, b) {
+  var isAlpha = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  // Make r, g, and b fractions of 1
+  r /= 255;
+  g /= 255;
+  b /= 255; // Find greatest and smallest channel values
+
+  var c_min = Math.min(r, g, b),
+      c_max = Math.max(r, g, b),
+      delta = c_max - c_min,
+      h,
+      s,
+      l; // Calculate hue
+  // No difference
+
+  if (delta === 0) h = 0; // Red is max
+  else if (c_max === r) h = (g - b) / delta % 6; // Green is max
+    else if (c_max === g) h = (b - r) / delta + 2; // Blue is max
+      else h = (r - g) / delta + 4;
+  h = Math.round(h * 60); // Make negative hues positive behind 360°
+
+  if (h < 0) h += 360; // Calculate lightness
+
+  l = (c_max + c_min) / 2; // Calculate saturation
+
+  s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1)); // Multiply l and s by 100
+
+  s = +(s * 100).toFixed(1);
+  l = +(l * 100).toFixed(1);
+  if (isAlpha) return "hsla(" + h + "," + s + "%," + l + "%, 1.0)";else return "hsl(" + h + "," + s + "%," + l + "%)";
+}
+
+function rgbToRgb(r, g, b) {
+  var isAlpha = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  if (isAlpha) return "rgba(".concat(Math.round(r), ",").concat(Math.round(g), ",").concat(Math.round(b), ",1.0)");else return "rgb(".concat(Math.round(r), ",").concat(Math.round(g), ",").concat(Math.round(b), ")");
+}
+/*Change color on color click*/
+
 
 var color_pickers_items = document.querySelectorAll('.picker__table__header__color_item');
 color_pickers_items.forEach(function (el) {

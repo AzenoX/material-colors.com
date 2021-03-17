@@ -308,6 +308,15 @@ ul.dropdown-content li.logout:hover {
         Live Preview
 
 ==============================================*/
+.preview_wrapper {
+  display: flex;
+}
+@media screen and (max-width: 1270px) {
+  .preview_wrapper {
+    display: none;
+  }
+}
+
 .preview {
   height: 45vh;
   overflow: hidden;
@@ -385,6 +394,7 @@ ul.dropdown-content li.logout:hover {
 .selected {
   background: #eee;
   height: 30vh;
+  min-height: 300px;
   margin-top: 2em;
   position: relative;
 }
@@ -392,7 +402,7 @@ ul.dropdown-content li.logout:hover {
   position: absolute;
   top: 0;
   right: 0;
-  height: 50%;
+  width: 90%;
   filter: drop-shadow(0 0 2px black);
   z-index: 11;
 }
@@ -403,7 +413,7 @@ ul.dropdown-content li.logout:hover {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 50%;
+  width: 90%;
   filter: drop-shadow(0 0 2px black);
   z-index: 11;
 }
@@ -447,10 +457,15 @@ ul.dropdown-content li.logout:hover {
   height: -moz-fit-content;
   height: fit-content;
 }
+.selected__wrapper__body__table {
+  width: 80%;
+}
 .selected__wrapper__body__table table {
+  width: 100%;
   border-collapse: collapse;
 }
 .selected__wrapper__body__table table th, .selected__wrapper__body__table table td {
+  width: 50%;
   padding: 1em;
   border: 1px solid #ddd;
 }
