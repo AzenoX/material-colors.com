@@ -6,12 +6,14 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>Beta Material-Colors</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-{{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 

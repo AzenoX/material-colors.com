@@ -1,8 +1,14 @@
+$breakpoint: 1270px;
+
 /*============================
     Widths
 =============================*/
 .w40{
     width: 40%;
+
+    @media screen and (max-width: $breakpoint){
+        width: 90%;
+    }
 }
 .w45{
     width: 45%;

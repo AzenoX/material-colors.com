@@ -2,6 +2,8 @@
 @import 'spacing';
 @import 'flex';
 @import 'text';
+@import 'button';
+@import 'modals';
 
 $breakpoint: 1270px;
 
@@ -17,6 +19,11 @@ $breakpoint: 1270px;
     box-sizing: border-box;
 
     font-family: "Roboto", sans-serif;
+}
+body{
+    overflow-y: hidden;
+
+    padding-bottom: 5rem;
 }
 body,html{
     overflow-x: hidden;
@@ -153,10 +160,25 @@ ul.dropdown-content {
 }
 
 
+
+.hide_on_mobile{
+    @media screen and (max-width: $breakpoint){
+        display: none;
+    }
+}
+
+
+
 .main{
     position: relative;
 
     z-index: 10;
+}
+
+.content_wrapper{
+    @media screen and (max-width: $breakpoint){
+        flex-direction: column;
+    }
 }
 
 .home_wrappers{
@@ -165,21 +187,32 @@ ul.dropdown-content {
     padding-bottom: 3vh;
 }
 
+.toastify{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    padding: 0 !important;
+
+    p{
+        height: 50px;
+    }
+
+    span{
+        padding: 0.4em 1.5em;
+        background: #333;
+        color: #fff;
+    }
+}
+
 
 /*==============================================
 
         Live Preview
 
 ==============================================*/
-.preview_wrapper{
-    display: flex;
-
-    @media screen and (max-width: $breakpoint){
-        display: none;
-    }
-}
 .preview{
-    height: 45vh;
+    height: 42vh;
     overflow: hidden;
 
     &__header{
@@ -227,11 +260,13 @@ ul.dropdown-content {
 ==============================================*/
 .picker{
     width: 100%;
-    height: 40vh;
+    height: 55vh;
 
     background: #eee;
 
     overflow-y: auto;
+
+    user-select: none;
 
     &__table{
         width: 95%;
@@ -278,6 +313,10 @@ ul.dropdown-content {
             &:not(:first-child){
                 border: 1px solid #999;
             }
+        }
+
+        td.color_exporting{
+            background: #72368a;
         }
     }
 }
@@ -435,3 +474,4 @@ ul.dropdown-content {
         }
     }
 }
+

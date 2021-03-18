@@ -1,0 +1,64 @@
+/*==============================================
+
+        Button
+
+==============================================*/
+.btn{
+    position: relative;
+
+    padding: 0.8rem 2rem;
+
+    background: #333;
+    outline: none;
+    border: none;
+
+    @include montserrat;
+    color: #fff;
+
+    cursor: pointer;
+
+    transform: skew(-30deg);
+
+    &__text{
+        display: inline-block;
+        transform: skew(30deg);
+    }
+
+
+    &__left{
+        position: absolute;
+        left: -25px;
+        bottom: 0;
+        height: 100%;
+        width: 15px;
+
+        transform-origin: bottom;
+        transform: scaleY(1);
+
+        transition: transform 0.2s ease-out;
+    }
+    &__right{
+        position: absolute;
+        right: -25px;
+        top: 0;
+        height: 100%;
+        width: 15px;
+
+        transform-origin: top;
+        transform: scaleY(1);
+
+        transition: transform 0.2s ease-out;
+    }
+
+
+    &:hover{
+        .btn__left, .btn__right{
+            transform: scaleY(1.5);
+        }
+    }
+
+}
+
+
+
+

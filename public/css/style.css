@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*============================
     Globals
 =============================*/
@@ -28,6 +29,11 @@ a:focus {
 =============================*/
 .w40 {
   width: 40%;
+}
+@media screen and (max-width: 1270px) {
+  .w40 {
+    width: 90%;
+  }
 }
 
 .w45 {
@@ -66,6 +72,10 @@ a:focus {
 
 .flex-cent {
   justify-content: center;
+}
+
+.flex-even {
+  justify-content: space-evenly;
 }
 
 .flex-middle {
@@ -152,6 +162,256 @@ a:focus {
 
 /*==============================================
 
+        Button
+
+==============================================*/
+.btn {
+  position: relative;
+  padding: 0.8rem 2rem;
+  background: #333;
+  outline: none;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  cursor: pointer;
+  transform: skew(-30deg);
+}
+.btn__text {
+  display: inline-block;
+  transform: skew(30deg);
+}
+.btn__left {
+  position: absolute;
+  left: -25px;
+  bottom: 0;
+  height: 100%;
+  width: 15px;
+  transform-origin: bottom;
+  transform: scaleY(1);
+  transition: transform 0.2s ease-out;
+}
+.btn__right {
+  position: absolute;
+  right: -25px;
+  top: 0;
+  height: 100%;
+  width: 15px;
+  transform-origin: top;
+  transform: scaleY(1);
+  transition: transform 0.2s ease-out;
+}
+.btn:hover .btn__left, .btn:hover .btn__right {
+  transform: scaleY(1.5);
+}
+
+/**************************\
+  Basic Modal Styles
+\**************************/
+.modal {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+}
+
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__container {
+  background-color: #fff;
+  padding: 30px;
+  max-width: 500px;
+  max-height: 100vh;
+  border-radius: 4px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #00449e;
+  box-sizing: border-box;
+}
+
+.modal__close {
+  background: transparent;
+  border: 0;
+}
+
+.modal__header .modal__close:before {
+  content: "✕";
+}
+
+.modal__content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.modal__btn {
+  font-size: 0.875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #e6e6e6;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0.25rem;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  -webkit-appearance: button;
+  text-transform: none;
+  overflow: visible;
+  line-height: 1.15;
+  margin: 0;
+  will-change: transform;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+
+.modal__btn:focus, .modal__btn:hover {
+  transform: scale(1.05);
+}
+
+.modal__btn-primary {
+  background-color: #00449e;
+  color: #fff;
+}
+
+/**************************\
+  Demo Animation Style
+\**************************/
+@-webkit-keyframes mmfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes mmfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes mmfadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mmfadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes mmslideIn {
+  from {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes mmslideIn {
+  from {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes mmslideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+@keyframes mmslideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+.micromodal-slide {
+  display: none;
+}
+
+.micromodal-slide.is-open {
+  display: block;
+}
+
+.micromodal-slide[aria-hidden=false] .modal__overlay {
+  -webkit-animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+          animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden=false] .modal__container {
+  -webkit-animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+          animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden=true] .modal__overlay {
+  -webkit-animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+          animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden=true] .modal__container {
+  -webkit-animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+          animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+  will-change: transform;
+}
+
+/*==============================================
+
+        Content
+
+==============================================*/
+.modal_menu {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  list-style-type: none;
+}
+/*==============================================
+
         Reset CSS
 
 ==============================================*/
@@ -160,6 +420,11 @@ a:focus {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+}
+
+body {
+  overflow-y: hidden;
+  padding-bottom: 5rem;
 }
 
 body, html {
@@ -293,9 +558,21 @@ ul.dropdown-content li.logout:hover {
   background: red;
 }
 
+@media screen and (max-width: 1270px) {
+  .hide_on_mobile {
+    display: none;
+  }
+}
+
 .main {
   position: relative;
   z-index: 10;
+}
+
+@media screen and (max-width: 1270px) {
+  .content_wrapper {
+    flex-direction: column;
+  }
 }
 
 .home_wrappers {
@@ -303,22 +580,28 @@ ul.dropdown-content li.logout:hover {
   padding-bottom: 3vh;
 }
 
+.toastify {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 0 !important;
+}
+.toastify p {
+  height: 50px;
+}
+.toastify span {
+  padding: 0.4em 1.5em;
+  background: #333;
+  color: #fff;
+}
+
 /*==============================================
 
         Live Preview
 
 ==============================================*/
-.preview_wrapper {
-  display: flex;
-}
-@media screen and (max-width: 1270px) {
-  .preview_wrapper {
-    display: none;
-  }
-}
-
 .preview {
-  height: 45vh;
+  height: 42vh;
   overflow: hidden;
 }
 .preview__header {
@@ -355,9 +638,13 @@ ul.dropdown-content li.logout:hover {
 ==============================================*/
 .picker {
   width: 100%;
-  height: 40vh;
+  height: 55vh;
   background: #eee;
   overflow-y: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .picker__table {
   width: 95%;
@@ -389,6 +676,9 @@ ul.dropdown-content li.logout:hover {
 }
 .picker__table td:not(:first-child) {
   border: 1px solid #999;
+}
+.picker__table td.color_exporting {
+  background: #72368a;
 }
 
 .selected {
