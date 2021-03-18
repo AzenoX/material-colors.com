@@ -227,6 +227,7 @@ a:focus {
   background-color: #fff;
   padding: 30px;
   max-width: 500px;
+  min-width: 400px;
   max-height: 100vh;
   border-radius: 4px;
   overflow-y: auto;
@@ -372,6 +373,8 @@ a:focus {
 
 .micromodal-slide.is-open {
   display: block;
+  position: relative;
+  z-index: 999999;
 }
 
 .micromodal-slide[aria-hidden=false] .modal__overlay {
@@ -410,6 +413,19 @@ a:focus {
   flex-direction: column;
   list-style-type: none;
 }
+.modal_menu__item {
+  display: block;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+.modal_menu__item:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
 /*==============================================
 
         Reset CSS
@@ -638,7 +654,7 @@ ul.dropdown-content li.logout:hover {
 ==============================================*/
 .picker {
   width: 100%;
-  height: 55vh;
+  height: 50vh;
   background: #eee;
   overflow-y: auto;
   -webkit-user-select: none;
@@ -795,4 +811,8 @@ ul.dropdown-content li.logout:hover {
 }
 .selected__wrapper__body__variations__darker__text {
   color: #111;
+}
+
+code {
+  background: #000;
 }

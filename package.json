@@ -19,6 +19,7 @@
         "sass-loader": "^10.1.1"
     },
     "dependencies": {
+        "highlight.js": "^10.6.0",
         "micromodal": "^0.4.6"
     }
 }

@@ -43,9 +43,9 @@
                 </div>
 
                 <div class="hide_on_mobile">
-                    <button href="" class="btn" data-micromodal-trigger="modal_exports" data-custom-open="modal_exports">
+                    <button class="btn exportBtn">
                         <span aria-hidden="true" class="btn__left" style="background: #ffffff;"></span>
-                        <span class="btn__text">Get Tailwind Theme Config</span>
+                        <span class="btn__text">Export Colors</span>
                         <span aria-hidden="true" class="btn__right" style="background: #ffffff;"></span>
                     </button>
                 </div>
@@ -144,7 +144,6 @@
                     <h2 class="modal__title" id="modal-1-title">
                         Export Color Theme
                     </h2>
-                    <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
                 </header>
                 <main class="modal__content" id="modal-1-content">
                     <ul class="modal_menu">
@@ -156,6 +155,38 @@
                     </ul>
                 </main>
                 <footer class="modal__footer">
+                    <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal micromodal-slide" id="modal_code" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                    <h2 class="modal__title" id="modal-1-title">
+                        Export Color Theme
+                    </h2>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                    <div>
+                        <pre>
+                            <code class="html">
+&lt;h1&gt;Hello world&lt;/h1&gt;
+                            </code>
+                        </pre>
+                    </div>
+                    <div style="width: 100%; text-align: center;">
+                        <button class="btn copyBtnExport">
+                            <span aria-hidden="true" class="btn__left" style="background: #ffffff;"></span>
+                            <span class="btn__text">Export Colors</span>
+                            <span aria-hidden="true" class="btn__right" style="background: #ffffff;"></span>
+                        </button>
+                    </div>
+                </main>
+                <footer class="modal__footer">
+                    <button class="modal__btn_back" data-micromodal-close aria-label="Close this dialog window">Back</button>
                     <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
                 </footer>
             </div>

@@ -200,7 +200,6 @@ const unwantedChars = [31,32,33,34,35,36,37,38,39,40,41,42,43,45,46,47,91,92,93,
 
 /*Handle MAJ key*/
 let shiftPressed = false;
-console.log('declared');
 
 window.addEventListener('keydown', (e) => {
     if(e.key === 'Shift'){
