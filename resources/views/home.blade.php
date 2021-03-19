@@ -166,27 +166,28 @@
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
                 <header class="modal__header">
                     <h2 class="modal__title" id="modal-1-title">
-                        Export Color Theme
+                        Export CSS Variables
                     </h2>
                 </header>
                 <main class="modal__content" id="modal-1-content">
                     <div>
-                        <pre>
-                            <code class="html">
-&lt;h1&gt;Hello world&lt;/h1&gt;
-                            </code>
-                        </pre>
+<pre><code class="language-css">:root{
+    --var1: #f0f0f0;
+    --var2: #e0e0e0;
+    --var3: #ff0000;
+}
+</code></pre>
                     </div>
-                    <div style="width: 100%; text-align: center;">
+                    <div style="width: 100%; text-align: center; margin-top: 2em;">
                         <button class="btn copyBtnExport">
                             <span aria-hidden="true" class="btn__left" style="background: #ffffff;"></span>
-                            <span class="btn__text">Export Colors</span>
+                            <span class="btn__text">Copy</span>
                             <span aria-hidden="true" class="btn__right" style="background: #ffffff;"></span>
                         </button>
                     </div>
                 </main>
                 <footer class="modal__footer">
-                    <button class="modal__btn_back" data-micromodal-close aria-label="Close this dialog window">Back</button>
+                    <button class="modal__btn modal__btn_back" data-micromodal-close aria-label="Close this dialog window">Back</button>
                     <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
                 </footer>
             </div>

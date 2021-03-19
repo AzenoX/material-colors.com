@@ -1,5 +1,7 @@
 require('./bootstrap');
 
+require('./prism');
+
 require('./color_picker');
 require('./color_copy');
 
