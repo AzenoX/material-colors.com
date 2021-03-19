@@ -194,11 +194,11 @@ ul.dropdown-content {
 
     padding: 0 !important;
 
-    p{
+    & > p{
         height: 50px;
     }
 
-    span{
+    & > span{
         padding: 0.4em 1.5em;
         background: #333;
         color: #fff;
@@ -475,9 +475,4 @@ ul.dropdown-content {
     }
 }
 
-
-
-code{
-    background: #000;
-}
 

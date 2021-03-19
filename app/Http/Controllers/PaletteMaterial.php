@@ -10,7 +10,8 @@ class PaletteMaterial extends Controller
 
         $data = Palette_Material::all()->toArray();
         $title = 'Material';
+        $defaultColor = 'rgb(239, 83, 80)';
 
-        return view('home', ['data' => $data, 'title' => $title]);
+        return view('home', ['data' => $data, 'title' => $title, 'defaultColor' => $defaultColor]);
     }
 }

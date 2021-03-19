@@ -602,10 +602,10 @@ ul.dropdown-content li.logout:hover {
   flex-direction: column;
   padding: 0 !important;
 }
-.toastify p {
+.toastify > p {
   height: 50px;
 }
-.toastify span {
+.toastify > span {
   padding: 0.4em 1.5em;
   background: #333;
   color: #fff;
@@ -811,8 +811,4 @@ ul.dropdown-content li.logout:hover {
 }
 .selected__wrapper__body__variations__darker__text {
   color: #111;
-}
-
-code {
-  background: #000;
 }

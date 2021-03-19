@@ -1,6 +1,8 @@
 require('./bootstrap');
 
-require('./prism');
+const Prism = require('./prism');
+
+require('./color_functions');
 
 require('./color_picker');
 require('./color_copy');
@@ -9,12 +11,18 @@ const MicroModal = require('micromodal');
 require('./color_exports');
 
 
-const hljs = require('highlight.js');
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelectorAll('pre code').forEach((block) => {
-        hljs.highlightBlock(block);
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+const tooltips = {
+    '#exportBtn': 'Press SHIFT while LEFT CLICK on colors to add it in selection.|right',
+}
+for (const property in tooltips) {
+    const values = tooltips[property].split('|');
+    tippy(property, {
+        content: values[0],
+        placement: values[1],
     });
-});
+}
 
 
 

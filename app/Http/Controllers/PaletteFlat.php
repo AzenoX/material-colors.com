@@ -11,7 +11,8 @@ class PaletteFlat extends Controller
 
         $data = Palette_Flat::all()->toArray();
         $title = 'Flat';
+        $defaultColor = 'rgb(72, 201, 176)';
 
-        return view('home', ['data' => $data, 'title' => $title]);
+        return view('home', ['data' => $data, 'title' => $title, 'defaultColor' => $defaultColor]);
     }
 }
