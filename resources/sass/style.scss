@@ -1,11 +1,13 @@
+$mainColor: #273689;
+$breakpoint: 1270px;
+
 @import 'global';
 @import 'spacing';
 @import 'flex';
 @import 'text';
 @import 'button';
 @import 'modals';
-
-$breakpoint: 1270px;
+@import 'form';
 
 
 /*==============================================

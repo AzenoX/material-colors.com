@@ -52,9 +52,11 @@ function getCode_Tailwind(){
 
 
 const exportBtn = document.querySelector('.exportBtn');
-exportBtn.addEventListener('click', () => {
-    MicroModal.show('modal_exports');
-});
+if(exportBtn){
+    exportBtn.addEventListener('click', () => {
+        MicroModal.show('modal_exports');
+    });
+}
 
 const backBtn = document.querySelectorAll('.modal__btn_back');
 backBtn.forEach((el) => {
@@ -62,7 +64,7 @@ backBtn.forEach((el) => {
         MicroModal.close('modal_code');
         MicroModal.show('modal_exports');
     });
-})
+});
 
 
 

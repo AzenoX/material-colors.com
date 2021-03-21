@@ -5127,9 +5127,13 @@ function getCode_Tailwind() {
 }
 
 var exportBtn = document.querySelector('.exportBtn');
-exportBtn.addEventListener('click', function () {
-  MicroModal.show('modal_exports');
-});
+
+if (exportBtn) {
+  exportBtn.addEventListener('click', function () {
+    MicroModal.show('modal_exports');
+  });
+}
+
 var backBtn = document.querySelectorAll('.modal__btn_back');
 backBtn.forEach(function (el) {
   el.addEventListener('click', function () {
@@ -5416,9 +5420,11 @@ color_pickers_items.forEach(function (el) {
 }); //Init
 
 window.addEventListener('DOMContentLoaded', function () {
-  var el = color_pickers_items[4];
-  el.classList.add('active');
-  editColor(el.style.backgroundColor, el);
+  if (color_pickers_items.length > 0) {
+    var el = color_pickers_items[4];
+    el.classList.add('active');
+    editColor(el.style.backgroundColor, el);
+  }
 });
 
 /***/ }),

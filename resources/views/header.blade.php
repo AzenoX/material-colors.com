@@ -34,7 +34,7 @@
                 <li><a class="fs11">Custom Palette</a></li>
             </ul>
             <ul>
-                <li><a class="fs11">Login</a></li>
+                <li><a href="{{ route('login') }}" class="fs11">Login</a></li>
             </ul>
         </nav>
     </header>

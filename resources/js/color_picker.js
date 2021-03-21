@@ -187,7 +187,9 @@ color_pickers_items.forEach((el) => {
 
 //Init
 window.addEventListener('DOMContentLoaded', () => {
-    const el = color_pickers_items[4];
-    el.classList.add('active');
-    editColor(el.style.backgroundColor, el);
+    if(color_pickers_items.length > 0){
+        const el = color_pickers_items[4];
+        el.classList.add('active');
+        editColor(el.style.backgroundColor, el);
+    }
 });
