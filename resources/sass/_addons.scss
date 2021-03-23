@@ -1,0 +1,17 @@
+.alert{
+
+    padding: 0.8em 0;
+    margin: 1em 0.2em;
+
+    text-align: center;
+
+    ul{
+        list-style-type: none;
+    }
+
+    &-danger{
+        color: #fff;
+        background: #ef5350;
+    }
+
+}

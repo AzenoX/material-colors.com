@@ -12,9 +12,20 @@
                 <div class="form-row">
                     <h2>Login</h2>
                 </div>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="form-row">
-                    <label for="email">Email:</label>
-                    <input id="email" type="text" name="email">
+                    <label for="name">Username:</label>
+                    <input id="name" type="text" name="name">
                 </div>
                 <div class="form-row">
                     <label for="password">Password:</label>
@@ -27,6 +38,10 @@
                         <span class="btn__text">Login</span>
                         <span aria-hidden="true" class="btn__right"></span>
                     </button>
+                </div>
+
+                <div class="form-row">
+                    <a href="{{ route('register') }}">Don't have account ?</a>
                 </div>
             </form>
 

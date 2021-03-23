@@ -17,7 +17,11 @@ Route::get('/', ['as' => 'home', 'uses' => '\App\Http\Controllers\PaletteMateria
 Route::get('/palette/tailwind', ['as' => 'p_tailwind', 'uses' => '\App\Http\Controllers\PaletteTailwind@getIndex']);
 Route::get('/palette/flat', ['as' => 'p_flat', 'uses' => '\App\Http\Controllers\PaletteFlat@getIndex']);
 
-Route::get('/login', ['as' => 'login', 'uses' => '\App\Http\Controllers\LoginController@getIndex']);
+Route::get('/account/home', function(){
+    return view('account.home');
+})->middleware('auth');
+
+//Route::get('/login', ['as' => 'login', 'uses' => '\App\Http\Controllers\LoginController@getIndex']);
 
 Route::group(['prefix' => 'admin'], function(){
     Route::get('/addpalette', function(){

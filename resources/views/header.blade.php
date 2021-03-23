@@ -29,19 +29,31 @@
         <nav class="roboto">
             <ul>
                 <li><a class="bold fs14">Material-Colors.com</a></li>
-                <li><a class="fs11 dropdown-trigger" data-trigger="dropdown-account">Color Picker <span class="fs09">▼</span></a></li>
+                <li><a class="fs11 dropdown-trigger" data-trigger="dropdown-palette">Color Picker <span class="fs09">▼</span></a></li>
                 <li><a class="fs11">Gradient Picker</a></li>
                 <li><a class="fs11">Custom Palette</a></li>
             </ul>
             <ul>
-                <li><a href="{{ route('login') }}" class="fs11">Login</a></li>
+
+                @if (Auth::user() && Auth::user() !== null)
+                    <li><a class="fs11 dropdown-trigger" data-trigger="dropdown-account">Account <span class="fs09">▼</span></a></li>
+                @else
+                    <li><a href="{{ route('login') }}" class="fs11">Login</a></li>
+                @endif
+
             </ul>
         </nav>
     </header>
-    <ul class="dropdown-content" id="dropdown-account">
+    <ul class="dropdown-content" id="dropdown-palette">
         <li><a href="{{ route('home') }}" class="roboto fs09">Material</a></li>
         <li><a href="{{ route('p_tailwind') }}" class="roboto fs09">Tailwind</a></li>
         <li><a href="{{ route('p_flat') }}" class="roboto fs09">Flat</a></li>
+    </ul>
+
+    <ul class="dropdown-content" id="dropdown-account">
+        <li><a href="" class="roboto fs09">Settings</a></li>
+        <li><a href="" class="roboto fs09">Submit</a></li>
+        <li><a href="" class="roboto fs09">Logout</a></li>
     </ul>
 
 @endsection

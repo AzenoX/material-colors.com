@@ -460,6 +460,19 @@ form .form-row button {
   width: 60%;
 }
 
+.alert {
+  padding: 0.8em 0;
+  margin: 1em 0.2em;
+  text-align: center;
+}
+.alert ul {
+  list-style-type: none;
+}
+.alert-danger {
+  color: #fff;
+  background: #ef5350;
+}
+
 /*==============================================
 
         Reset CSS
