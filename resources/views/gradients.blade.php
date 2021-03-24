@@ -36,7 +36,7 @@
                 <?php
 
                 $gradStr = buildGradientStr($gradient['colors']);
-                $firstColor = json_decode($gradient['colors'])[0]->color;
+                $firstColor = json_decode($gradient['colors'])->colors[0]->color;
 
                 ?>
 
