@@ -24,6 +24,9 @@ a:focus {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
+/*=======================================
+*       Mixins
+=======================================*/
 /*============================
     Widths
 =============================*/
@@ -40,6 +43,10 @@ a:focus {
   width: 45%;
 }
 
+.w100 {
+  width: 100%;
+}
+
 /*============================
     Margins
 =============================*/
@@ -53,6 +60,14 @@ a:focus {
 
 .m-05 {
   margin: 0.5rem;
+}
+
+/*=======================================
+*       Positioning
+=======================================*/
+.center {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /*============================
@@ -86,6 +101,10 @@ a:focus {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 /*============================
     Fonts
 =============================*/
@@ -102,6 +121,14 @@ a:focus {
 =============================*/
 .tcenter {
   text-align: center;
+}
+
+.tleft {
+  text-align: left;
+}
+
+.tright {
+  text-align: right;
 }
 
 /*============================
@@ -158,6 +185,14 @@ a:focus {
 =============================*/
 .uppercase {
   text-transform: uppercase;
+}
+
+/*=======================================
+*       Specials
+=======================================*/
+.text-important {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 /*==============================================
@@ -430,6 +465,9 @@ a:focus {
 
 form {
   padding: 3em 4em 2em 4em;
+  width: 30vw;
+}
+form:not(.no-bg) {
   background: #e0e0e0;
 }
 form .form-row {
@@ -439,8 +477,9 @@ form .form-row {
   flex-direction: column;
 }
 form .form-row h2 {
-  margin-bottom: 10px;
+  margin-bottom: 1em;
   text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 form .form-row label {
   margin-bottom: 5px;
@@ -471,6 +510,51 @@ form .form-row button {
 .alert-danger {
   color: #fff;
   background: #ef5350;
+}
+.alert-success {
+  color: #fff;
+  background: #4caf50;
+}
+
+.gradient {
+  margin-bottom: 2em;
+  width: 30%;
+  background: #fff;
+  color: #000;
+  position: relative;
+}
+.gradient_content {
+  padding: 2em;
+  margin: 10px;
+  width: calc(100% - 20px);
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  background: #fff;
+}
+.gradient_content_header {
+  display: flex;
+  justify-content: space-between;
+}
+.gradient_content_body {
+  height: 10vh;
+  width: 80%;
+  margin-top: 2em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.ns_form {
+  padding: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  background: none !important;
+}
+.ns_btn {
+  background: none;
+  border: none;
+  outline: none;
 }
 
 /*==============================================
@@ -592,18 +676,25 @@ ul.dropdown-content li::before {
   background: #333;
   transition: width 0.15s ease-in-out;
 }
+ul.dropdown-content li.red::before {
+  background: #ef5350;
+}
 ul.dropdown-content li:hover::before {
   width: 12%;
 }
-ul.dropdown-content li:hover a {
+ul.dropdown-content li:hover a, ul.dropdown-content li:hover button {
   font-weight: 600;
   transform: translateX(10px);
 }
-ul.dropdown-content li a {
+ul.dropdown-content li:hover a.red, ul.dropdown-content li:hover button.red {
+  color: #ef5350;
+}
+ul.dropdown-content li a, ul.dropdown-content li button {
+  cursor: pointer;
   color: #000;
   font-weight: 400;
   transform: translateX(0);
-  transition: transform 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, font-weight 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 ul.dropdown-content li svg {
   margin: 0 15px 0 0;
@@ -858,4 +949,16 @@ ul.dropdown-content li.logout:hover {
 }
 .selected__wrapper__body__variations__darker__text {
   color: #111;
+}
+
+/*=======================================
+*       Panels
+=======================================*/
+.panel {
+  padding: 2em 1em;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  background: #fff;
+  color: #000;
 }

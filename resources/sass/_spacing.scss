@@ -13,6 +13,9 @@ $breakpoint: 1270px;
 .w45{
     width: 45%;
 }
+.w100{
+    width: 100%;
+}
 
 
 /*============================
@@ -27,4 +30,14 @@ $breakpoint: 1270px;
 .m-05{
     margin: 0.5rem;
 }
+
+
+/*=======================================
+*       Positioning
+=======================================*/
+.center{
+    margin-right: auto;
+    margin-left: auto;
+}
+
 

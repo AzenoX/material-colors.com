@@ -1,0 +1,34 @@
+.gradient{
+    margin-bottom: 2em;
+    width: 30%;
+
+    background: #fff;
+    color: #000;
+
+    position: relative;
+
+    &_content{
+        padding: 2em;
+        margin: 10px;
+        width: calc(100% - 20px);
+
+        position: relative;
+        @include center;
+
+        background: #fff;
+
+        &_header{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &_body{
+            height: 10vh;
+            width: 80%;
+            margin-top: 2em;
+
+            @include center;
+        }
+
+    }
+}

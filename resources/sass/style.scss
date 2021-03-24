@@ -10,6 +10,10 @@ $breakpoint: 1270px;
 @import 'form';
 @import 'addons';
 
+@import 'gradients';
+
+@import 'nostyles';
+
 
 /*==============================================
 
@@ -127,20 +131,27 @@ ul.dropdown-content {
             background: #333;
             transition: width 0.15s ease-in-out;
         }
+        &.red::before{
+            background: #ef5350;
+        }
         &:hover {
             &::before {
                 width: 12%;
             }
-            a {
+            a, button {
+                &.red{
+                    color: #ef5350;
+                }
                 font-weight: 600;
                 transform: translateX(10px);
             }
         }
-        a {
+        a, button {
+            cursor: pointer;
             color: #000;
             font-weight: 400;
             transform: translateX(0);
-            transition: transform 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+            transition: transform 0.1s ease-in-out, font-weight 0.1s ease-in-out, color 0.1s ease-in-out;
         }
         svg {
             margin: 0 15px 0 0;
@@ -478,4 +489,18 @@ ul.dropdown-content {
     }
 }
 
+
+
+/*=======================================
+*       Panels
+=======================================*/
+.panel{
+    padding: 2em 1em;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+
+    background:#fff;
+    color: #000;
+}
 

@@ -22,6 +22,12 @@
 .tcenter{
     text-align: center;
 }
+.tleft{
+    text-align: left;
+}
+.tright{
+    text-align: right;
+}
 
 
 /*============================
@@ -74,4 +80,13 @@
 =============================*/
 .uppercase{
     text-transform: uppercase;
+}
+
+
+/*=======================================
+*       Specials
+=======================================*/
+.text-important{
+    font-weight: bold;
+    font-size: 1.2rem;
 }

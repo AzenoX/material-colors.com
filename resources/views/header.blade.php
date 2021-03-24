@@ -29,9 +29,9 @@
         <nav class="roboto">
             <ul>
                 <li><a class="bold fs14">Material-Colors.com</a></li>
-                <li><a class="fs11 dropdown-trigger" data-trigger="dropdown-palette">Color Picker <span class="fs09">▼</span></a></li>
-                <li><a class="fs11">Gradient Picker</a></li>
-                <li><a class="fs11">Custom Palette</a></li>
+                <li><a class="fs11 dropdown-trigger" data-trigger="dropdown-palette">Color Palettes <span class="fs09">▼</span></a></li>
+                <li><a href="{{ route('gradients') }}" class="fs11">Gradients</a></li>
+                <li><a class="fs11">Custom Palettes</a></li>
             </ul>
             <ul>
 
@@ -45,15 +45,20 @@
         </nav>
     </header>
     <ul class="dropdown-content" id="dropdown-palette">
-        <li><a href="{{ route('home') }}" class="roboto fs09">Material</a></li>
+        <li><a href="{{ route('account.home') }}" class="roboto fs09">Material</a></li>
         <li><a href="{{ route('p_tailwind') }}" class="roboto fs09">Tailwind</a></li>
         <li><a href="{{ route('p_flat') }}" class="roboto fs09">Flat</a></li>
     </ul>
 
     <ul class="dropdown-content" id="dropdown-account">
-        <li><a href="" class="roboto fs09">Settings</a></li>
+        <li><a href="{{ route('account.settings') }}" class="roboto fs09">Settings</a></li>
         <li><a href="" class="roboto fs09">Submit</a></li>
-        <li><a href="" class="roboto fs09">Logout</a></li>
+        <li class="red">
+            <form method="post" action="{{ route('logout') }}" class="ns_form">
+                @csrf
+                <button type="submit" class="roboto fs09 ns_btn red">Logout</button>
+            </form>
+        </li>
     </ul>
 
 @endsection
