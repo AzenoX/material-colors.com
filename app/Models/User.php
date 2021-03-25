@@ -21,6 +21,9 @@ class User extends Authenticatable implements MustMail
         'name',
         'email',
         'password',
+        'google_id',
+        'github_id',
+        'facebook_id',
     ];
 
     /**

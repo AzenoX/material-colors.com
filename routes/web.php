@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,45 @@ Route::get('/account/settings', ['as' => 'account.settings', 'uses' => function(
 //    return view('auth.forgot');
 //}]);
 
+
+
+/*=======================================
+*       OAuth Routes
+=======================================*/
+/*github*/
+Route::get('/auth/github/redirect', function () {
+    return Socialite::driver('github')
+        ->redirect();
+});
+Route::get('/auth/github/callback', function () {
+    $usr = Socialite::driver('github')->user();
+
+
+    $user = Socialite::driver('github')->userFromToken($usr->token);
+    dd($user);
+});
+
+/*google*/
+Route::get('/auth/google/redirect', function () {
+    return Socialite::driver('google')
+        ->redirect();
+});
+Route::get('/auth/google/callback', function () {
+    $user = Socialite::driver('google')->user();
+
+    dd($user);
+});
+
+/*facebook*/
+Route::get('/auth/facebook/redirect', function () {
+    return Socialite::driver('facebook')
+        ->redirect();
+});
+Route::get('/auth/facebook/callback', function () {
+    $user = Socialite::driver('facebook')->user();
+
+    dd($user);
+});
 
 
 

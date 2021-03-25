@@ -30,4 +30,27 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+
+    /*=======================================
+    *       OAuth Services
+    =======================================*/
+    'github' => [
+        'client_id' => 'a40f0c884174cac83640',
+        'client_secret' => '642964ea1032945c8e8aaf702c95f2e9aa19ed13',
+        'redirect' => 'https://beta.material-colors.com/auth/github/callback',
+    ],
+
+    'google' => [
+        'client_id' => '698974016228-sq9ivsukoo803qcbrjdt041ismnliol5.apps.googleusercontent.com',
+        'client_secret' => 'IiGWjQg_sOSG7iivgAsLZe7a',
+        'redirect' => 'https://beta.material-colors.com/auth/google/callback',
+    ],
+
+    'facebook' => [
+        'client_id' => '546009546562305',
+        'client_secret' => 'deb95b6ebb338b81b955f6ddb22abc9a',
+        'redirect' => 'https://beta.material-colors.com/auth/facebook/callback',
+    ],
+
+
 ];
