@@ -27,7 +27,7 @@
 
     <section class="main" style="margin-top: 4rem;">
 
-        <h1 class="twhite tcenter fs30" style="margin-bottom: 2em;">Gradients</h1>
+        <h1 class="text-white text-center fs30" style="margin-bottom: 2em;">Gradients</h1>
 
         <div class="flex flex-wrap flex-even">
 

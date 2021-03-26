@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail as MustMail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Validator;
 
 class User extends Authenticatable implements MustMail
 {
@@ -20,6 +21,7 @@ class User extends Authenticatable implements MustMail
     protected $fillable = [
         'name',
         'email',
+        'email_verified_at',
         'password',
         'google_id',
         'github_id',
@@ -55,4 +57,20 @@ class User extends Authenticatable implements MustMail
     {
         $this->notify(new VerifyEmail);
     }
+
+
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email_verified_at' => ['required', 'timestamp'],
+            'password' => ['required', 'string', 'max:255', 'confirmed'],
+            'google_id' => ['string'],
+            'github_id' => ['string'],
+            'facebook_id' => ['string'],
+        ]);
+    }
+
 }

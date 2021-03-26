@@ -11,7 +11,7 @@
                 <input type="hidden" name="email" value="{{ urldecode(explode('?email=', request()->getRequestUri())[1]) }}">
                 <input type="hidden" name="token" value="{{ request()->route('token') }}">
 
-                <div class="form-row tcenter">
+                <div class="form-row text-center">
                     <p class="text-important">Fill the following form with your new password</p>
                 </div>
                 <br>

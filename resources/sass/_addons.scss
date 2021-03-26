@@ -1,5 +1,6 @@
 .alert{
 
+    width: 80%;
     padding: 0.8em 0;
     margin: 1em 0.2em;
 
@@ -18,4 +19,22 @@
         background: #4caf50;
     }
 
+}
+
+.toastify{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    padding: 0 !important;
+
+    & > p{
+        height: 50px;
+    }
+
+    & > span{
+        padding: 0.4em 1.5em;
+        background: #333;
+        color: #fff;
+    }
 }

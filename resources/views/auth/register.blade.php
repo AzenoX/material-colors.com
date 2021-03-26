@@ -50,7 +50,7 @@
 
                 <br>
 
-                <div class="form-row tcenter">
+                <div class="form-row text-center">
                     <a href="{{ route('login') }}">Already have an account ?</a>
                 </div>
             </form>

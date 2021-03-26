@@ -1,33 +1,31 @@
 /*============================
     Fonts
 =============================*/
-.roboto {
-    font-family: 'Roboto', sans-serif;
-}
-.montserrat {
-    font-family: 'Montserrat', sans-serif;
+$fonts: (
+    "roboto": "Roboto",
+    "montserrat": "Montserrat"
+);
+@each $fontName, $fontFile in $fonts{
+    .#{$fontName}{
+        font-family: '#{$fontFile}', sans-serif;
+    }
 }
 
-@mixin roboto{
-    font-family: 'Roboto', sans-serif;
-}
-@mixin montserrat{
-    font-family: 'Montserrat', sans-serif;
-}
 
 
 /*============================
     Positioning
 =============================*/
-.tcenter{
+.text-center{
     text-align: center;
 }
-.tleft{
+.text-left{
     text-align: left;
 }
-.tright{
+.text-right{
     text-align: right;
 }
+
 
 
 /*============================
@@ -38,41 +36,40 @@
 }
 
 
+
 /*============================
     Sizes
 =============================*/
-.fs09 {
-    font-size: 0.9rem;
+@for $i from 0 through 30 {
+    @if $i < 10 {
+        .fs0#{$i}{
+            font-size: #{$i / 10}rem;
+        }
+    }
+    @else {
+        .fs#{$i}{
+            font-size: #{$i / 10}rem;
+        }
+    }
 }
-.fs11 {
-    font-size: 1.1rem;
-}
-.fs12 {
-    font-size: 1.2rem;
-}
-.fs14 {
-    font-size: 1.4rem;
-}
-.fs20{
-    font-size: 2rem;
-}
-.fs25{
-    font-size: 2.5rem;
-}
-.fs30{
-    font-size: 3rem;
-}
+
 
 
 /*============================
     Colors
 =============================*/
-.twhite{
-    color: #fff;
+$colors: (
+    "white": "#fff",
+    "black": "#000",
+    "red": "#F44336",
+    "green": "#4CAF50"
+);
+@each $colName, $colHex in $colors{
+    .text-#{$colName}{
+        color: #{$colHex};
+    }
 }
-.tblack{
-    color: #000;
-}
+
 
 
 /*============================
@@ -81,6 +78,7 @@
 .uppercase{
     text-transform: uppercase;
 }
+
 
 
 /*=======================================

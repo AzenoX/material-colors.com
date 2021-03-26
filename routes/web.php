@@ -46,39 +46,16 @@ Route::get('/account/settings', ['as' => 'account.settings', 'uses' => function(
 *       OAuth Routes
 =======================================*/
 /*github*/
-Route::get('/auth/github/redirect', function () {
-    return Socialite::driver('github')
-        ->redirect();
-});
-Route::get('/auth/github/callback', function () {
-    $usr = Socialite::driver('github')->user();
-
-
-    $user = Socialite::driver('github')->userFromToken($usr->token);
-    dd($user);
-});
+Route::get('/auth/github/redirect', ['as' => 'auth_github__redirect', 'uses' => '\App\Http\Controllers\auth\GithubController@redirect']);
+Route::get('/auth/github/callback', ['as' => 'auth_github__callback', 'uses' => '\App\Http\Controllers\auth\GithubController@handle']);
 
 /*google*/
-Route::get('/auth/google/redirect', function () {
-    return Socialite::driver('google')
-        ->redirect();
-});
-Route::get('/auth/google/callback', function () {
-    $user = Socialite::driver('google')->user();
-
-    dd($user);
-});
+Route::get('/auth/google/redirect', ['as' => 'auth_google__redirect', 'uses' => '\App\Http\Controllers\auth\GoogleController@redirect']);
+Route::get('/auth/google/callback', ['as' => 'auth_google__callback', 'uses' => '\App\Http\Controllers\auth\GoogleController@handle']);
 
 /*facebook*/
-Route::get('/auth/facebook/redirect', function () {
-    return Socialite::driver('facebook')
-        ->redirect();
-});
-Route::get('/auth/facebook/callback', function () {
-    $user = Socialite::driver('facebook')->user();
-
-    dd($user);
-});
+Route::get('/auth/facebook/redirect', ['as' => 'auth_facebook__redirect', 'uses' => '\App\Http\Controllers\auth\FacebookController@redirect']);
+Route::get('/auth/facebook/callback', ['as' => 'auth_facebook__callback', 'uses' => '\App\Http\Controllers\auth\FacebookController@handle']);
 
 
 

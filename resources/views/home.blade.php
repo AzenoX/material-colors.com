@@ -19,7 +19,7 @@
         <div class="content_wrapper flex flex-sparound flex-middle">
 
             <div class="w40 home_wrappers flex flex-col flex-even preview_wrapper">
-                <h1 class="main__title fs30 twhite bold m-1 montserrat">Palette: <?= $title ?></h1>
+                <h1 class="main__title fs30 text-white bold m-1 montserrat">Palette: <?= $title ?></h1>
                 <div class="picker shadowed">
                     <table class="picker__table">
                         <tr class="picker__table__header">
@@ -55,13 +55,13 @@
             <div class="w40 home_wrappers flex flex-col flex-beet">
 
                 <div class="hide_on_mobile">
-                    <p class="preview_title fs20 twhite montserrat bold mb-1">Live Preview</p>
+                    <p class="preview_title fs20 text-white montserrat bold mb-1">Live Preview</p>
                     <div class="preview shadowed">
                         <div class="preview__header shadowed" style="background: {{ $defaultColor }};">
                             <p class="preview__header__title fs20 bold">Your Website</p>
                         </div>
                         <div class="preview__body">
-                            <p class="preview__body__title fs20 tcenter twhite bold roboto">Hello world</p>
+                            <p class="preview__body__title fs20 text-center text-white bold roboto">Hello world</p>
                             <div class="preview__body__panels flex flex-sparound">
                                 @for($i = 0 ; $i < 9 ; $i++)
                                     <div class="preview__body__panel shadowed" style="background: {{ $defaultColor }};"></div>

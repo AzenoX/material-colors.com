@@ -1,3 +1,26 @@
+/*==============================================
+
+        Reset CSS
+
+==============================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Roboto", sans-serif;
+}
+body{
+    overflow-y: hidden;
+
+    padding-bottom: 5rem;
+}
+body,html{
+    overflow-x: hidden;
+}
+
+
+
 /*============================
     Globals
 =============================*/
@@ -13,6 +36,101 @@ a {
         text-decoration: none;
     }
 }
+nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 4;
+    ul {
+        margin: 2em 2em 0 2em;
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        li {
+            margin: 1em;
+            display: flex;
+            align-items: center;
+            a {
+                padding: 0.1em 0.5em 1em 0.5em;
+                white-space: nowrap;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+    }
+}
+ul.dropdown-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: fit-content;
+    display: none;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background: #eee;
+    list-style-type: none;
+    z-index: 99999;
+    li {
+        position: relative;
+        padding: 0.8em 3em 0.8em 1.4em;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: #eee;
+        color: #000;
+        cursor: pointer;
+        transition: background 0.4s ease-out, color 0.4s ease-out;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background: #333;
+            transition: width 0.15s ease-in-out;
+        }
+        &.red::before{
+            background: #ef5350;
+        }
+        &:hover {
+            &::before {
+                width: 12%;
+            }
+            a, button {
+                &.red{
+                    color: #ef5350;
+                }
+                font-weight: 600;
+                transform: translateX(10px);
+            }
+        }
+        a, button {
+            cursor: pointer;
+            color: #000;
+            font-weight: 400;
+            transform: translateX(0);
+            transition: transform 0.1s ease-in-out, font-weight 0.1s ease-in-out, color 0.1s ease-in-out;
+        }
+        svg {
+            margin: 0 15px 0 0;
+            fill: #000;
+            transition: fill 0.4s ease-out;
+        }
+    }
+    li.divider {
+        height: 1px;
+        width: 80%;
+        margin: 1em auto;
+        padding: 0;
+        background: #333;
+    }
+    li.logout {
+        &:hover {
+            background: red;
+        }
+    }
+}
 
 
 /*==============================================
@@ -23,15 +141,14 @@ a {
 .shadowed{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+.shadowed-animate{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
+    transition: box-shadow 0.2s ease-out;
 
-
-/*=======================================
-*       Mixins
-=======================================*/
-@mixin center{
-    margin-right: auto;
-    margin-left: auto;
+    &:hover{
+        box-shadow: 0 13px 23px rgba(0,0,0,0.19), 0 8px 8px rgba(0,0,0,0.23);
+    }
 }
 
 

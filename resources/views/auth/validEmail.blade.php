@@ -4,7 +4,7 @@
 
     <section class="main">
 
-        <div class="panel tcenter" style="margin-top: 5%;">
+        <div class="panel text-center" style="margin-top: 5%;">
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -27,7 +27,7 @@
 
             <br>
 
-            <form class="no-bg tcenter" method="post" action="{{ route('verification.send') }}">
+            <form class="no-bg text-center" method="post" action="{{ route('verification.send') }}">
                 @csrf
                 <button class="btn" type="submit">
                     <span aria-hidden="true" class="btn__left"></span>

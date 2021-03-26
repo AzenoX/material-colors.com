@@ -25,7 +25,7 @@
 
             <form class="shadowed center" method="post" action="{{ route('password.email') }}">
                 @csrf
-                <div class="form-row tcenter">
+                <div class="form-row text-center">
                     <p class="text-important">Use the following form to reset your password.</p>
                 </div>
                 <div class="form-row">

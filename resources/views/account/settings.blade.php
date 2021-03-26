@@ -4,7 +4,7 @@
 
     <section class="main">
 
-        <div class="panel tcenter" style="margin-top: 5%; background:#e0e0e0;">
+        <div class="panel text-center" style="margin-top: 5%; background:#e0e0e0;">
 
             <h1>Account Settings</h1>
 
@@ -23,7 +23,7 @@
                 <h2>Change your password</h2>
                 <br><br>
 
-                <div class="form-row tleft">
+                <div class="form-row text-left">
                     <label for="email">Email</label>
                     <input id="email" type="text" name="email" value="{{ Auth::user()->getAttributes()['email'] }}">
                 </div>
