@@ -57,6 +57,10 @@ Route::get('/auth/google/callback', ['as' => 'auth_google__callback', 'uses' => 
 Route::get('/auth/facebook/redirect', ['as' => 'auth_facebook__redirect', 'uses' => '\App\Http\Controllers\auth\FacebookController@redirect']);
 Route::get('/auth/facebook/callback', ['as' => 'auth_facebook__callback', 'uses' => '\App\Http\Controllers\auth\FacebookController@handle']);
 
+/*twitter*/
+Route::get('/auth/twitter/redirect', ['as' => 'auth_twitter__redirect', 'uses' => '\App\Http\Controllers\auth\TwitterController@redirect']);
+Route::get('/auth/twitter/callback', ['as' => 'auth_twitter__callback', 'uses' => '\App\Http\Controllers\auth\TwitterController@handle']);
+
 
 
 

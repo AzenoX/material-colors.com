@@ -11,18 +11,23 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class GoogleController extends Controller
+class TwitterController extends Controller
 {
     public function redirect(): RedirectResponse{
-        return Socialite::driver('google')
+        return Socialite::driver('twitter')
             ->redirect();
     }
 
 
     public function handle(){
-        $user = Socialite::driver('google')->user();
+        $preUser = Socialite::driver('twitter')->user();
 
-        $finduser = User::where('google_id', $user->id)->first();
+        $token = $preUser->token;
+        $tokenSecret = $preUser->tokenSecret;
+
+        $user = Socialite::driver('twitter')->userFromTokenAndSecret($token, $tokenSecret);
+
+        $finduser = User::where('twitter_id', $user->id)->first();
 
         if($finduser){
             //login
@@ -32,14 +37,14 @@ class GoogleController extends Controller
             return redirect()->intended('/account/home');
         }
         else{
-            if(User::where('email', $user->email)->first()){
+            if(User::where('email', $user->getEmail())->first()){
                 return redirect()->intended('login')->with('status', 'This email is already used with another account.');
             }
 
             $newUser = User::create([
-                'name' => $user->name,
-                'email' => $user->email,
-                'google_id' => $user->id,
+                'name' => $user->getNickname(),
+                'email' => $user->getEmail(),
+                'twitter_id' => $user->getId(),
                 'password' => Hash::make(str_shuffle('pEg3SXFQ@d43gXpAHxHfJ6?p&&@yP4cNRdFSq&@')),
                 'email_verified_at' => (new DateTime())->format('Y-m-d H:i:s'),
             ]);

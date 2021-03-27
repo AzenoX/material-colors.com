@@ -11,18 +11,17 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class GoogleController extends Controller
+class RedditController extends Controller
 {
     public function redirect(): RedirectResponse{
-        return Socialite::driver('google')
+        return Socialite::driver('reddit')
             ->redirect();
     }
 
-
     public function handle(){
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver('reddit')->user();
 
-        $finduser = User::where('google_id', $user->id)->first();
+        $finduser = User::where('reddit_id', $user->id)->first();
 
         if($finduser){
             //login
@@ -39,7 +38,7 @@ class GoogleController extends Controller
             $newUser = User::create([
                 'name' => $user->name,
                 'email' => $user->email,
-                'google_id' => $user->id,
+                'reddit_id' => $user->id,
                 'password' => Hash::make(str_shuffle('pEg3SXFQ@d43gXpAHxHfJ6?p&&@yP4cNRdFSq&@')),
                 'email_verified_at' => (new DateTime())->format('Y-m-d H:i:s'),
             ]);

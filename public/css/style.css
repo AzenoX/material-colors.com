@@ -491,14 +491,17 @@ ul.dropdown-content li.logout:hover {
   height: 30px;
   fill: #fff;
 }
-.btn_login_social__red {
+.btn_login_social__google {
   background: #F44336;
 }
-.btn_login_social__black {
+.btn_login_social__github {
   background: #111;
 }
-.btn_login_social__blue {
-  background: #0777E9;
+.btn_login_social__facebook {
+  background: #1877F2;
+}
+.btn_login_social__twitter {
+  background: #1DA1F2;
 }
 
 @-webkit-keyframes mmfadeIn {

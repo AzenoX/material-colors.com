@@ -19,8 +19,7 @@ class GithubController extends Controller
             ->redirect();
     }
 
-
-    public function handle(Request $request){
+    public function handle(){
         $user = Socialite::driver('github')->user();
 
         $finduser = User::where('github_id', $user->id)->first();

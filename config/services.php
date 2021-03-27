@@ -52,5 +52,11 @@ return [
         'redirect' => 'https://beta.material-colors.com/auth/facebook/callback',
     ],
 
+    'twitter' => [
+        'client_id' => 'Aw5LraSq3rloSlkRyrtS21QFs',
+        'client_secret' => 'DJNSKnk9EMXwDDkocenq95FJrjB0veCwyntznA4NhetygGTZhE',
+        'redirect' => 'https://beta.material-colors.com/auth/twitter/callback'
+    ],
+
 
 ];
