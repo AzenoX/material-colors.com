@@ -1,37 +1,40 @@
-$breakpoint: 1270px;
-
 /*============================
     Widths
 =============================*/
-.w40{
-    width: 40%;
-
-    @media screen and (max-width: $breakpoint){
-        width: 90%;
+@for $i from 5 through 100{
+    $class: #{$i};
+    @if $i < 10{
+        $class: '0' + #{$i};
     }
-}
-.w45{
-    width: 45%;
-}
-.w60{
-    width: 60%;
-}
-.w100{
-    width: 100%;
+
+    .w#{$class}{
+        width: #{$i} + '%';
+    }
 }
 
 
 /*============================
     Margins
 =============================*/
-.mb-1{
-    margin-bottom: 1rem;
-}
-.m-1{
-    margin: 1rem;
-}
-.m-05{
-    margin: 0.5rem;
+$i: 0;
+@while $i < 10{
+    .m-#{str-replace(#{$i}, '.', '')}{
+        margin: #{$i}rem;
+    }
+    .mt-#{str-replace(#{$i}, '.', '')}{
+        margin: #{$i}rem;
+    }
+    .mr-#{str-replace(#{$i}, '.', '')}{
+        margin: #{$i}rem;
+    }
+    .mb-#{str-replace(#{$i}, '.', '')}{
+        margin: #{$i}rem;
+    }
+    .ml-#{str-replace(#{$i}, '.', '')}{
+        margin: #{$i}rem;
+    }
+
+    $i: $i + 0.5;
 }
 
 
@@ -41,6 +44,12 @@ $breakpoint: 1270px;
 .center{
     margin-right: auto;
     margin-left: auto;
+}
+
+.in-flex-2elements{
+    & > *{
+        width: 45%;
+    }
 }
 
 

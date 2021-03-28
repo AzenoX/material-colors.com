@@ -5406,7 +5406,7 @@ color_pickers_items.forEach(function (el) {
         el.parentElement.classList.add('color_exporting');
         el.classList.add('active');
         Toastify({
-          text: "<p></p><span><span style=\"color: #4CAF50;\">\u2714</span>".concat(bg, " added !</span>"),
+          text: '<p></p><span><span style="color: #4CAF50;">✔</span>${bg} added !</span>',
           duration: 3000,
           gravity: "bottom",
           position: "right",

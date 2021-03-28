@@ -171,7 +171,7 @@ color_pickers_items.forEach((el) => {
                 el.classList.add('active');
 
                 Toastify({
-                    text: `<p></p><span><span style="color: #4CAF50;">✔</span>${bg} added !</span>`,
+                    text: '<p></p><span><span style="color: #4CAF50;">✔</span>${bg} added !</span>',
                     duration: 3000,
                     gravity: "bottom",
                     position: "right",

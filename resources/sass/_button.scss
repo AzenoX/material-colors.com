@@ -83,27 +83,47 @@
     font-size: 24px;
 
     color: #fff;
+    @include font('Montserrat');
+
+
+    transition: background 0.2s ease-in-out;
+
+
+    $buttons: (
+        "google": #F44336,
+        "github": #111111,
+        "facebook": #1877F2,
+        "twitter": #1DA1F2,
+    );
+    @each $btnClass, $btnColor in $buttons{
+        &__#{$btnClass}{
+            background: $btnColor;
+
+            &:hover{
+                background: darken($btnColor, 5%);
+            }
+        }
+    }
+
 
     svg{
         margin: 0 2em 0 1em;
         height: 30px;
 
         fill: #fff;
-    }
 
-    @include font('Montserrat');
+        &.btn_login_social__svg_animated{
+            transform: translateX(0);
 
-    &__google{
-        background: #F44336;
+            transition: transform 0.2s ease-out;
+        }
     }
-    &__github{
-        background: #111;
-    }
-    &__facebook{
-        background: #1877F2;
-    }
-    &__twitter{
-        background: #1DA1F2;
+    &:hover{
+        svg{
+            &.btn_login_social__svg_animated{
+                transform: translateX(10px);
+            }
+        }
     }
 
 }
