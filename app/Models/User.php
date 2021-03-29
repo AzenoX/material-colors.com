@@ -27,6 +27,9 @@ class User extends Authenticatable implements MustMail
         'github_id',
         'facebook_id',
         'twitter_id',
+        'reddit_id',
+        'spotify_id',
+        'deezer_id',
     ];
 
     /**
@@ -72,6 +75,9 @@ class User extends Authenticatable implements MustMail
             'github_id' => ['string'],
             'facebook_id' => ['string'],
             'twitter_id' => ['string'],
+            'reddit_id' => ['string'],
+            'spotify_id' => ['string'],
+            'deezer_id' => ['string'],
         ]);
     }
 

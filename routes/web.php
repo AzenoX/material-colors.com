@@ -61,6 +61,25 @@ Route::get('/auth/facebook/callback', ['as' => 'auth_facebook__callback', 'uses'
 Route::get('/auth/twitter/redirect', ['as' => 'auth_twitter__redirect', 'uses' => '\App\Http\Controllers\auth\TwitterController@redirect']);
 Route::get('/auth/twitter/callback', ['as' => 'auth_twitter__callback', 'uses' => '\App\Http\Controllers\auth\TwitterController@handle']);
 
+/*reddit*/
+Route::get('/auth/reddit/redirect', ['as' => 'auth_reddit__redirect', 'uses' => '\App\Http\Controllers\auth\RedditController@redirect']);
+Route::get('/auth/reddit/callback', ['as' => 'auth_reddit__callback', 'uses' => '\App\Http\Controllers\auth\RedditController@handle']);
+Route::get('/auth/reddit/email', function(){
+    return redirect()->intended();
+});
+Route::post('/auth/reddit/email', ['as' => 'auth_reddit__email_register', 'uses' => '\App\Http\Controllers\auth\RedditController@finalizeRegistration']);
+
+/*spotify*/
+Route::get('/auth/spotify/redirect', ['as' => 'auth_spotify__redirect', 'uses' => '\App\Http\Controllers\auth\SpotifyController@redirect']);
+Route::get('/auth/spotify/callback', ['as' => 'auth_spotify__callback', 'uses' => '\App\Http\Controllers\auth\SpotifyController@handle']);
+Route::get('/auth/spotify/email', function(){
+    return redirect()->intended();
+});
+Route::post('/auth/spotify/email', ['as' => 'auth_spotify__email_register', 'uses' => '\App\Http\Controllers\auth\SpotifyController@finalizeRegistration']);
+
+/*deezer*/
+Route::get('/auth/deezer/redirect', ['as' => 'auth_deezer__redirect', 'uses' => '\App\Http\Controllers\auth\DeezerController@redirect']);
+Route::get('/auth/deezer/callback', ['as' => 'auth_deezer__callback', 'uses' => '\App\Http\Controllers\auth\DeezerController@handle']);
 
 
 

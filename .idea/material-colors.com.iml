@@ -124,6 +124,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/socialite" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/socialiteproviders/reddit" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/socialiteproviders/manager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/socialiteproviders/spotify" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/socialiteproviders/deezer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

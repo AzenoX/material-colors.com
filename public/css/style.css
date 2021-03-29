@@ -1270,6 +1270,24 @@ form a {
 .btn_login_social__twitter:hover {
   background: #0d95e8;
 }
+.btn_login_social__reddit {
+  background: #FF4500;
+}
+.btn_login_social__reddit:hover {
+  background: #e63e00;
+}
+.btn_login_social__spotify {
+  background: #1ED760;
+}
+.btn_login_social__spotify:hover {
+  background: #1bc156;
+}
+.btn_login_social__deezer {
+  background: #FEAA2D;
+}
+.btn_login_social__deezer:hover {
+  background: #fea014;
+}
 .btn_login_social svg {
   margin: 0 2em 0 1em;
   height: 30px;

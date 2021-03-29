@@ -16,7 +16,9 @@
         "laravel/framework": "^8.12",
         "laravel/socialite": "^5.2",
         "laravel/tinker": "^2.5",
-        "socialiteproviders/reddit": "^4.1"
+        "socialiteproviders/deezer": "^4.1",
+        "socialiteproviders/reddit": "^4.1",
+        "socialiteproviders/spotify": "^4.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

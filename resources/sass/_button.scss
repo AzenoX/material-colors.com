@@ -98,6 +98,9 @@
         "github": #111111,
         "facebook": #1877F2,
         "twitter": #1DA1F2,
+        "reddit": #FF4500,
+        "spotify": #1ED760,
+        "deezer": #FEAA2D,
     );
     @each $btnClass, $btnColor in $buttons{
         &__#{$btnClass}{

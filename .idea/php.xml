@@ -117,6 +117,8 @@
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
       <path value="$PROJECT_DIR$/vendor/socialiteproviders/reddit" />
       <path value="$PROJECT_DIR$/vendor/socialiteproviders/manager" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/spotify" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/deezer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

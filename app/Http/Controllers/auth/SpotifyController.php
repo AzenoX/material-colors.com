@@ -11,39 +11,43 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class RedditController extends Controller
+class SpotifyController extends Controller
 {
     public function redirect(): RedirectResponse{
-        return Socialite::driver('reddit')
+        return Socialite::driver('spotify')
             ->redirect();
     }
 
-    public function handle(){
+    public function handle()
+    {
         if(!session_id()) session_start();
 
-        $user = Socialite::driver('reddit')->user();
+        $user = Socialite::driver('spotify')->user();
 
-        $finduser = User::where('reddit_id', $user->id)->first();
+        $finduser = User::where('spotify_id', $user->id)->first();
 
-        if($finduser){
+        if ($finduser) {
             //login
             Auth::login($finduser);
 
             //redirect
             return redirect()->intended('/account/home');
+
         }
-        else{
-            if(User::where('name', $user->nickname)->first()){
+        else {
+
+            if (User::where('name', $user->nickname)->first()) {
                 return redirect()->intended('login')->with('status', 'This nickname is already used with another account.');
             }
 
-            $_SESSION['userReddit_nick'] = $user->nickname;
-            $_SESSION['userReddit_id'] = $user->id;
+            $_SESSION['userSpotify_nick'] = $user->nickname ?? $user->name;
+            $_SESSION['userSpotify_id'] = $user->id;
 
 
-            return view('auth.createEmail', ['action' => route('auth_reddit__email_register'), 'provider' => 'Reddit']);
+            return view('auth.createEmail', ['action' => route('auth_spotify__email_register'), 'provider' => 'Spotify']);
 
         }
+
     }
 
 
@@ -58,9 +62,9 @@ class RedditController extends Controller
 
 
         $newUser = User::create([
-            'name' => htmlspecialchars($_SESSION['userReddit_nick']),
+            'name' => htmlspecialchars($_SESSION['userSpotify_nick']),
             'email' => $email,
-            'reddit_id' => htmlspecialchars($_SESSION['userReddit_id']),
+            'spotify_id' => htmlspecialchars($_SESSION['userSpotify_id']),
             'password' => Hash::make(str_shuffle('pEg3SXFQ@d43gXpAHxHfJ6?p&&@yP4cNRdFSq&@')),
             'email_verified_at' => (new DateTime())->format('Y-m-d H:i:s'),
         ]);

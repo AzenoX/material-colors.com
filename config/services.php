@@ -58,5 +58,23 @@ return [
         'redirect' => 'https://beta.material-colors.com/auth/twitter/callback'
     ],
 
+    'reddit' => [
+        'client_id' => 'xFB5gonT7VWOSw',
+        'client_secret' => 'bhyK8lSVP-CQwKZdUIvrO70UButd0g',
+        'redirect' => 'https://beta.material-colors.com/auth/reddit/callback'
+    ],
+
+    'spotify' => [
+        'client_id' => 'f546eace37584db68bfaed378068ae76',
+        'client_secret' => 'c5c54349d2b74a6a9886eb9095ed0fe8',
+        'redirect' => 'https://beta.material-colors.com/auth/spotify/callback'
+    ],
+
+    'deezer' => [
+        'client_id' => '470342',
+        'client_secret' => 'c5c54349d2b74a6a9886eb9095ed0fe8',
+        'redirect' => 'https://beta.material-colors.com/auth/deezer/callback'
+    ],
+
 
 ];

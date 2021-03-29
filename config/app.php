@@ -166,7 +166,8 @@ return [
          * Package Service Providers...
          */
         App\Providers\FortifyServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
+        //Laravel\Socialite\SocialiteServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class,
 
         /*
          * Application Service Providers...
