@@ -19,12 +19,19 @@
 
         &_header{
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+            align-items: center;
+
+            p, div > span{
+                @include font('Montserrat');
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
         }
 
         &_body{
-            height: 10vh;
-            width: 80%;
+            height: 12vh;
+            width: 100%;
             margin-top: 2em;
 
             @include center;

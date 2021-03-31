@@ -1591,11 +1591,17 @@ form .form-row button {
 }
 .gradient_content_header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+}
+.gradient_content_header p, .gradient_content_header div > span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 .gradient_content_body {
-  height: 10vh;
-  width: 80%;
+  height: 12vh;
+  width: 100%;
   margin-top: 2em;
   margin-right: auto;
   margin-left: auto;
