@@ -10,6 +10,7 @@ copiers.forEach((el) => {
             gravity: "bottom",
             position: "right",
             backgroundColor: col,
+            escapeMarkup: false,
         }).showToast();
     });
 });
@@ -27,6 +28,7 @@ exportBtns.forEach((el) => {
             gravity: "bottom",
             position: "right",
             backgroundColor: '#4CAF50',
+            escapeMarkup: false,
         }).showToast();
     });
 });

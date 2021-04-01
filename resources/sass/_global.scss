@@ -11,8 +11,7 @@
     font-family: "Roboto", sans-serif;
 }
 body{
-    overflow-y: hidden;
-
+    //padding-top: 10vh;
     padding-bottom: 5rem;
 }
 body,html{
@@ -38,11 +37,14 @@ a {
 }
 nav {
     position: relative;
+    //top: 0;
+    //left: 0;
+    //right: 0;
     display: flex;
     justify-content: space-between;
-    z-index: 4;
+    z-index: 9999;
     ul {
-        margin: 2em 2em 0 2em;
+        margin: 2em 2em 1em 2em;
         display: flex;
         align-items: center;
         list-style-type: none;

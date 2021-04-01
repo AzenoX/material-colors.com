@@ -11,10 +11,19 @@ const MicroModal = require('micromodal');
 require('./color_exports');
 
 
+//Gradients
+require('./gradientManager');
+
+
+
+
+
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 const tooltips = {
     '#exportBtn': 'Press SHIFT while LEFT CLICK on colors to add it in selection.|right',
+    '.gradientColorCopy': 'Copy|right',
+    '.gradientColorEdit': 'Edit this color|right',
 }
 for (const property in tooltips) {
     const values = tooltips[property].split('|');
@@ -23,6 +32,16 @@ for (const property in tooltips) {
         placement: values[1],
     });
 }
+
+
+
+/*=======================================
+*       Make Prims
+=======================================*/
+const samples = document.querySelectorAll('.code_sample__item');
+samples.forEach((el) => {
+    el.innerHTML = Prism.highlight(el.innerHTML, Prism.languages.css, 'css');
+});
 
 
 

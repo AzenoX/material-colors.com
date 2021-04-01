@@ -15,30 +15,37 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
+
+
+/*=======================================
+*       Palettes
+=======================================*/
 Route::get('/', ['as' => 'home', 'uses' => '\App\Http\Controllers\PaletteMaterial@getIndex']);
 Route::get('/palette/tailwind', ['as' => 'p_tailwind', 'uses' => '\App\Http\Controllers\PaletteTailwind@getIndex']);
 Route::get('/palette/flat', ['as' => 'p_flat', 'uses' => '\App\Http\Controllers\PaletteFlat@getIndex']);
 
+
+
+
+/*=======================================
+*       Gradients
+=======================================*/
 Route::get('/gradients', ['as' => 'gradients', 'uses' => '\App\Http\Controllers\GradientsController@getIndex']);
+Route::get('/gradient/{id}', ['as' => 'gradient', 'uses' => '\App\Http\Controllers\GradientsController@getGradientIndex']);
+
 
 
 
 /*=======================================
 *       Account
 =======================================*/
-
 Route::get('/account/home', ['as' => 'account.home', 'uses' => function(){
     return view('account.home');
 }])->middleware(['auth', 'verified']);
-
 Route::get('/account/settings', ['as' => 'account.settings', 'uses' => function(){
     return view('account.settings');
 }])->middleware(['auth', 'verified']);
 
-
-//Route::get('/forgot', ['as' => 'auth.forgot', 'uses' => function(){
-//    return view('auth.forgot');
-//}]);
 
 
 

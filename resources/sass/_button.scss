@@ -20,8 +20,14 @@
     transform: skew(-30deg);
 
     &__text{
-        display: inline-block;
+        display: flex;
+        align-items: center;
         transform: skew(30deg);
+
+        svg{
+            fill: #fff;
+            margin-left: 0.6em;
+        }
     }
 
 

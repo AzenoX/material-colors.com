@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.5",
         "socialiteproviders/deezer": "^4.1",
         "socialiteproviders/reddit": "^4.1",
-        "socialiteproviders/spotify": "^4.1"
+        "socialiteproviders/spotify": "^4.1",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -21,10 +21,11 @@
 
 /*Header Svgs*/
 #header_svgs {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
+    z-index: -1;
     >svg {
         position: absolute;
         left: 0;
@@ -366,3 +367,18 @@
     color: #000;
 }
 
+
+/*=======================================
+*       Code Samples
+=======================================*/
+.code_sample{
+    background: #1e293b;
+    border-radius: 2px;
+    padding: 1em;
+    margin: 1em;
+
+    &__item{
+        font-size: 0.9em !important;
+        white-space: pre-wrap !important;
+    }
+}

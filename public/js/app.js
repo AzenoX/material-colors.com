@@ -4884,12 +4884,17 @@ __webpack_require__(/*! ./color_copy */ "./resources/js/color_copy.js");
 
 var MicroModal = __webpack_require__(/*! micromodal */ "./node_modules/micromodal/dist/micromodal.es.js");
 
-__webpack_require__(/*! ./color_exports */ "./resources/js/color_exports.js");
+__webpack_require__(/*! ./color_exports */ "./resources/js/color_exports.js"); //Gradients
+
+
+__webpack_require__(/*! ./gradientManager */ "./resources/js/gradientManager.js");
 
 
 
 var tooltips = {
-  '#exportBtn': 'Press SHIFT while LEFT CLICK on colors to add it in selection.|right'
+  '#exportBtn': 'Press SHIFT while LEFT CLICK on colors to add it in selection.|right',
+  '.gradientColorCopy': 'Copy|right',
+  '.gradientColorEdit': 'Edit this color|right'
 };
 
 for (var property in tooltips) {
@@ -4899,12 +4904,20 @@ for (var property in tooltips) {
     placement: values[1]
   });
 }
+/*=======================================
+*       Make Prims
+=======================================*/
+
+
+var samples = document.querySelectorAll('.code_sample__item');
+samples.forEach(function (el) {
+  el.innerHTML = Prism.highlight(el.innerHTML, Prism.languages.css, 'css');
+});
 /*=====================================
 
     Dropdown
 
 =====================================*/
-
 
 var dropdownLI = document.querySelectorAll('.dropdown-trigger');
 dropdownLI.forEach(function (el) {
@@ -5050,7 +5063,8 @@ copiers.forEach(function (el) {
       duration: 3000,
       gravity: "bottom",
       position: "right",
-      backgroundColor: col
+      backgroundColor: col,
+      escapeMarkup: false
     }).showToast();
   });
 });
@@ -5064,7 +5078,8 @@ exportBtns.forEach(function (el) {
       duration: 3000,
       gravity: "bottom",
       position: "right",
-      backgroundColor: '#4CAF50'
+      backgroundColor: '#4CAF50',
+      escapeMarkup: false
     }).showToast();
   });
 });
@@ -5425,6 +5440,30 @@ window.addEventListener('DOMContentLoaded', function () {
     el.classList.add('active');
     editColor(el.style.backgroundColor, el);
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/gradientManager.js":
+/*!*****************************************!*\
+  !*** ./resources/js/gradientManager.js ***!
+  \*****************************************/
+/***/ (() => {
+
+var gradientCopyBtns = document.querySelectorAll('.gradientColorCopy');
+gradientCopyBtns.forEach(function (el) {
+  el.addEventListener('click', function () {
+    var bg = el.parentElement.style.backgroundColor;
+    navigator.clipboard.writeText(bg);
+    Toastify({
+      text: "<p></p><span>" + bg + " copied !</span>",
+      duration: 3000,
+      gravity: "bottom",
+      position: "right",
+      backgroundColor: bg,
+      escapeMarkup: false
+    }).showToast();
+  });
 });
 
 /***/ }),
