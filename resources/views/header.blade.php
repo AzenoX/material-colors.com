@@ -51,6 +51,7 @@
     </ul>
 
     <ul class="dropdown-content" id="dropdown-account">
+        <li><a href="{{ route('account.favs') }}" class="roboto fs09">My Favorites</a></li>
         <li><a href="{{ route('account.settings') }}" class="roboto fs09">Settings</a></li>
         <li><a href="" class="roboto fs09">Submit</a></li>
         <li class="red">

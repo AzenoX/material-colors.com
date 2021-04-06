@@ -45,6 +45,9 @@ Route::get('/account/home', ['as' => 'account.home', 'uses' => function(){
 Route::get('/account/settings', ['as' => 'account.settings', 'uses' => function(){
     return view('account.settings');
 }])->middleware(['auth', 'verified']);
+Route::get('/account/favs', ['as' => 'account.favs', 'uses' => function(){
+    return view('account.favs');
+}])->middleware(['auth', 'verified']);
 
 
 
