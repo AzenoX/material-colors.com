@@ -38,7 +38,7 @@
                 @if (Auth::user() && Auth::user() !== null)
                     <li class="notHover">
                         <a class="fs11 dropdown-trigger flex flex-beet flex-middle" data-trigger="dropdown-account">
-                            <img class="header-account--img" src="https://eu.ui-avatars.com/api/?background=00BEFA&name=<?= urlencode(Auth::user()->name) ?>">
+                            <img class="header-account--img" src="https://eu.ui-avatars.com/api/?background=00BEFA&color=000&bold=true&name=<?= urlencode(Auth::user()->name) ?>">
                             <p class="mr-05 ml-05"><?= Auth::user()->name ?></p>
                             <span class="fs09">▼</span>
                         </a>
