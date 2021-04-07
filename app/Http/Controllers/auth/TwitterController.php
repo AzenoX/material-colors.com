@@ -42,6 +42,7 @@ class TwitterController extends Controller
             }
 
             $newUser = User::create([
+                'uid' => uniqid(),
                 'name' => $user->getNickname(),
                 'email' => $user->getEmail(),
                 'twitter_id' => $user->getId(),

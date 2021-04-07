@@ -11,4 +11,5 @@ class RegisterController extends Controller
     public static function getIndex(){
         return view('register');
     }
+
 }

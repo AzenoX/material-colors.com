@@ -62,6 +62,7 @@ class SpotifyController extends Controller
 
 
         $newUser = User::create([
+            'uid' => uniqid(),
             'name' => htmlspecialchars($_SESSION['userSpotify_nick']),
             'email' => $email,
             'spotify_id' => htmlspecialchars($_SESSION['userSpotify_id']),

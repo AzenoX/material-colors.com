@@ -37,6 +37,7 @@ class GithubController extends Controller
             }
 
             $newUser = User::create([
+                'uid' => uniqid(),
                 'name' => $user->name,
                 'email' => $user->email,
                 'github_id' => $user->id,

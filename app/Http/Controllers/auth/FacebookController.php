@@ -37,6 +37,7 @@ class FacebookController extends Controller
             }
 
             $newUser = User::create([
+                'uid' => uniqid(),
                 'name' => $user->name,
                 'email' => $user->email,
                 'facebook_id' => $user->id,

@@ -58,6 +58,7 @@ class RedditController extends Controller
 
 
         $newUser = User::create([
+            'uid' => uniqid(),
             'name' => htmlspecialchars($_SESSION['userReddit_nick']),
             'email' => $email,
             'reddit_id' => htmlspecialchars($_SESSION['userReddit_id']),

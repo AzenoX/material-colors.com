@@ -37,6 +37,7 @@ class GoogleController extends Controller
             }
 
             $newUser = User::create([
+                'uid' => uniqid(),
                 'name' => $user->name,
                 'email' => $user->email,
                 'google_id' => $user->id,

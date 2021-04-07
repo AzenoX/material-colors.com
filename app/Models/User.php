@@ -19,6 +19,7 @@ class User extends Authenticatable implements MustMail
      * @var array
      */
     protected $fillable = [
+        'uid',
         'name',
         'email',
         'email_verified_at',
@@ -67,6 +68,7 @@ class User extends Authenticatable implements MustMail
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'uid' => ['required', 'string'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'email_verified_at' => ['required', 'timestamp'],

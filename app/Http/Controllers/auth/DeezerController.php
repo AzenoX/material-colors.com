@@ -38,6 +38,7 @@ class DeezerController extends Controller
             }
 
             $newUser = User::create([
+                'uid' => uniqid(),
                 'name' => $user->name,
                 'email' => $user->email,
                 'deezer_id' => $user->id,
