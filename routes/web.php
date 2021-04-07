@@ -28,6 +28,14 @@ Route::get('/palette/flat', ['as' => 'p_flat', 'uses' => '\App\Http\Controllers\
 
 
 /*=======================================
+*       Favorites
+=======================================*/
+Route::get('/favs/add/{uid}/{gid?}', ['as' => 'favs_add', 'uses' => '\App\Http\Controllers\FavsController@addingRoute']);
+
+
+
+
+/*=======================================
 *       Gradients
 =======================================*/
 Route::get('/gradients', ['as' => 'gradients', 'uses' => '\App\Http\Controllers\GradientsController@getIndex']);
@@ -45,9 +53,7 @@ Route::get('/account/home', ['as' => 'account.home', 'uses' => function(){
 Route::get('/account/settings', ['as' => 'account.settings', 'uses' => function(){
     return view('account.settings');
 }])->middleware(['auth', 'verified']);
-Route::get('/account/favs', ['as' => 'account.favs', 'uses' => function(){
-    return view('account.favs');
-}])->middleware(['auth', 'verified']);
+Route::get('/account/favs', ['as' => 'account.favs', 'uses' => '\App\Http\Controllers\FavsController@favsPage'])->middleware(['auth', 'verified']);
 
 
 

@@ -28,15 +28,21 @@
 
         <nav class="roboto">
             <ul>
-                <li><a class="bold fs14">Material-Colors.com</a></li>
-                <li><a class="fs11 dropdown-trigger" data-trigger="dropdown-palette">Color Palettes <span class="fs09">▼</span></a></li>
+                <li class="notHover"><a class="bold fs14">Material-Colors.com</a></li>
+                <li class="notHover"><a class="fs11 dropdown-trigger" data-trigger="dropdown-palette">Color Palettes <span class="fs09">▼</span></a></li>
                 <li><a href="{{ route('gradients') }}" class="fs11">Gradients</a></li>
                 <li><a class="fs11">Custom Palettes</a></li>
             </ul>
             <ul>
 
                 @if (Auth::user() && Auth::user() !== null)
-                    <li><a class="fs11 dropdown-trigger" data-trigger="dropdown-account">Account <span class="fs09">▼</span></a></li>
+                    <li class="notHover">
+                        <a class="fs11 dropdown-trigger flex flex-beet flex-middle" data-trigger="dropdown-account">
+                            <img class="header-account--img" src="https://eu.ui-avatars.com/api/?background=00BEFA&name=<?= urlencode(Auth::user()->name) ?>">
+                            <p class="mr-05 ml-05"><?= Auth::user()->name ?></p>
+                            <span class="fs09">▼</span>
+                        </a>
+                    </li>
                 @else
                     <li><a href="{{ route('login') }}" class="fs11">Login</a></li>
                 @endif

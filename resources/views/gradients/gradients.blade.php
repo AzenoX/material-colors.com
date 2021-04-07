@@ -20,6 +20,13 @@
             return $str;
         }
 
+        $favorites = [];
+        foreach($favs as $i => $f){
+            array_push($favorites, $f->gid);
+        }
+
+        $hasColor = '#2196f3';
+
     ?>
 
 
@@ -29,7 +36,7 @@
 
         <div class="flex flex-wrap flex-even">
 
-            @foreach($data as $gradient)
+            @foreach($data as $index => $gradient)
 
                 <?php
 
@@ -50,10 +57,10 @@
                                 <p class="gradient_content_header__author">By <?= $gradient->name ?></p>
                             </div>
                             <div class="flex flex-middle">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path d="M12 6.76l1.379 4.246h4.465l-3.612 2.625 1.379 4.246-3.611-2.625-3.612 2.625 1.379-4.246-3.612-2.625h4.465l1.38-4.246zm0-6.472l-2.833 8.718h-9.167l7.416 5.389-2.833 8.718 7.417-5.388 7.416 5.388-2.833-8.718 7.417-5.389h-9.167l-2.833-8.718z"/>
+                                <svg class="favs_add__btn" data-id="<?= $gradient->gid ?>" style="fill: <?= (in_array($gradient->gid, $favorites)) ? $hasColor : '#000' ?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"/>
                                 </svg>
-                                &nbsp;<span><?= $gradient->favs ?></span>
+                                &nbsp;<span><?= $favsCount[$gradient->gid] ?? 0 ?></span>
                             </div>
                             <a class="btn" href="{{ route('gradient', ['id' => $gradient->gid]) }}">
                                 <span aria-hidden="true" class="btn__left" style="background: <?= '#' . $firstColor ?>;"></span>
@@ -69,6 +76,33 @@
         </div>
 
     </section>
+
+
+    <script>
+        <?php if(!Auth::guest()): ?>
+            const addBtns = document.querySelectorAll('.favs_add__btn');
+            addBtns.forEach((el) => {
+                el.addEventListener('click', () => {
+                    const gid = el.getAttribute('data-id');
+                    fetch(`<?= route('favs_add', ['uid' => Auth::user()->id]) ?>/${gid}`)
+                        .then(data => data.text())
+                        .then(data => {
+                            console.log(data);
+                            if(data === 'added'){
+                                el.style.fill = '<?= $hasColor ?>';
+                                el.nextElementSibling.innerHTML = (parseInt(el.nextElementSibling.innerHTML) + 1) + '';
+                            }
+                            else if(data === 'removed'){
+                                el.style.fill = '#000';
+                                el.nextElementSibling.innerHTML = (parseInt(el.nextElementSibling.innerHTML) - 1) + '';
+                            }
+                        });
+
+
+                });
+            });
+        <?php endif; ?>
+    </script>
 
 @endsection
 

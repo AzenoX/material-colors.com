@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favs_Gradient;
 use App\Models\Gradient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,19 @@ class GradientsController extends Controller
             ->join('users', 'gradients.user_id', '=', 'users.id')
             ->get()
             ->toArray();
+        if(Auth::guest()){
+            $favsForUser = [];
+        }
+        else{
+            $favsForUser = DB::table('favs__gradients')
+                ->select('gradient_id as gid')
+                ->where('user_id', '=', Auth::user()->id)
+                ->get()
+                ->toArray();
+        }
+        $favsCount = FavsController::getCountForGradients();
 
-        return view('gradients/gradients', ['data' => $data]);
+        return view('gradients/gradients', ['data' => $data, 'favs' => $favsForUser, 'favsCount' => $favsCount]);
     }
 
 

@@ -4927,9 +4927,9 @@ dropdownLI.forEach(function (el) {
     var y = el.getBoundingClientRect().y + el.getBoundingClientRect().height;
     target.style.display = 'flex';
     target.style.top = "".concat(y, "px");
-    target.style.left = "".concat(x - el.getBoundingClientRect().width, "px");
+    target.style.left = "".concat(x - el.getBoundingClientRect().width - 50, "px");
     target.style.height = 'fit-content';
-    target.style.width = "".concat(el.getBoundingClientRect().width, "px");
+    target.style.width = "".concat(el.getBoundingClientRect().width + 50, "px");
   });
   el.addEventListener('mouseleave', function () {
     target.style.display = 'none';

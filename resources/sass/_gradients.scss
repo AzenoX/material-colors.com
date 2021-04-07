@@ -27,6 +27,10 @@
                 @include font('Montserrat');
             }
 
+            svg{
+                cursor: pointer;
+            }
+
 
             &__title{
                 font-weight: bold;

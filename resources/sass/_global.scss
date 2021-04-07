@@ -52,11 +52,61 @@ nav {
             margin: 1em;
             display: flex;
             align-items: center;
+            position: relative;
+
+
+            &:not(&.notHover)::before{
+                content: '';
+                position: absolute;
+                top: -10%;
+                height: 48%;
+                transform: scaleY(0) skew(-15deg);
+                width: 100%;
+                background: #2196f3;
+
+                z-index: 4;
+
+                transform-origin: top;
+
+                transition: transform 0.2s ease-in-out;
+            }
+            &:hover:not(&.notHover)::before{
+                transform: scaleY(1) skew(-15deg);
+            }
+
+            &:not(&.notHover)::after{
+                content: '';
+                position: absolute;
+                bottom: 20%;
+                height: 48%;
+                transform: scaleY(0) skew(-15deg);
+                width: 100%;
+                background: #2196f3;
+
+                z-index: 4;
+
+                transform-origin: bottom;
+
+                transition: transform 0.2s ease-in-out;
+            }
+            &:hover:not(&.notHover)::after{
+                transform: scaleY(1) skew(-15deg);
+            }
+
             a {
                 padding: 0.1em 0.5em 1em 0.5em;
                 white-space: nowrap;
                 color: #fff;
                 cursor: pointer;
+                z-index: 5;
+
+                transition: color 0.2s ease-in-out;
+            }
+
+
+            .header-account--img{
+                height: 30px;
+                border-radius: 50%;
             }
         }
     }
@@ -65,7 +115,7 @@ ul.dropdown-content {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: fit-content;
+    width: 100%;
     display: none;
     justify-content: space-evenly;
     flex-direction: column;
@@ -108,6 +158,7 @@ ul.dropdown-content {
             }
         }
         a, button {
+            white-space: nowrap;
             cursor: pointer;
             color: #000;
             font-weight: 400;
