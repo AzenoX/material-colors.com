@@ -1,6 +1,7 @@
 .gradient{
     margin-bottom: 4em;
     width: 30%;
+    min-width: 450px;
 
     background: #fff;
     color: #000;
@@ -107,6 +108,13 @@
 
         width: 90%;
         @include center;
+
+        svg{
+            pointer-events: none;
+            path{
+                pointer-events: none;
+            }
+        }
 
         &_color{
             margin: 0.2em;

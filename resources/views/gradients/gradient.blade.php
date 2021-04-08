@@ -49,18 +49,19 @@
     </style>
 
 
-    <section class="main" style="margin-top: 4rem;">
+    <section class="main" style="margin-top: 3.4rem;">
 
         <h1 class="text-white text-center fs30 mb-0" style="margin-bottom: 2em;">Gradient: <?= ucfirst($data->gname) ?></h1>
-        <a href="{{ route('gradients') }}" class="btn center mb-3" style="display: block; margin-right: auto !important; margin-left: auto !important; width: -moz-fit-content; width: fit-content;">
-            <span aria-hidden="true" class="btn__left" style="background: #fff;"></span>
+
+        <a href="{{ route('gradients') }}" class="btn center mb-3 mt-1" style="display: block; margin-right: auto !important; margin-left: auto !important; width: -moz-fit-content; width: fit-content;">
+            <span aria-hidden="true" class="btn__left btn_notcolor" style="background: #fff;"></span>
             <span class="btn__text">
                 Back to Gradients&nbsp;
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
                     <path d="M13 2v-2l10 3v18l-10 3v-2h-9v-7h1v6h8v-18h-8v7h-1v-8h9zm-2.947 10l-3.293-3.293.707-.707 4.5 4.5-4.5 4.5-.707-.707 3.293-3.293h-9.053v-1h9.053z"/>
                 </svg>
             </span>
-            <span aria-hidden="true" class="btn__right" style="background: #fff;"></span>
+            <span aria-hidden="true" class="btn__right btn_notcolor" style="background: #fff;"></span>
         </a>
 
 
@@ -154,6 +155,47 @@
     </section>
 
 
+    <!--Exports Modals - Menu-->
+    <div class="modal micromodal-slide" id="modal_color" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                    <h2 class="modal__title" id="modal-1-title">
+                        Enter a color (Any format)
+                    </h2>
+                </header>
+                <main class="modal__content flex flex-col" id="modal-1-content">
+                    <form class="no-submit" style="width: 100%;">
+                        <input type="hidden" value="" id="color_index">
+{{--                        <div class="form-row">--}}
+{{--                            <label for="color_input">Color:</label>--}}
+{{--                            <input type="text" placeholder="Color (Ex: #f00)" id="color_input">--}}
+{{--                        </div>--}}
+
+                        <div id="pickr"></div>
+                        <input type="hidden" name="color_value" id="color_value" value="">
+
+                        <br>
+
+                        <button id="color_button" class="btn text-center mt-1" style="margin-left: auto; margin-right: auto; display: inherit;">
+                            <span aria-hidden="true" class="btn__left" style="background: #fff;"></span>
+                            <span class="btn__text">
+                            Ok&nbsp;
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M19.479 10.092c-.212-3.951-3.473-7.092-7.479-7.092-4.005 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408zm-7.479 6.908l-4-4h3v-4h2v4h3l-4 4z"/>
+                            </svg>
+                        </span>
+                            <span aria-hidden="true" class="btn__right" style="background: #fff;"></span>
+                        </button>
+                    </form>
+                </main>
+                <footer class="modal__footer">
+                    <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+
     <script>
         function buildGradientStr(colors, angle){
             let str = 'linear-gradient('+angle+'deg, ';
@@ -183,14 +225,17 @@
 
         //Get color divs
         const gradientColors = document.querySelectorAll('.gradient_panel__body_color');
-        const btnsLeft = document.querySelectorAll('.btn__left');
-        const btnsRight = document.querySelectorAll('.btn__right');
+        const btnsLeft = document.querySelectorAll('.btn__left:not(.btn_notcolor)');
+        const btnsRight = document.querySelectorAll('.btn__right:not(.btn_notcolor)');
 
 
         //Functions
         function changeColor(col, index){
+            index = parseInt(index);
             const newColors = {};
             let i = 0;
+            console.log("Colors:");
+            console.log(colors);
             for (const property in colors) {
                 let color = colors[property];
                 if(i === index){
@@ -199,6 +244,7 @@
                 const percent = property;
 
                 newColors[percent] = color;
+                console.log(newColors, i, index, percent);
 
                 i++;
             }
@@ -209,10 +255,11 @@
             //Update CSS Code
             let code = "/*"+gname+" gradient*/" + "\n";
             code += "background: #" + newColors[0] + ";" + "\n";
-            code += 'background: ' + buildGradientStr(colors, angle) + ';';
+            code += 'background: ' + buildGradientStr(newColors, angle) + ';';
             codeCss.innerHTML = code;
             codeCss.innerHTML = Prism.highlight(codeCss.innerHTML, Prism.languages.css, 'css');
             originalCode.innerHTML = code;
+            console.log('CSS Updated + ' + buildGradientStr(newColors, angle));
 
 
             //Update gradient color div bg
@@ -226,7 +273,6 @@
             btnsRight.forEach((el) => {
                 el.style.background = '#' + newColors[Object.keys(newColors)[Object.keys(newColors).length - 1]];
             });
-            console.log(newColors);
 
 
             //Update gradient
@@ -246,12 +292,26 @@
 
         //Listeners
         const gradientEditBtns = document.querySelectorAll('.gradientColorEdit');
+        const colorEditBtn = document.querySelector('#color_button');
+        const colorEditInput = document.querySelector('#color_value');
+        const colorEditIndex = document.querySelector('#color_index');
         gradientEditBtns.forEach((el, index) => {
             el.addEventListener('click', () => {
-                const newColor = prompt('Color Hex:');
-                changeColor(newColor, index);
-                applyGradientToItems(gradient);
+                colorEditIndex.value = index;
+                MicroModal.show('modal_color');
             });
+        });
+        colorEditBtn.addEventListener('click', () => {
+            const newColor = colorEditInput.value.toString().substring(1, colorEditInput.value.toString().length);
+            MicroModal.close('modal_color');
+
+            if(newColor === ''){
+                return;
+            }
+
+            colorEditInput.value = '';
+            changeColor(newColor, colorEditIndex.value);
+            applyGradientToItems(gradient);
         });
 
         const copyBtnGradient = document.querySelector('.copyBtnGradient');

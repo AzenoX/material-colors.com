@@ -22,16 +22,16 @@ $i: 0;
         margin: #{$i}rem !important;
     }
     .mt-#{str-replace(#{$i}, '.', '')}{
-        margin: #{$i}rem !important;
+        margin-top: #{$i}rem !important;
     }
     .mr-#{str-replace(#{$i}, '.', '')}{
-        margin: #{$i}rem !important;
+        margin-right: #{$i}rem !important;
     }
     .mb-#{str-replace(#{$i}, '.', '')}{
-        margin: #{$i}rem !important;
+        margin-bottom: #{$i}rem !important;
     }
     .ml-#{str-replace(#{$i}, '.', '')}{
-        margin: #{$i}rem !important;
+        margin-left: #{$i}rem !important;
     }
 
     $i: $i + 0.5;

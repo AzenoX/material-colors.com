@@ -1,6 +1,7 @@
 require('./bootstrap');
 
 const Prism = require('./prism');
+import iro from '@jaames/iro';
 
 require('./color_functions');
 
@@ -14,6 +15,22 @@ require('./color_exports');
 //Gradients
 require('./gradientManager');
 
+require('./loadColorInputs');
+
+
+
+if(document.querySelector('#pickr') != null){
+    const colorPicker = new iro.ColorPicker('#pickr');
+
+    function onColorChange(color) {
+        console.log(color.hexString);
+        document.querySelector('#color_value').value = color.hexString;
+        document.querySelector('#color_button .btn__left').style.background = color.hexString;
+        document.querySelector('#color_button .btn__right').style.background = color.hexString;
+    }
+    colorPicker.on('color:change', onColorChange);
+}
+
 
 
 
@@ -24,6 +41,8 @@ const tooltips = {
     '#exportBtn': 'Press SHIFT while LEFT CLICK on colors to add it in selection.|right',
     '.gradientColorCopy': 'Copy|right',
     '.gradientColorEdit': 'Edit this color|right',
+    '.gradientColorRemove': 'Remove this color|right',
+    '.gradientColorAdd': 'Add a color|right',
 }
 for (const property in tooltips) {
     const values = tooltips[property].split('|');
@@ -41,6 +60,19 @@ for (const property in tooltips) {
 const samples = document.querySelectorAll('.code_sample__item');
 samples.forEach((el) => {
     el.innerHTML = Prism.highlight(el.innerHTML, Prism.languages.css, 'css');
+});
+
+
+
+
+/*=======================================
+*       Cancel Submitting
+=======================================*/
+const formNotSubmit = document.querySelectorAll('.no-submit');
+formNotSubmit.forEach((el) => {
+    el.addEventListener('submit', (e) => {
+        e.preventDefault();
+    });
 });
 
 
