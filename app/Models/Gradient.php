@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Gradient extends Model
 {
     use HasFactory;
+
+
+    protected $fillable = [
+        'user_id',
+        'gradient_name',
+        'colors',
+        'angle',
+    ];
 }

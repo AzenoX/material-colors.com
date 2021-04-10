@@ -82,9 +82,15 @@ function rgbToRgb(r, g, b, isAlpha = false){
     else
         return `rgb(${padLeadingZeros(Math.round(r), 3)},${padLeadingZeros(Math.round(g), 3)},${padLeadingZeros(Math.round(b), 3)})`;
 }
+function splitRgb(rgb){
+    return rgb.substring(4, rgb.length-1)
+        .replace(/ /g, '')
+        .split(',');
+}
 
 
 window.hexToRgb = hexToRgb;
 window.rgbToHex = rgbToHex;
 window.rgbToHsl = rgbToHsl;
 window.rgbToRgb = rgbToRgb;
+window.splitRgb = splitRgb;

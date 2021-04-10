@@ -54,7 +54,11 @@ Route::get('/account/settings', ['as' => 'account.settings', 'uses' => function(
     return view('account.settings');
 }])->middleware(['auth', 'verified']);
 Route::get('/account/favs', ['as' => 'account.favs', 'uses' => '\App\Http\Controllers\FavsController@favsPage'])->middleware(['auth', 'verified']);
+
 Route::get('/account/createGradient', ['as' => 'account.create_gradient', 'uses' => '\App\Http\Controllers\account\CreateController@gradient'])->middleware(['auth', 'verified']);
+Route::post('/account/createGradient', ['as' => 'account.create_gradient_post', 'uses' => '\App\Http\Controllers\account\CreateController@gradientCreate'])->middleware(['auth', 'verified']);
+
+Route::get('/account/gradients', ['as' => 'account.my_gradient', 'uses' => '\App\Http\Controllers\account\AccountController@my_gradient'])->middleware(['auth', 'verified']);
 
 
 

@@ -1584,18 +1584,19 @@ form .form-row label {
   margin-bottom: 5px;
   font-size: 1.1rem;
 }
-form .form-row input {
-  padding: 0.5em;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #666;
-  font-size: 1.1rem;
-}
 form .form-row button {
   margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
+}
+
+input {
+  padding: 0.5em;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #666;
+  font-size: 1.1rem;
 }
 
 .alert {

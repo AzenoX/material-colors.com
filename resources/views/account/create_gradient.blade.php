@@ -17,14 +17,17 @@
 
         <div class="flex flex-end mt-2 w90" style="margin-left: auto; margin-right: auto;">
 
-            <div class="panel shadowed gradient_panel height-fit w40" style="width: 40%; margin: 0;">
-                <form class="no-bg" style="margin-top: -1em !important; width: 100%;">
+            <div class="panel shadowed gradient_panel height-fit w50" style="width: 40%; margin: 0;">
+                <form id="gradientForm" class="no-bg" style="margin-top: -1em !important; width: 100%;">
+                    @csrf
                     <h2 class="mb-2">Create a new Gradient</h2>
                     <div class="gradient_panel__header">
                         <div class="gradient_panel__header__titles">
                             <div class="form-row">
                                 <input type="text" placeholder="Gradient Name" name="gname" id="gname">
-                                <input type="text" placeholder="Angle" name="gname" id="angle">
+                            </div>
+                            <div class="form-row">
+                                <input type="number" placeholder="Angle (Default: 0)" min="-360" max="360" name="angle" id="angle">
                             </div>
                         </div>
                     </div>
@@ -42,14 +45,14 @@
                     <div class="gradient_panel__footer">
 
                         <button class="btn">
-                            <span aria-hidden="true" class="btn__left" style="background: #333;"></span>
+                            <span aria-hidden="true" class="btn__left" style="background: #111;"></span>
                             <span class="btn__text">
-                            Create&nbsp;
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M19.479 10.092c-.212-3.951-3.473-7.092-7.479-7.092-4.005 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408zm-7.479 6.908l-4-4h3v-4h2v4h3l-4 4z"/>
-                            </svg>
-                        </span>
-                            <span aria-hidden="true" class="btn__right" style="background: #333;"></span>
+                                Create&nbsp;
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                                </svg>
+                            </span>
+                            <span aria-hidden="true" class="btn__right" style="background: #111;"></span>
                         </button>
 
                     </div>
@@ -147,8 +150,6 @@
 
             //Update gradient color div bg
             gradientColors = document.querySelectorAll('.gradient_panel__body_color');
-            console.log(index);
-            console.log(gradientColors);
             gradientColors[index].style.background = '#' + col;
 
 
@@ -200,7 +201,7 @@
                     div.classList.add('gradient_panel__body_color');
                     div.style.background = newColor;
                     div.innerHTML = '<span class="gradientColorEdit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.127 22.564l-7.126 1.436 1.438-7.125 5.688 5.689zm-4.274-7.104l5' +
-                        '.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/></svg></span><span class="gradientColorRemove"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z"/></svg></span>';
+                        '.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/></svg></span><span class="gradientColorRemove"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z"/></svg></span><input type="number" class="input-percent mt-1" placeholder="%" style="width: 50%;">';
                     const lastNode = gradientBody.lastElementChild;
                     gradientBody.insertBefore(div, lastNode);
 
@@ -208,8 +209,6 @@
 
                     break;
                 case 'edit':
-                    console.log('Edit: ' + newColor);
-
                     changeColor(newColor, parseInt(colorEditIndex.value));
 
                     break;
@@ -247,12 +246,77 @@
         });
 
         document.addEventListener('click',function(e){
-            console.log(e.target);
             if(e.target && e.target.classList.contains('gradientColorEdit')){
                 colorEditIndex.value = [...e.target.parentElement.parentElement.children].indexOf(e.target.parentElement);
                 colorEditReason.value = 'edit';
                 MicroModal.show('modal_color');
             }
+        });
+
+
+
+        function calculatePercent(el, index, arrayLen){
+            const value = el.querySelector('.input-percent').value;
+
+            if(value === ''){
+                return ((100 / parseInt(arrayLen)) * (index + 1));
+            }
+            else{
+                return value;
+            }
+        }
+
+
+        const gradientForm = document.querySelector('#gradientForm');
+        gradientForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const gname = gradientForm.querySelector('#gname').value;
+            const angle = gradientForm.querySelector('#angle') ? gradientForm.querySelector('#angle').value : '0';
+            const colorsDivs = gradientForm.querySelectorAll('.gradient_panel__body_color');
+            let colors = {};
+            colorsDivs.forEach((el, index) => {
+                if (index !== colorsDivs.length - 1){
+                    const percent = calculatePercent(el, index, colorsDivs.length);
+                    const color = el.style.backgroundColor;
+
+                    const cols = splitRgb(color);
+                    const col = rgbToHex(cols[0], cols[1], cols[2]);
+                    colors[percent] = col.substring(1, col.length);
+                }
+            });
+
+            const data = {
+                'gname': gname,
+                'angle': angle,
+                'colors': colors,
+            }
+
+            console.log(JSON.stringify(data))
+
+            fetch('{{ route('account.create_gradient_post') }}', {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json, text-plain, */*",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRF-TOKEN": document.getElementsByName("_token")[0].value
+                },
+                credentials: "same-origin",
+                method: 'POST',
+                body: JSON.stringify(data),
+            })
+            .then(data => data.text())
+            .then(data => {
+                Toastify({
+                    text: "<p></p><span>"+data+"</span>",
+                    duration: 3000000,
+                    gravity: "bottom",
+                    position: "right",
+                    backgroundColor: '#f44336',
+                    escapeMarkup: false,
+                }).showToast();
+            });
+
         });
 
 

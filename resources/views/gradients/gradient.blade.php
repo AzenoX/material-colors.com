@@ -10,7 +10,7 @@
 
 
 
-    $firstColor = $colors->{0};
+    $firstColor = reset($colors);
     $lastColor = end($colors);
 
 
@@ -29,7 +29,7 @@
     }
     function generateCss($colors, $angle, $gname){
         $code = "/*".ucfirst($gname)." gradient*/" . "\n";
-        $code .= "background: #" . $colors->{0} . ";" . "\n";
+        $code .= "background: #" . reset($colors) . ";" . "\n";
         $code .= 'background: ' . buildGradientStr($colors, $angle) . ';';
 
         return $code;

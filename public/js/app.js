@@ -6685,7 +6685,6 @@ __webpack_require__(/*! ./loadColorInputs */ "./resources/js/loadColorInputs.js"
 
 if (document.querySelector('#pickr') != null) {
   var onColorChange = function onColorChange(color) {
-    console.log(color.hexString);
     document.querySelector('#color_value').value = color.hexString;
     document.querySelector('#color_button .btn__left').style.background = color.hexString;
     document.querySelector('#color_button .btn__right').style.background = color.hexString;
@@ -7071,10 +7070,15 @@ function rgbToRgb(r, g, b) {
   if (isAlpha) return "rgba(".concat(padLeadingZeros(Math.round(r), 3), ",").concat(padLeadingZeros(Math.round(g), 3), ",").concat(padLeadingZeros(Math.round(b), 3), ",1.0)");else return "rgb(".concat(padLeadingZeros(Math.round(r), 3), ",").concat(padLeadingZeros(Math.round(g), 3), ",").concat(padLeadingZeros(Math.round(b), 3), ")");
 }
 
+function splitRgb(rgb) {
+  return rgb.substring(4, rgb.length - 1).replace(/ /g, '').split(',');
+}
+
 window.hexToRgb = hexToRgb;
 window.rgbToHex = rgbToHex;
 window.rgbToHsl = rgbToHsl;
 window.rgbToRgb = rgbToRgb;
+window.splitRgb = splitRgb;
 
 /***/ }),
 

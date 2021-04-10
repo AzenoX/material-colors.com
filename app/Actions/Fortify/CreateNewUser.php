@@ -16,12 +16,12 @@ class CreateNewUser implements CreatesNewUsers
      * Validate and create a newly registered user.
      *
      * @param  array  $input
-     * @return \App\Models\User
+     * @return User
      */
     public function create(array $input)
     {
         Validator::make($input, [
-            'uid' => ['required', 'string'],
+            'uid' => ['string'],
             'name' => ['required', 'string', 'max:255'],
             'email' => [
                 'required',

@@ -23,7 +23,6 @@ if(document.querySelector('#pickr') != null){
     const colorPicker = new iro.ColorPicker('#pickr');
 
     function onColorChange(color) {
-        console.log(color.hexString);
         document.querySelector('#color_value').value = color.hexString;
         document.querySelector('#color_button .btn__left').style.background = color.hexString;
         document.querySelector('#color_button .btn__right').style.background = color.hexString;
