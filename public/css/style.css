@@ -53,34 +53,29 @@ nav ul li {
   align-items: center;
   position: relative;
 }
-nav ul li:not(nav ul li.notHover)::before {
+nav ul li:not(nav ul li.notHover)::before, nav ul li:not(nav ul li.notHover)::after {
   content: "";
   position: absolute;
-  top: -10%;
   height: 48%;
   transform: scaleY(0) skew(-15deg);
   width: 100%;
   background: #2196f3;
+  background: linear-gradient(to right, #00d2ff, #3a7bd5, #00d2ff);
+  background-size: 200% 100%;
+  -webkit-animation: li_anim 2s linear forwards infinite;
+          animation: li_anim 2s linear forwards infinite;
   z-index: 4;
-  transform-origin: top;
   transition: transform 0.2s ease-in-out;
 }
-nav ul li:hover:not(nav ul li.notHover)::before {
-  transform: scaleY(1) skew(-15deg);
+nav ul li:not(nav ul li.notHover)::before {
+  top: -10%;
+  transform-origin: top;
 }
 nav ul li:not(nav ul li.notHover)::after {
-  content: "";
-  position: absolute;
   bottom: 20%;
-  height: 48%;
-  transform: scaleY(0) skew(-15deg);
-  width: 100%;
-  background: #2196f3;
-  z-index: 4;
   transform-origin: bottom;
-  transition: transform 0.2s ease-in-out;
 }
-nav ul li:hover:not(nav ul li.notHover)::after {
+nav ul li:hover:not(nav ul li.notHover)::before, nav ul li:hover:not(nav ul li.notHover)::after {
   transform: scaleY(1) skew(-15deg);
 }
 nav ul li a {
@@ -126,8 +121,8 @@ ul.dropdown-content li::before {
   left: 0;
   height: 100%;
   width: 0;
-  background: #333;
   transition: width 0.15s ease-in-out;
+  background: #2196f3;
 }
 ul.dropdown-content li.red::before {
   background: #ef5350;
@@ -203,6 +198,25 @@ form a {
   box-shadow: 0 13px 23px rgba(0, 0, 0, 0.19), 0 8px 8px rgba(0, 0, 0, 0.23);
 }
 
+/*
+* Anims
+*/
+@-webkit-keyframes li_anim {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+@keyframes li_anim {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
 /*============================
     Widths
 =============================*/
