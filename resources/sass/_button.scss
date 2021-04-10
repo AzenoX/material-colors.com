@@ -60,6 +60,10 @@
         transition: transform 0.2s ease-out;
     }
 
+    &-red{
+        background: #f44336;
+    }
+
 
     &:hover{
         .btn__left, .btn__right{

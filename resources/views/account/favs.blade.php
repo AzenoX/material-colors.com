@@ -39,7 +39,7 @@
                 $colorsDecoded = json_decode($gradient['colors']);
 
                 $gradStr = buildGradientStr($gradient['colors'], $gradient['angle']);
-                $firstColor = json_decode($gradient['colors'])->{0};
+                $firstColor = reset($colorsDecoded);
                 $lastColor = end($colorsDecoded);
 
                 ?>

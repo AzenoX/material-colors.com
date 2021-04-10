@@ -156,11 +156,27 @@ ul.dropdown-content li svg {
   transition: fill 0.4s ease-out;
 }
 ul.dropdown-content li.divider {
+  display: flex;
+  justify-content: space-between;
+  cursor: default;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  padding: 0 0.5em;
+}
+ul.dropdown-content li.divider p {
+  text-align: center;
+  color: #666;
+  margin: 0 0.5em;
+  white-space: nowrap;
+  flex: 1;
+}
+ul.dropdown-content li.divider span {
   height: 1px;
-  width: 80%;
-  margin: 1em auto;
-  padding: 0;
-  background: #333;
+  background: #666;
+  flex: 2;
+}
+ul.dropdown-content li.divider:hover::before {
+  width: 0;
 }
 ul.dropdown-content li.logout:hover {
   background: red;
@@ -1281,6 +1297,9 @@ form a {
   transform-origin: top;
   transform: scaleY(1);
   transition: transform 0.2s ease-out;
+}
+.btn-red {
+  background: #f44336;
 }
 .btn:hover .btn__left, .btn:hover .btn__right {
   transform: scaleY(1.3);

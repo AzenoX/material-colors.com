@@ -122,6 +122,7 @@ ul.dropdown-content {
     background: #eee;
     list-style-type: none;
     z-index: 99999;
+
     li {
         position: relative;
         padding: 0.8em 3em 0.8em 1.4em;
@@ -171,12 +172,38 @@ ul.dropdown-content {
             transition: fill 0.4s ease-out;
         }
     }
+
     li.divider {
-        height: 1px;
-        width: 80%;
-        margin: 1em auto;
-        padding: 0;
-        background: #333;
+        display: flex;
+        justify-content: space-between;
+
+        cursor: default;
+
+        margin-top: 1.5em;
+        margin-bottom: 1em;
+        padding: 0 0.5em;
+
+        p{
+            text-align: center;
+            color: #666;
+            margin: 0 0.5em;
+            white-space: nowrap;
+
+            flex: 1;
+        }
+
+        span{
+            height: 1px;
+            background: #666;
+
+            flex: 2;
+        }
+
+        &:hover {
+            &::before {
+                width: 0;
+            }
+        }
     }
     li.logout {
         &:hover {

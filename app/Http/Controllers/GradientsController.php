@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\DB;
 class GradientsController extends Controller
 {
     public static function getIndex(){
-        //$data = Gradient::all()->toArray();
         $data = DB::table('gradients')
             ->select('users.id', 'gradients.id as gid', 'users.name', 'gradients.gradient_name', 'gradients.angle', 'gradients.colors', 'gradients.favs')
             ->join('users', 'gradients.user_id', '=', 'users.id')
+            ->orderBy('gradients.id', 'desc')
             ->get()
             ->toArray();
         if(Auth::guest()){

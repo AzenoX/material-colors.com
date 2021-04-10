@@ -57,10 +57,28 @@
     </ul>
 
     <ul class="dropdown-content" id="dropdown-account">
+        <li class="divider">
+            <span>&nbsp;</span>
+            <p>Your submissions</p>
+            <span>&nbsp;</span>
+        </li>
+        <li><a href="{{ route('account.my_gradients') }}" class="roboto fs09">My Gradients</a></li>
+
+        <li class="divider">
+            <span>&nbsp;</span>
+            <p>Create</p>
+            <span>&nbsp;</span>
+        </li>
+        <li><a href="{{ route('account.create_gradient') }}" class="roboto fs09">Create Gradient</a></li>
+
+        <li class="divider">
+            <span>&nbsp;</span>
+            <p>Extras</p>
+            <span>&nbsp;</span>
+        </li>
         <li><a href="{{ route('account.favs') }}" class="roboto fs09">My Favorites</a></li>
         <li><a href="{{ route('account.settings') }}" class="roboto fs09">Settings</a></li>
-        <li><a href="{{ route('account.create_gradient') }}" class="roboto fs09">Create Gradient</a></li>
-        <li class="red">
+        <li class="red mb-1">
             <form method="post" action="{{ route('logout') }}" class="ns_form">
                 @csrf
                 <button type="submit" class="roboto fs09 ns_btn red">Logout</button>
