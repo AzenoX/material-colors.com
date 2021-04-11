@@ -98,7 +98,7 @@
                         <p class="gradient_panel__header__titles__title gradient_panel__title"><?= ucfirst($data->gname) ?></p>
                         <p class="gradient_panel__header__titles__author"><?= $data->name ?></p>
                     </div>
-                    <div class="gradient_panel__header__favs">
+                    <div class="gradient_panel__header__favs favs_add__btn" data-id="<?= $data->gid ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M12 6.76l1.379 4.246h4.465l-3.612 2.625 1.379 4.246-3.611-2.625-3.612 2.625 1.379-4.246-3.612-2.625h4.465l1.38-4.246zm0-6.472l-2.833 8.718h-9.167l7.416 5.389-2.833 8.718 7.417-5.388 7.416 5.388-2.833-8.718 7.417-5.389h-9.167l-2.833-8.718z"/>
                         </svg>
@@ -329,6 +329,32 @@
                 escapeMarkup: false,
             }).showToast();
         });
+
+
+
+        <?php if(!Auth::guest()): ?>
+            const addBtns = document.querySelectorAll('.favs_add__btn');
+            addBtns.forEach((el) => {
+                el.addEventListener('click', () => {
+                    const gid = el.getAttribute('data-id');
+                    fetch(`<?= route('favs_add', ['uid' => Auth::user()->id]) ?>/${gid}`)
+                        .then(data => data.text())
+                        .then(data => {
+                            console.log(data);
+                            if(data === 'added'){
+                                el.style.fill = '<?= $hasColor ?>';
+                                el.nextElementSibling.innerHTML = (parseInt(el.nextElementSibling.innerHTML) + 1) + '';
+                            }
+                            else if(data === 'removed'){
+                                el.style.fill = '#000';
+                                el.nextElementSibling.innerHTML = (parseInt(el.nextElementSibling.innerHTML) - 1) + '';
+                            }
+                        });
+
+
+                });
+            });
+        <?php endif; ?>
 
 
     </script>

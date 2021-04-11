@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Favs_Gradient;
 use App\Models\Gradient;
+use App\Models\Saved_Gradient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +33,6 @@ class GradientsController extends Controller
         return view('gradients/gradients', ['data' => $data, 'favs' => $favsForUser, 'favsCount' => $favsCount]);
     }
 
-
     public static function getGradientIndex($id){
         $data = DB::table('gradients')
             ->select('users.id as uid', 'gradients.id as gid', 'users.name', 'gradients.gradient_name as gname', 'gradients.angle', 'gradients.colors', 'gradients.favs')
@@ -42,6 +42,26 @@ class GradientsController extends Controller
             ->toArray();
 
         return view('gradients/gradient', ['id' => $id, 'data' => $data[0]]);
+    }
+
+
+
+    public static function addGradientToSaved($gid){
+        $gradient = Saved_Gradient::create(
+            [
+                'user_id' => Auth::user()->id,
+                'gradient_id' => $gid,
+            ]
+        );
+        $gradient->save();
+    }
+
+    public static function removeGradientToSaved($gid){
+        Saved_Gradient::whereRaw('user_id = ? AND gradient_id = ?', [Auth::user()->id, $gid])->delete();
+    }
+
+    public static function getSavedGradients(){
+        return Saved_Gradient::where('user_id', '=', Auth::user()->id)->get()->toArray();
     }
 
 }
