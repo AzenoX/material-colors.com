@@ -41,13 +41,12 @@
 
 .degree_picker{
     background: #aaa;
-    border: 2px solid blue;
+    border: 2px solid $alternateColor;
 
     border-radius: 50%;
 
     height: 200px;
     width: 200px;
-
 
     display: flex;
     justify-content: center;

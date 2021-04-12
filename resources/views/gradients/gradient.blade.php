@@ -13,6 +13,8 @@
     $firstColor = reset($colors);
     $lastColor = end($colors);
 
+    $hasColor = 'red';
+
 
     function buildGradientStr($colors, $angle){
         $str = 'linear-gradient('.$angle.'deg, ';

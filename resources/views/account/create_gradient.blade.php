@@ -24,12 +24,12 @@
                     <div class="gradient_panel__header">
                         <div class="gradient_panel__header__titles">
                             <div class="form-row">
-                                <input type="text" placeholder="Gradient Name" name="gname" id="gname">
-                            </div>
-                            <div class="form-row">
-                                <div class="degree_picker">
-                                    <span class="degree_picker__title">0°</span>
-                                    <span class="degree_picker__cursor"></span>
+                                <div class="flex">
+                                    <input type="text" placeholder="Gradient Name" name="gname" id="gname">
+                                    <div class="degree_picker">
+                                        <span class="degree_picker__title">0°</span>
+                                        <span class="degree_picker__cursor"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
