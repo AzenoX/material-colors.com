@@ -27,7 +27,10 @@
                                 <input type="text" placeholder="Gradient Name" name="gname" id="gname">
                             </div>
                             <div class="form-row">
-                                <input type="number" placeholder="Angle (Default: 0)" min="-360" max="360" name="angle" id="angle">
+                                <div class="degree_picker">
+                                    <span class="degree_picker__title">0°</span>
+                                    <span class="degree_picker__cursor"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -173,7 +176,6 @@
             //Change bg
             document.body.style.background = gradient;
         }
-        //applyGradientToItems(gradient);
 
 
 
@@ -317,6 +319,57 @@
                 }).showToast();
             });
 
+        });
+
+
+
+
+        /*=======================================
+        *       Picker
+        =======================================*/
+        const picker = document.querySelectorAll('.degree_picker');
+        picker.forEach((el) => {
+            //Variables definition
+            const title = el.querySelector('.degree_picker__title');
+            const cursor = el.querySelector('.degree_picker__cursor');
+            const diameter_x = el.clientWidth;
+            const diameter_y = el.clientHeight;
+            const radius_x = diameter_x / 2;
+            const radius_y = diameter_y / 2;
+            const center_x = el.getBoundingClientRect().left + radius_x;
+            const center_y = el.getBoundingClientRect().top + radius_y;
+
+
+            //Handler
+            function updateCursorPosition(e){
+                const x = e.clientX;
+                const y = e.clientY;
+
+                const angle = Math.atan2(center_y - y, center_x - x);
+
+                const top = radius_y - (Math.sin(angle) * radius_y);
+                const left = radius_x - (Math.cos(angle) * radius_x);
+                cursor.style.top = ``;
+                cursor.style.left = left + 'px';
+
+
+                const degreePre = (((angle > 0 ? angle : (2 * Math.PI + angle)) * 360) / (2 * Math.PI)) - 90;
+                const degree = Math.round((degreePre < 0) ? 360 - Math.abs(degreePre) : degreePre);
+
+                title.innerHTML = degree + '°';
+            }
+
+
+            //Event mouse down and up
+            cursor.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                if(e.which === 1){ //Left click
+                    window.addEventListener('mousemove', updateCursorPosition);
+                }
+            });
+            window.addEventListener('mouseup', (e) => {
+                window.removeEventListener('mousemove', updateCursorPosition);
+            });
         });
 
 

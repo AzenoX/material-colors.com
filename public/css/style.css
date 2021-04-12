@@ -1665,6 +1665,31 @@ input {
   color: #fff;
 }
 
+.degree_picker {
+  background: #aaa;
+  border: 2px solid blue;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.degree_picker__title {
+  font-size: 4.8rem;
+}
+.degree_picker__cursor {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: orange;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
 .gradient {
   margin-bottom: 4em;
   width: 30%;
