@@ -30,6 +30,20 @@
         }
     }
 
+    &-small{
+        padding: 0.8rem 1rem;
+    }
+
+    &__icon{
+        display: flex;
+        align-items: center;
+        transform: skew(30deg);
+
+        svg{
+            fill: #fff;
+        }
+    }
+
 
     &__left{
         position: absolute;

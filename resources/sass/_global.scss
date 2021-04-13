@@ -115,7 +115,6 @@ ul.dropdown-content {
 
     li {
         position: relative;
-        padding: 0.8em 3em 0.8em 1.4em;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -152,6 +151,8 @@ ul.dropdown-content {
         }
 
         a, button {
+            padding: 0.8em 3em 0.8em 1.4em;
+            width: 100%;
             white-space: nowrap;
             cursor: pointer;
             color: #000;

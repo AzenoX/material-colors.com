@@ -114,16 +114,6 @@
                                     </tr>
                                 </table>
                             </div>
-{{--                            <div class="selected__wrapper__body__variations">--}}
-{{--                                <div class="selected__wrapper__body__variations__lighter" style="background:#F47D7B;">--}}
-{{--                                    <p class="selected__wrapper__body__variations__lighter__title bold fs12 m-1 montserrat tcenter">Lighter</p>--}}
-{{--                                    <p class="selected__wrapper__body__variations__lighter__text tcenter">#F47D7B</p>--}}
-{{--                                </div>--}}
-{{--                                <div class="selected__wrapper__body__variations__darker" style="background:#CA3E3C;">--}}
-{{--                                    <p class="selected__wrapper__body__variations__darker__title bold fs12 m-1 montserrat tcenter">Darker</p>--}}
-{{--                                    <p class="selected__wrapper__body__variations__darker__text tcenter">#CA3E3C</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
                         </div>
                     </div>
 

@@ -42,6 +42,7 @@ const tooltips = {
     '.gradientColorEdit': 'Edit this color|right',
     '.gradientColorRemove': 'Remove this color|right',
     '.gradientColorAdd': 'Add a color|right',
+    '.delete-info': 'Delete|top',
 }
 for (const property in tooltips) {
     const values = tooltips[property].split('|');

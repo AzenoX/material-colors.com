@@ -162,6 +162,7 @@ color_pickers_items.forEach((el) => {
                     gravity: "bottom",
                     position: "right",
                     backgroundColor: bg,
+                    escapeMarkup: false,
                 }).showToast();
             }
             else{
@@ -171,11 +172,12 @@ color_pickers_items.forEach((el) => {
                 el.classList.add('active');
 
                 Toastify({
-                    text: '<p></p><span><span style="color: #4CAF50;">✔</span>${bg} added !</span>',
+                    text: `<p></p><span><span style="color: #4CAF50;">✔</span>${bg} added !</span>`,
                     duration: 3000,
                     gravity: "bottom",
                     position: "right",
                     backgroundColor: bg,
+                    escapeMarkup: false,
                 }).showToast();
             }
 
@@ -188,7 +190,7 @@ color_pickers_items.forEach((el) => {
 //Init
 window.addEventListener('DOMContentLoaded', () => {
     if(color_pickers_items.length > 0){
-        const el = color_pickers_items[4];
+        const el = color_pickers_items[5];
         el.classList.add('active');
         editColor(el.style.backgroundColor, el);
     }
