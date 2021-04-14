@@ -1292,7 +1292,18 @@ form a {
   margin-left: 0.6em;
 }
 .btn-small {
-  padding: 0.8rem 1rem;
+  padding: 1.8rem 0.5rem 0.5rem 2rem;
+}
+.btn-botrightabs {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+  transform: skew(0);
+}
+.btn-botrightabs .btn__icon {
+  transform: skew(0);
 }
 .btn__icon {
   display: flex;
@@ -1401,6 +1412,24 @@ form a {
 }
 .btn_login_social:hover svg.btn_login_social__svg_animated {
   transform: translateX(10px);
+}
+
+/*=======================================
+*       Unique buttons
+=======================================*/
+#btnToTop {
+  position: relative;
+  bottom: 20px;
+  left: 50%;
+  padding: 5px 5px 5px 5px;
+  cursor: pointer;
+  fill: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transition: padding 0.2s ease;
+}
+#btnToTop:hover {
+  padding: 5px 2px 5px 8px;
 }
 
 @-webkit-keyframes mmfadeIn {

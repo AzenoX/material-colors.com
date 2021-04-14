@@ -13,7 +13,7 @@
     $firstColor = reset($colors);
     $lastColor = end($colors);
 
-    $hasColor = 'red';
+    $hasColor = '#2196f3';
 
 
     function buildGradientStr($colors, $angle){
@@ -38,6 +38,12 @@
     }
 
 
+    $favorites = [];
+    foreach($favs as $i => $f){
+        array_push($favorites, $f->gid);
+    }
+
+
     $marginPanels = '4';
 
 
@@ -45,13 +51,14 @@
 
     <style>
         body{
-            background: <?= $gradStr ?>;
+            background-image: <?= $gradStr ?>;
             background-attachment: fixed;
+            background-size: cover;
         }
     </style>
 
 
-    <section class="main" style="margin-top: 3.4rem;">
+    <section id="main-section" class="main" style="margin-top: 3.4rem;margin-bottom: 98vh;">
 
         <h1 class="text-white text-center fs30 mb-0" style="margin-bottom: 2em;">Gradient: <?= ucfirst($data->gname) ?></h1>
 
@@ -69,7 +76,7 @@
 
         <div class="flex flex-wrap flex-even">
 
-            <div class="panel shadowed height-fit" style="flex: 1; margin-left: <?= $marginPanels ?>em; margin-right: <?= $marginPanels ?>em;">
+            <div id="div_left__code" class="panel shadowed height-fit" style="flex: 1; margin-left: <?= $marginPanels ?>em; margin-right: <?= $marginPanels ?>em;">
                 <p class="gradient_panel__title" style="margin-left: 1em;">CSS Code</p>
 
                 <div class="code_sample">
@@ -78,7 +85,7 @@
 
                 <p id="originalCode" style="display: none;"><?= generateCss($colors, $angle, $data->gname) ?></p>
 
-                <div style="width: 100%; text-align: center; margin-top: 2em;">
+                <div style="width: 100%; text-align: center; margin-top: 2em;" class="flex flex-even">
                     <button class="btn copyBtnGradient">
                         <span aria-hidden="true" class="btn__left" style="background: {{ '#' . $firstColor }};"></span>
                         <span class="btn__text">
@@ -89,22 +96,33 @@
                         </span>
                         <span aria-hidden="true" class="btn__right" style="background: {{ '#' . $lastColor }};"></span>
                     </button>
+
+                    <button class="btn btn-down-to-bot">
+                        <span aria-hidden="true" class="btn__left" style="background: {{ '#' . $firstColor }};"></span>
+                        <span class="btn__text">
+                            Scroll to View&nbsp;
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: rotate(90deg);">
+                                <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/>
+                            </svg>
+                        </span>
+                        <span aria-hidden="true" class="btn__right" style="background: {{ '#' . $lastColor }};"></span>
+                    </button>
                 </div>
             </div>
 
 
 
-            <div class="panel shadowed gradient_panel height-fit w40" style="flex: 1; margin-left: <?= $marginPanels ?>em; margin-right: <?= $marginPanels ?>em;">
+            <div id="div_right__gradient" class="panel shadowed gradient_panel height-fit w40" style="flex: 1; margin-left: <?= $marginPanels ?>em; margin-right: <?= $marginPanels ?>em;">
                 <div class="gradient_panel__header">
                     <div class="gradient_panel__header__titles">
                         <p class="gradient_panel__header__titles__title gradient_panel__title"><?= ucfirst($data->gname) ?></p>
                         <p class="gradient_panel__header__titles__author"><?= $data->name ?></p>
                     </div>
-                    <div class="gradient_panel__header__favs favs_add__btn" data-id="<?= $data->gid ?>">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M12 6.76l1.379 4.246h4.465l-3.612 2.625 1.379 4.246-3.611-2.625-3.612 2.625 1.379-4.246-3.612-2.625h4.465l1.38-4.246zm0-6.472l-2.833 8.718h-9.167l7.416 5.389-2.833 8.718 7.417-5.388 7.416 5.388-2.833-8.718 7.417-5.389h-9.167l-2.833-8.718z"/>
+                    <div class="gradient_panel__header__favs">
+                        <svg class="favs_add__btn" data-id="<?= $data->gid ?>" style="fill: <?= (in_array($data->gid, $favorites)) ? $hasColor : '#000' ?>; cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"/>
                         </svg>
-                        <p><?= $data->favs ?></p>
+                        &nbsp;<span><?= $favsCount[$data->gid] ?? 0 ?></span>
                     </div>
                 </div>
 
@@ -154,8 +172,13 @@
 
         </div>
 
+
     </section>
 
+
+    <svg id="btnToTop" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" style="transform: rotate(-90deg) translateX(-50%);">
+        <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/>
+    </svg>
 
     <!--Exports Modals - Menu-->
     <div class="modal micromodal-slide" id="modal_color" aria-hidden="true">
@@ -169,10 +192,6 @@
                 <main class="modal__content flex flex-col" id="modal-1-content">
                     <form class="no-submit" style="width: 100%;">
                         <input type="hidden" value="" id="color_index">
-{{--                        <div class="form-row">--}}
-{{--                            <label for="color_input">Color:</label>--}}
-{{--                            <input type="text" placeholder="Color (Ex: #f00)" id="color_input">--}}
-{{--                        </div>--}}
 
                         <div id="pickr"></div>
                         <input type="hidden" name="color_value" id="color_value" value="">
@@ -286,7 +305,7 @@
         }
         function applyGradientToItems(){
             //Change bg
-            document.body.style.background = gradient;
+            document.body.style.backgroundImage = gradient;
         }
 
         applyGradientToItems(gradient);
@@ -335,14 +354,13 @@
 
 
         <?php if(!Auth::guest()): ?>
-            const addBtns = document.querySelectorAll('.favs_add__btn');
-            addBtns.forEach((el) => {
+            const addFavsBtns = document.querySelectorAll('.favs_add__btn');
+            addFavsBtns.forEach((el) => {
                 el.addEventListener('click', () => {
                     const gid = el.getAttribute('data-id');
                     fetch(`<?= route('favs_add', ['uid' => Auth::user()->id]) ?>/${gid}`)
                         .then(data => data.text())
                         .then(data => {
-                            console.log(data);
                             if(data === 'added'){
                                 el.style.fill = '<?= $hasColor ?>';
                                 el.nextElementSibling.innerHTML = (parseInt(el.nextElementSibling.innerHTML) + 1) + '';
@@ -357,6 +375,57 @@
                 });
             });
         <?php endif; ?>
+
+
+        //Scroll Listener
+        const allElementsUnderBody = document.querySelector('#main-section').querySelectorAll('*');
+        const divLeft = document.querySelector('#div_left__code');
+        const divRight = document.querySelector('#div_right__gradient');
+        const header_svgs = document.querySelector('#header_svgs');
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            console.log(scroll);
+
+            if(scroll > 400){
+                let opacity = 1 - ((scroll - 400) / 700);
+                if(opacity > 1) opacity = 1;
+                if(opacity < 0) opacity = 0;
+                allElementsUnderBody.forEach((el) => {
+                    el.style.opacity = opacity;
+                });
+                header_svgs.style.opacity = opacity;
+            }
+            else{
+                allElementsUnderBody.forEach((el) => {
+                    el.style.opacity = '1';
+                });
+                header_svgs.style.opacity = '1';
+            }
+
+
+            divLeft.style.transform = 'translateY(' + (scroll / 6) + 'px)';
+            divRight.style.transform = 'translateY(' + (scroll / 4) + 'px)';
+        });
+
+
+        const btnToBot = document.querySelectorAll('.btn-down-to-bot');
+        btnToBot.forEach((el) => {
+            el.addEventListener('click', () => {
+                const maxScroll = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+                window.scrollTo({
+                    top: maxScroll,
+                    behavior: 'smooth',
+                });
+            });
+        });
+
+        const btnToTop = document.querySelector('#btnToTop');
+        btnToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        });
 
 
     </script>

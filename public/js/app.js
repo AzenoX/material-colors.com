@@ -6702,7 +6702,7 @@ var tooltips = {
   '.gradientColorEdit': 'Edit this color|right',
   '.gradientColorRemove': 'Remove this color|right',
   '.gradientColorAdd': 'Add a color|right',
-  '.delete-info': 'Delete|top'
+  '.delete-info': 'Delete|right'
 };
 
 for (var property in tooltips) {
