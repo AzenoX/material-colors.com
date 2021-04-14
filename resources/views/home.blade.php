@@ -45,7 +45,7 @@
                 <div class="hide_on_mobile">
                     <button class="btn exportBtn" id="exportBtn">
                         <span aria-hidden="true" class="btn__left" style="background: {{ $defaultColor }};"></span>
-                        <span class="btn__text">Export Colors (<span id="export_selected_count">0</span> selected)</span>
+                        <span class="btn__text">Export Colors (<span id="export_selected_count">0</span>&nbsp;selected)</span>
                         <span aria-hidden="true" class="btn__right" style="background: {{ $defaultColor }};"></span>
                     </button>
                 </div>

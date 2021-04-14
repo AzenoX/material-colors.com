@@ -50,7 +50,7 @@
                                 <p class="gradient_content_header__author">Tags ???</p>
                             </div>
                             <div class="flex flex-middle">
-                                <a class="btn btn-red" href="{{ route('account.my_gradients__delete', ['id' => $gradient->gid]) }}">
+                                <a class="btn btn-red" href="{{ route('account.my_gradients__delete', ['id' => $gradient->gid, 'route' => urlencode('-account-gradients')]) }}">
                                     <span aria-hidden="true" class="btn__left" style="background: #{{ $firstColor }};"></span>
                                     <span class="btn__text montserrat">Delete</span>
                                     <span aria-hidden="true" class="btn__right" style="background: #{{ $lastColor }};"></span>

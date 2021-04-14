@@ -64,7 +64,7 @@
                             </div>
                             <div class="flex flex-middle">
                                 <?php if((!Auth::guest()) && (Auth::user()->name === $gradient->name)): ?>
-                                    <a class="btn btn-red btn-small delete-info btn-botrightabs" href="{{ route('gradient', ['id' => $gradient->gid]) }}">
+                                    <a class="btn btn-red btn-small delete-info btn-botrightabs" href="{{ route('account.my_gradients__delete', ['id' => $gradient->gid, 'route' => urlencode('gradients')]) }}">
                                         <span class="btn__icon">
                                             <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
                                                 <path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
