@@ -17,16 +17,19 @@
 
         <div class="flex flex-end mt-2 w90" style="margin-left: auto; margin-right: auto;">
 
-            <div class="panel shadowed gradient_panel height-fit w50" style="width: 40%; margin: 0;">
+            <div class="panel shadowed gradient_panel height-fit w80" style="width: 40%; margin: 0;">
                 <form id="gradientForm" class="no-bg" style="margin-top: -1em !important; width: 100%;">
                     @csrf
                     <h2 class="mb-2">Create a new Gradient</h2>
                     <div class="gradient_panel__header">
                         <div class="gradient_panel__header__titles">
                             <div class="form-row">
-                                <div class="flex">
+                                <div class="flex mb-3">
                                     <input type="text" placeholder="Gradient Name" name="gname" id="gname">
-                                    <div class="degree_picker">
+                                </div>
+                                <div class="flex flex-middle">
+                                    <p class="mr-3">Select the angle: </p>
+                                    <div id="anglePicker" class="degree_picker">
                                         <span class="degree_picker__title">0°</span>
                                         <span class="degree_picker__cursor"></span>
                                     </div>
@@ -203,7 +206,8 @@
                     div.classList.add('gradient_panel__body_color');
                     div.style.background = newColor;
                     div.innerHTML = '<span class="gradientColorEdit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.127 22.564l-7.126 1.436 1.438-7.125 5.688 5.689zm-4.274-7.104l5' +
-                        '.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/></svg></span><span class="gradientColorRemove"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z"/></svg></span><input type="number" class="input-percent mt-1" placeholder="%" style="width: 50%;">';
+                        '.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/></svg></span><span class="gradientColorRemove"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z"/></svg></span><input type="number" class="input-percent mt-1" ' +
+                        'placeholder="%" style="width: 50%;"><button class="input-autogen">Auto Fill</button>';
                     const lastNode = gradientBody.lastElementChild;
                     gradientBody.insertBefore(div, lastNode);
 
@@ -217,8 +221,6 @@
             }
 
 
-            // changeColor(newColor, colorEditIndex.value);
-            // applyGradientToItems(gradient);
         });
 
 
@@ -234,19 +236,11 @@
                 MicroModal.show('modal_color');
             });
         });
-        gradientRemoveBtns.forEach((el) => {
-            el.addEventListener('click', () => {
-                el.parentElement.remove();
-            });
+        document.addEventListener('click', (e) => {
+            if(e.target && e.target.classList.contains('gradientColorRemove')){
+                e.target.parentElement.remove();
+            }
         });
-        gradientEditBtns.forEach((el, index) => {
-            el.addEventListener('click', () => {
-                colorEditIndex.value = index;
-                colorEditReason.value = 'edit';
-                MicroModal.show('modal_color');
-            });
-        });
-
         document.addEventListener('click',function(e){
             if(e.target && e.target.classList.contains('gradientColorEdit')){
                 colorEditIndex.value = [...e.target.parentElement.parentElement.children].indexOf(e.target.parentElement);
@@ -256,16 +250,77 @@
         });
 
 
+        function calculatePercents(divs){
 
-        function calculatePercent(el, index, arrayLen){
-            const value = el.querySelector('.input-percent').value;
+            let minPercent = 0;
+            let maxPercent = 100;
 
-            if(value === ''){
-                return ((100 / parseInt(arrayLen)) * (index + 1));
-            }
-            else{
-                return value;
-            }
+            const percents = [];
+
+            console.log('Divs:');
+            console.log(divs);
+
+            divs.forEach((el, index) => {
+
+                if(!el.children[0].classList.contains('gradientColorAdd')){
+
+                    console.log('El ('+index+'):');
+                    console.log(el);
+
+                    console.log('El Value ('+index+'):');
+                    console.log(el.querySelector('.input-percent').value);
+
+                    const v = el.querySelector('.input-percent').value;
+
+                    if(v === ''){
+                        /*let current = el;
+                        let countLeft = 0;
+
+                        //Get min Percent
+                        while(current){
+                            if(current.value === ''){
+                                countLeft++;
+                                current = current.previousElementSibling;
+                            }
+                            else{
+                                minPercent = current.value;
+                                break;
+                            }
+                        }
+
+                        current = el;
+                        let countRight = 0;
+
+                        //Get max Percent
+                        while(current){
+                            if(current.value === ''){
+                                countRight++;
+                                current = current.nextElementSibling;
+                            }
+                            else{
+                                maxPercent = current.value;
+                                break;
+                            }
+                        }
+
+                        const len = countLeft + countRight + 1;
+                        const index = countLeft;
+
+                        const step = (maxPercent - minPercent) / len;
+
+                        const percent = step * (index + 1);
+                        percents.push(percent);*/
+                        percents.push(-1);
+                    }
+                    else{
+                        percents.push(v);
+                    }
+
+                }
+            });
+
+
+            return percents;
         }
 
 
@@ -274,19 +329,26 @@
             e.preventDefault();
 
             const gname = gradientForm.querySelector('#gname').value;
-            const angle = gradientForm.querySelector('#angle') ? gradientForm.querySelector('#angle').value : '0';
+            const angle = gradientForm.querySelector('#anglePicker').querySelector('.degree_picker__title').innerHTML.replaceAll('°', '');
             const colorsDivs = gradientForm.querySelectorAll('.gradient_panel__body_color');
-            let colors = {};
+            /*let colors = {};
             colorsDivs.forEach((el, index) => {
                 if (index !== colorsDivs.length - 1){
-                    const percent = calculatePercent(el, index, colorsDivs.length);
+                    const percent = Math.round(calculatePercent(el, index, colorsDivs.length));
                     const color = el.style.backgroundColor;
 
                     const cols = splitRgb(color);
                     const col = rgbToHex(cols[0], cols[1], cols[2]);
                     colors[percent] = col.substring(1, col.length);
                 }
-            });
+            });*/
+
+            console.log('ColorsDiv:');
+            console.log(colorsDivs);
+
+            console.log(calculatePercents(colorsDivs));
+            return;
+
 
             const data = {
                 'gname': gname,
@@ -311,7 +373,7 @@
             .then(data => {
                 Toastify({
                     text: "<p></p><span>"+data+"</span>",
-                    duration: 3000000,
+                    duration: 3000,
                     gravity: "bottom",
                     position: "right",
                     backgroundColor: '#f44336',
@@ -349,8 +411,8 @@
 
                 const top = radius_y - (Math.sin(angle) * radius_y);
                 const left = radius_x - (Math.cos(angle) * radius_x);
-                cursor.style.top = ``;
-                cursor.style.left = left + 'px';
+                cursor.style.top = `${top}px`;
+                cursor.style.left = `${left}px`;
 
 
                 const degreePre = (((angle > 0 ? angle : (2 * Math.PI + angle)) * 360) / (2 * Math.PI)) - 90;

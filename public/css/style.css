@@ -1709,26 +1709,28 @@ input {
 .degree_picker {
   background: #aaa;
   border: 2px solid #2196f3;
+  box-shadow: 0 0 0 10px #aaa;
   border-radius: 50%;
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
 .degree_picker__title {
-  font-size: 4.8rem;
+  font-size: 2.4rem;
 }
 .degree_picker__cursor {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: orange;
+  background: #2196f3;
   height: 20px;
   width: 20px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .gradient {
@@ -1841,6 +1843,16 @@ input {
   align-items: center;
   background: #fff;
   border-radius: 50%;
+  cursor: pointer;
+}
+.gradient_panel__body_color .input-autogen {
+  margin-top: 0;
+  padding: 0.2em 0.6em;
+  border: none;
+  outline: none;
+  background: #2196f3;
+  color: #fff;
+  width: 50%;
   cursor: pointer;
 }
 .gradient_panel__footer {
