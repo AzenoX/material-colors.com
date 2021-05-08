@@ -140,6 +140,20 @@
 
                 cursor: pointer;
             }
+
+            .input-autogen{
+                margin-top: 0;
+                padding: 0.2em 0.6em;
+
+                border: none;
+                outline: none;
+                background: $alternateColor;
+                color: #fff;
+
+                width: 50%;
+
+                cursor: pointer;
+            }
         }
     }
 

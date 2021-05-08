@@ -45,7 +45,7 @@
                 <div class="hide_on_mobile">
                     <button class="btn exportBtn" id="exportBtn">
                         <span aria-hidden="true" class="btn__left" style="background: {{ $defaultColor }};"></span>
-                        <span class="btn__text">Export Colors (<span id="export_selected_count">0</span> selected)</span>
+                        <span class="btn__text">Export Colors (<span id="export_selected_count">0</span>&nbsp;selected)</span>
                         <span aria-hidden="true" class="btn__right" style="background: {{ $defaultColor }};"></span>
                     </button>
                 </div>
@@ -114,16 +114,6 @@
                                     </tr>
                                 </table>
                             </div>
-{{--                            <div class="selected__wrapper__body__variations">--}}
-{{--                                <div class="selected__wrapper__body__variations__lighter" style="background:#F47D7B;">--}}
-{{--                                    <p class="selected__wrapper__body__variations__lighter__title bold fs12 m-1 montserrat tcenter">Lighter</p>--}}
-{{--                                    <p class="selected__wrapper__body__variations__lighter__text tcenter">#F47D7B</p>--}}
-{{--                                </div>--}}
-{{--                                <div class="selected__wrapper__body__variations__darker" style="background:#CA3E3C;">--}}
-{{--                                    <p class="selected__wrapper__body__variations__darker__title bold fs12 m-1 montserrat tcenter">Darker</p>--}}
-{{--                                    <p class="selected__wrapper__body__variations__darker__text tcenter">#CA3E3C</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
                         </div>
                     </div>
 

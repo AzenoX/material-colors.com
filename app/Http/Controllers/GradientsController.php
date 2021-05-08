@@ -41,7 +41,19 @@ class GradientsController extends Controller
             ->get()
             ->toArray();
 
-        return view('gradients/gradient', ['id' => $id, 'data' => $data[0]]);
+        if(Auth::guest()){
+            $favsForUser = [];
+        }
+        else{
+            $favsForUser = DB::table('favs__gradients')
+                ->select('gradient_id as gid')
+                ->where('user_id', '=', Auth::user()->id)
+                ->get()
+                ->toArray();
+        }
+        $favsCount = FavsController::getCountForGradients();
+
+        return view('gradients/gradient', ['id' => $id, 'data' => $data[0], 'favs' => $favsForUser, 'favsCount' => $favsCount]);
     }
 
 

@@ -23,12 +23,12 @@ class AccountController extends Controller
         return view('account.my_gradients', ['data' => $data]);
     }
 
-    public static function my_gradients__delete($id){
+    public static function my_gradients__delete($id, $route){
         $gradient = Gradient::select('*')
             ->where('id', '=', $id);
 
         $gradient->delete();
 
-        return redirect('/account/gradients');
+        return redirect(str_replace('-', '/', urldecode($route)));
     }
 }

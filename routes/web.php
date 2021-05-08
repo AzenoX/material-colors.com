@@ -60,7 +60,7 @@ Route::post('/account/createGradient', ['as' => 'account.create_gradient_post', 
 
 Route::get('/account/gradients', ['as' => 'account.my_gradients', 'uses' => '\App\Http\Controllers\account\AccountController@my_gradients'])->middleware(['auth', 'verified']);
 
-Route::get('/account/gradients/delete/{id}', ['as' => 'account.my_gradients__delete', 'uses' => '\App\Http\Controllers\account\AccountController@my_gradients__delete'])->middleware(['auth', 'verified']);
+Route::get('/account/gradients/delete/{id}/{route}', ['as' => 'account.my_gradients__delete', 'uses' => '\App\Http\Controllers\account\AccountController@my_gradients__delete'])->middleware(['auth', 'verified']);
 
 
 

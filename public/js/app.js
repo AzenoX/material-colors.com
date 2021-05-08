@@ -6701,7 +6701,8 @@ var tooltips = {
   '.gradientColorCopy': 'Copy|right',
   '.gradientColorEdit': 'Edit this color|right',
   '.gradientColorRemove': 'Remove this color|right',
-  '.gradientColorAdd': 'Add a color|right'
+  '.gradientColorAdd': 'Add a color|right',
+  '.delete-info': 'Delete|right'
 };
 
 for (var property in tooltips) {
@@ -7236,18 +7237,20 @@ color_pickers_items.forEach(function (el) {
           duration: 3000,
           gravity: "bottom",
           position: "right",
-          backgroundColor: bg
+          backgroundColor: bg,
+          escapeMarkup: false
         }).showToast();
       } else {
         exportColors.push(bg);
         el.parentElement.classList.add('color_exporting');
         el.classList.add('active');
         Toastify({
-          text: '<p></p><span><span style="color: #4CAF50;">✔</span>${bg} added !</span>',
+          text: "<p></p><span><span style=\"color: #4CAF50;\">\u2714</span>".concat(bg, " added !</span>"),
           duration: 3000,
           gravity: "bottom",
           position: "right",
-          backgroundColor: bg
+          backgroundColor: bg,
+          escapeMarkup: false
         }).showToast();
       }
 
@@ -7258,7 +7261,7 @@ color_pickers_items.forEach(function (el) {
 
 window.addEventListener('DOMContentLoaded', function () {
   if (color_pickers_items.length > 0) {
-    var el = color_pickers_items[4];
+    var el = color_pickers_items[5];
     el.classList.add('active');
     editColor(el.style.backgroundColor, el);
   }

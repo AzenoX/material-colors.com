@@ -19,7 +19,6 @@ body,html{
 }
 
 
-$alternateColor: #2196f3;
 @mixin gradientAnim($size: 200%){
     background: $alternateColor;
     background: linear-gradient(to right, #00d2ff, #3a7bd5, #00d2ff);
@@ -115,7 +114,6 @@ ul.dropdown-content {
 
     li {
         position: relative;
-        padding: 0.8em 3em 0.8em 1.4em;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -152,6 +150,8 @@ ul.dropdown-content {
         }
 
         a, button {
+            padding: 0.8em 3em 0.8em 1.4em;
+            width: 100%;
             white-space: nowrap;
             cursor: pointer;
             color: #000;

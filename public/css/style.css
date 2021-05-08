@@ -104,7 +104,6 @@ ul.dropdown-content {
 }
 ul.dropdown-content li {
   position: relative;
-  padding: 0.8em 3em 0.8em 1.4em;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -137,6 +136,8 @@ ul.dropdown-content li:hover a.red, ul.dropdown-content li:hover button.red {
   color: #ef5350;
 }
 ul.dropdown-content li a, ul.dropdown-content li button {
+  padding: 0.8em 3em 0.8em 1.4em;
+  width: 100%;
   white-space: nowrap;
   cursor: pointer;
   color: #000;
@@ -1291,6 +1292,28 @@ form a {
   fill: #fff;
   margin-left: 0.6em;
 }
+.btn-small {
+  padding: 1.8rem 0.5rem 0.5rem 2rem;
+}
+.btn-botrightabs {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+  transform: skew(0);
+}
+.btn-botrightabs .btn__icon {
+  transform: skew(0);
+}
+.btn__icon {
+  display: flex;
+  align-items: center;
+  transform: skew(30deg);
+}
+.btn__icon svg {
+  fill: #fff;
+}
 .btn__left {
   position: absolute;
   left: -25px;
@@ -1390,6 +1413,24 @@ form a {
 }
 .btn_login_social:hover svg.btn_login_social__svg_animated {
   transform: translateX(10px);
+}
+
+/*=======================================
+*       Unique buttons
+=======================================*/
+#btnToTop {
+  position: relative;
+  bottom: 20px;
+  left: 50%;
+  padding: 5px 5px 5px 5px;
+  cursor: pointer;
+  fill: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transition: padding 0.2s ease;
+}
+#btnToTop:hover {
+  padding: 5px 2px 5px 8px;
 }
 
 @-webkit-keyframes mmfadeIn {
@@ -1666,6 +1707,33 @@ input {
   color: #fff;
 }
 
+.degree_picker {
+  background: #aaa;
+  border: 2px solid #2196f3;
+  box-shadow: 0 0 0 10px #aaa;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.degree_picker__title {
+  font-size: 2.4rem;
+}
+.degree_picker__cursor {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2196f3;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .gradient {
   margin-bottom: 4em;
   width: 30%;
@@ -1776,6 +1844,16 @@ input {
   align-items: center;
   background: #fff;
   border-radius: 50%;
+  cursor: pointer;
+}
+.gradient_panel__body_color .input-autogen {
+  margin-top: 0;
+  padding: 0.2em 0.6em;
+  border: none;
+  outline: none;
+  background: #2196f3;
+  color: #fff;
+  width: 50%;
   cursor: pointer;
 }
 .gradient_panel__footer {
@@ -2460,13 +2538,13 @@ input {
 /*=======================================
 *       Code Samples
 =======================================*/
-.code_sample {
+.code_sample, .export__code_wrapper {
   background: #1e293b;
   border-radius: 2px;
   padding: 1em;
   margin: 1em;
 }
-.code_sample__item {
+.code_sample__item, .export__code_wrapper__item {
   font-size: 0.9em !important;
   white-space: pre-wrap !important;
 }

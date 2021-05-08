@@ -91,7 +91,7 @@ class FavsController extends Controller
     public static function favsPage(){
         $data = Favs_Gradient::where('favs__gradients.user_id', '=', Auth::user()->id)
             ->join('gradients', 'favs__gradients.gradient_id', '=', 'gradients.id')
-            ->join('users', 'favs__gradients.user_id', '=', 'users.id')
+            ->join('users', 'gradients.user_id', '=', 'users.id')
             ->orderBy('gradients.id', 'desc')
             ->get()
             ->toArray();
