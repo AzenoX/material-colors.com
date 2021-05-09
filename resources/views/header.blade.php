@@ -31,6 +31,7 @@
                 <li class="notHover"><a class="bold fs14">Material-Colors.com</a></li>
                 <li class="notHover"><a class="fs11 dropdown-trigger" data-trigger="dropdown-palette">Color Palettes <span class="fs09">▼</span></a></li>
                 <li><a href="{{ route('gradients') }}" class="fs11">Gradients</a></li>
+                <li><a href="{{ route('social') }}" class="fs11">Social Colors</a></li>
                 <li><a class="fs11">Custom Palettes</a></li>
             </ul>
             <ul>

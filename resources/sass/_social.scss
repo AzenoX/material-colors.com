@@ -1,0 +1,62 @@
+.social{
+    margin-bottom: 4em;
+    width: 20%;
+    min-width: 400px;
+
+    color: #000;
+
+    position: relative;
+
+    &_content{
+        padding: 2em;
+        margin: 10px;
+        width: calc(100% - 20px);
+
+        background: #fff;
+
+        position: relative;
+        @include center;
+
+        &_header{
+            display: flex;
+            justify-content: space-between;
+            width: 95%;
+            align-items: center;
+
+            p, div > span{
+                @include font('Montserrat');
+            }
+
+            svg{
+                cursor: pointer;
+                margin-right: 20px;
+            }
+
+
+            &__title{
+                font-weight: bold;
+                font-size: 1.3rem;
+            }
+        }
+
+        &_body{
+            height: 12vh;
+            width: 100%;
+            margin-top: 2em;
+            padding: 0;
+
+            @include center;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            & > .btn{
+                & > span{
+                    pointer-events: none;
+                }
+            }
+        }
+
+    }
+}

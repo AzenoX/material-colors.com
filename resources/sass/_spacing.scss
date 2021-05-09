@@ -38,6 +38,31 @@ $i: 0;
 }
 
 
+/*============================
+    Margins
+=============================*/
+$i: 0;
+@while $i < 10{
+    .p-#{str-replace(#{$i}, '.', '')}{
+        padding: #{$i}rem !important;
+    }
+    .pt-#{str-replace(#{$i}, '.', '')}{
+        padding-top: #{$i}rem !important;
+    }
+    .pr-#{str-replace(#{$i}, '.', '')}{
+        padding-right: #{$i}rem !important;
+    }
+    .pb-#{str-replace(#{$i}, '.', '')}{
+        padding-bottom: #{$i}rem !important;
+    }
+    .pl-#{str-replace(#{$i}, '.', '')}{
+        padding-left: #{$i}rem !important;
+    }
+
+    $i: $i + 0.5;
+}
+
+
 /*=======================================
 *       Positioning
 =======================================*/
