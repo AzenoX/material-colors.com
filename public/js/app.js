@@ -6929,7 +6929,7 @@ function getSelectedColorsAsAssociative() {
     if (el.parentElement.classList.contains('color_exporting')) {
       var col = el.style.backgroundColor;
       var c_name = el.getAttribute('data-name');
-      var c_tint = el.getAttribute('data-tint');
+      var c_tint = el.getAttribute('data-tint') || '';
       colors[c_name + "_" + c_tint] = col;
     }
   });
@@ -7166,7 +7166,7 @@ function editColor(newColor, el) {
 
   var selected_text = document.querySelector('.selected__wrapper__header__color');
   var colName = el.getAttribute('data-name').replaceAll('_', ' ');
-  var colTint = el.getAttribute('data-tint');
+  var colTint = el.getAttribute('data-tint') || '';
   selected_text.innerHTML = "".concat(capitalizeFirstLetter(colName), " ").concat(colTint); //Change Color values - ARRAY
 
   var rgb = extractRgbArray(newColor);
@@ -7260,7 +7260,7 @@ color_pickers_items.forEach(function (el) {
 }); //Init
 
 window.addEventListener('DOMContentLoaded', function () {
-  if (color_pickers_items.length > 0) {
+  if (color_pickers_items.length > 0 && window.location.href.indexOf("custom") === -1) {
     var el = color_pickers_items[5];
     el.classList.add('active');
     editColor(el.style.backgroundColor, el);

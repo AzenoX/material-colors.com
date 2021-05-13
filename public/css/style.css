@@ -2329,6 +2329,59 @@ input {
   pointer-events: none;
 }
 
+.custom {
+  margin-bottom: 4em;
+  width: 30%;
+  min-width: 450px;
+  background: #fff;
+  color: #000;
+  position: relative;
+}
+.custom_content {
+  padding: 2em;
+  margin: 10px;
+  width: calc(100% - 20px);
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  background: #fff;
+}
+.custom_content_header {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  align-items: center;
+}
+.custom_content_header p, .custom_content_header div > span {
+  font-family: "Montserrat", sans-serif;
+}
+.custom_content_header svg {
+  cursor: pointer;
+}
+.custom_content_header__title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.custom_content_header__author {
+  font-weight: 200;
+  color: #666;
+  font-size: 0.8rem;
+}
+.custom_content_body {
+  height: 12vh;
+  width: 100%;
+  margin-top: 2em;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+.custom_content_body > div {
+  margin: 0 5px;
+  flex: 1;
+  height: 100%;
+}
+
 .ns_form {
   padding: 0;
   width: -moz-fit-content;

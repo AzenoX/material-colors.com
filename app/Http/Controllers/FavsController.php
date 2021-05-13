@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Favs_Gradient;
+use App\Models\Favs_Palettes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -98,5 +99,83 @@ class FavsController extends Controller
         $favsCount = FavsController::getCountForGradients();
 
         return view('account.favs', ['data' => $data, 'favsCount' => $favsCount]);
+    }
+
+
+
+
+
+    /**
+     * Add a gradient to favs
+     * @param $uid
+     * @param $gid
+     */
+    public static function addCustoms($uid, $pid): void
+    {
+        Favs_Palettes::create(['pid' => $pid, 'uid' => $uid]);
+    }
+
+    /**
+     * Remove a gradient from favs
+     * @param $uid
+     * @param $gid
+     */
+    public static function remCustoms($uid, $pid): void
+    {
+        Favs_Palettes::whereRaw('uid = ? AND pid = ?', [$uid, $pid])->delete();
+    }
+
+
+    /**
+     * Check if a user has a gradient in his favs
+     * @param $uid
+     * @param $gid
+     * @return bool
+     */
+    public static function hasCustoms($uid, $pid): bool
+    {
+        $res = Favs_Palettes::whereRaw('uid = ? AND pid = ?', [$uid, $pid])->get()->toArray();
+        if($res)
+            return true;
+        else
+            return false;
+    }
+
+    /**
+     * Main route
+     * @param $uid
+     * @param $gid
+     * @return string
+     */
+    public static function addingRouteCustoms($uid, $pid): string
+    {
+        if(empty($pid) || $pid === '')
+            exit();
+
+        if(self::hasCustoms($uid, $pid)){
+            self::remCustoms($uid, $pid);
+            return 'removed';
+        }
+        else{
+            self::addCustoms($uid, $pid);
+            return 'added';
+        }
+    }
+
+
+    /**
+     * Get how many favs a gradient have
+     * @param $gid
+     * @return mixed
+     */
+    public static function getCountForCustoms()
+    {
+        $counts = [];
+
+        foreach(Favs_Palettes::all()->toArray() as $palette){
+            $counts[$palette['pid']] = Favs_Palettes::where('pid', '=', $palette['pid'])->count();
+        }
+
+        return $counts;
     }
 }

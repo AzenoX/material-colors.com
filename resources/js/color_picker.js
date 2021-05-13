@@ -59,7 +59,7 @@ function editColor(newColor, el){
     //Change text values
     const selected_text = document.querySelector('.selected__wrapper__header__color');
     const colName = el.getAttribute('data-name').replaceAll('_', ' ');
-    const colTint = el.getAttribute('data-tint');
+    const colTint = el.getAttribute('data-tint') || '';
 
     selected_text.innerHTML = `${capitalizeFirstLetter(colName)} ${colTint}`;
 
@@ -189,7 +189,7 @@ color_pickers_items.forEach((el) => {
 
 //Init
 window.addEventListener('DOMContentLoaded', () => {
-    if(color_pickers_items.length > 0){
+    if(color_pickers_items.length > 0 && window.location.href.indexOf("custom") === -1){
         const el = color_pickers_items[5];
         el.classList.add('active');
         editColor(el.style.backgroundColor, el);

@@ -32,7 +32,7 @@
                 <li class="notHover"><a class="fs11 dropdown-trigger" data-trigger="dropdown-palette">Color Palettes <span class="fs09">▼</span></a></li>
                 <li><a href="{{ route('gradients') }}" class="fs11">Gradients</a></li>
                 <li><a href="{{ route('social') }}" class="fs11">Social Colors</a></li>
-                <li><a class="fs11">Custom Palettes</a></li>
+                <li><a href="{{ route('customs.customs') }}" class="fs11">Custom Palettes</a></li>
             </ul>
             <ul>
 
@@ -71,6 +71,7 @@
             <span>&nbsp;</span>
         </li>
         <li><a href="{{ route('account.create_gradient') }}" class="roboto fs09">Create Gradient</a></li>
+        <li><a href="{{ route('account.create_custom') }}" class="roboto fs09">Create Palette</a></li>
 
         <li class="divider">
             <span>&nbsp;</span>

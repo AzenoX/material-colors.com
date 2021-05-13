@@ -16,7 +16,7 @@ function getSelectedColorsAsAssociative(){
         if(el.parentElement.classList.contains('color_exporting')){
             const col = el.style.backgroundColor;
             const c_name = el.getAttribute('data-name');
-            const c_tint = el.getAttribute('data-tint');
+            const c_tint = el.getAttribute('data-tint') || '';
             colors[c_name + "_" + c_tint] = col;
         }
     });

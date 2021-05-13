@@ -4,6 +4,7 @@ namespace App\Http\Controllers\account;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FavsController;
+use App\Models\CustomPalettes;
 use App\Models\Gradient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +26,15 @@ class AccountController extends Controller
 
     public static function my_gradients__delete($id, $route){
         $gradient = Gradient::select('*')
+            ->where('id', '=', $id);
+
+        $gradient->delete();
+
+        return redirect(str_replace('-', '/', urldecode($route)));
+    }
+
+    public static function my_customs__delete($id, $route){
+        $gradient = CustomPalettes::select('*')
             ->where('id', '=', $id);
 
         $gradient->delete();

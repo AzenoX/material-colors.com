@@ -30,7 +30,8 @@ Route::get('/palette/flat', ['as' => 'p_flat', 'uses' => '\App\Http\Controllers\
 /*=======================================
 *       Favorites
 =======================================*/
-Route::get('/favs/add/{uid}/{gid?}', ['as' => 'favs_add', 'uses' => '\App\Http\Controllers\FavsController@addingRoute']);
+Route::get('/favs/add/gradient/{uid}/{gid?}', ['as' => 'favs_add', 'uses' => '\App\Http\Controllers\FavsController@addingRoute']);
+Route::get('/favs/add/customs/{uid}/{pid?}', ['as' => 'favs_add_customs', 'uses' => '\App\Http\Controllers\FavsController@addingRouteCustoms']);
 
 
 
@@ -53,6 +54,15 @@ Route::get('/social', ['as' => 'social', 'uses' => '\App\Http\Controllers\Social
 
 
 /*=======================================
+*       Custom Palettes
+=======================================*/
+Route::get('/customs', ['as' => 'customs.customs', 'uses' => '\App\Http\Controllers\CustomController@getIndex']);
+Route::get('/custom/{id}', ['as' => 'customs.custom', 'uses' => '\App\Http\Controllers\CustomController@getCustomIndex']);
+
+
+
+
+/*=======================================
 *       Account
 =======================================*/
 Route::get('/account/home', ['as' => 'account.home', 'uses' => function(){
@@ -66,9 +76,14 @@ Route::get('/account/favs', ['as' => 'account.favs', 'uses' => '\App\Http\Contro
 Route::get('/account/createGradient', ['as' => 'account.create_gradient', 'uses' => '\App\Http\Controllers\account\CreateController@gradient'])->middleware(['auth', 'verified']);
 Route::post('/account/createGradient', ['as' => 'account.create_gradient_post', 'uses' => '\App\Http\Controllers\account\CreateController@gradientCreate'])->middleware(['auth', 'verified']);
 
+Route::get('/account/createPalette', ['as' => 'account.create_custom', 'uses' => '\App\Http\Controllers\account\CreateController@custom'])->middleware(['auth', 'verified']);
+Route::post('/account/createPalette', ['as' => 'account.create_custom_post', 'uses' => '\App\Http\Controllers\account\CreateController@customCreate'])->middleware(['auth', 'verified']);
+
 Route::get('/account/gradients', ['as' => 'account.my_gradients', 'uses' => '\App\Http\Controllers\account\AccountController@my_gradients'])->middleware(['auth', 'verified']);
 
 Route::get('/account/gradients/delete/{id}/{route}', ['as' => 'account.my_gradients__delete', 'uses' => '\App\Http\Controllers\account\AccountController@my_gradients__delete'])->middleware(['auth', 'verified']);
+
+Route::get('/account/customs/delete/{id}/{route}', ['as' => 'account.my_customs__delete', 'uses' => '\App\Http\Controllers\account\AccountController@my_customs__delete'])->middleware(['auth', 'verified']);
 
 
 
@@ -77,6 +92,7 @@ Route::get('/account/gradients/delete/{id}/{route}', ['as' => 'account.my_gradie
 *       APIs
 =======================================*/
 Route::get('/api/social/{name?}', '\App\Http\Controllers\ApiController@getSocialColors');
+Route::get('/api/customs/{name?}', '\App\Http\Controllers\ApiController@getCustomsColors');
 
 
 
