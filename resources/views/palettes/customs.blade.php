@@ -45,8 +45,8 @@
         function fetchApi(name){
             fetch(`https://beta.material-colors.com/api/customs/${name}`)
                 .then(data => data.text())
-                .then(data => {
-                    wrapper.innerHTML = data;
+                .then(html => {
+                    wrapper.innerHTML = html;
                 });
         }
 

@@ -177,7 +177,7 @@
         }
         function applyGradientToItems(){
             //Change bg
-            document.body.style.background = gradient;
+            document.body.style.backgroundColor = gradient;
         }
 
 
