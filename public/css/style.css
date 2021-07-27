@@ -2325,7 +2325,7 @@ input {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.social_content_body > .btn > span {
+.social_content_body > .btnCopy > span {
   pointer-events: none;
 }
 

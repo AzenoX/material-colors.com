@@ -33,7 +33,7 @@
         });
 
         function fetchApi(name){
-            fetch(`https://beta.material-colors.com/api/social/${name}`)
+            fetch(`https://material-colors.com/api/social/${name}`)
             .then(data => data.text())
             .then(data => {
                 wrapper.innerHTML = data;
