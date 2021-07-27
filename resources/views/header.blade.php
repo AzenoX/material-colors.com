@@ -33,21 +33,7 @@
                 <li><a href="{{ route('gradients') }}" class="fs11">Gradients</a></li>
                 <li><a href="{{ route('social') }}" class="fs11">Social Colors</a></li>
                 <li><a href="{{ route('customs.customs') }}" class="fs11">Custom Palettes</a></li>
-            </ul>
-            <ul>
-
-                @if (Auth::user() && Auth::user() !== null)
-                    <li class="notHover">
-                        <a class="fs11 dropdown-trigger flex flex-beet flex-middle" data-trigger="dropdown-account">
-                            <img class="header-account--img" src="https://eu.ui-avatars.com/api/?background=00BEFA&color=000&bold=true&name=<?= urlencode(Auth::user()->name) ?>">
-                            <p class="mr-05 ml-05"><?= Auth::user()->name ?></p>
-                            <span class="fs09">▼</span>
-                        </a>
-                    </li>
-                @else
-                    <li><a href="{{ route('login') }}" class="fs11">Login</a></li>
-                @endif
-
+                <li><a href="{{ route('blacky') }}" target="_blank" class="fs11">Blacky</a></li>
             </ul>
         </nav>
     </header>
