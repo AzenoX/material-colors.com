@@ -54,10 +54,29 @@ Route::get('/social', ['as' => 'social', 'uses' => '\App\Http\Controllers\Social
 
 
 /*=======================================
+*       Social Colors
+=======================================*/
+Route::get('/variants', ['as' => 'variants', 'uses' => '\App\Http\Controllers\VariantsController@index']);
+
+
+
+
+/*=======================================
 *       Custom Palettes
 =======================================*/
 Route::get('/customs', ['as' => 'customs.customs', 'uses' => '\App\Http\Controllers\CustomController@getIndex']);
 Route::get('/custom/{id}', ['as' => 'customs.custom', 'uses' => '\App\Http\Controllers\CustomController@getCustomIndex']);
+
+
+
+
+/*=======================================
+*       Social Colors
+=======================================*/
+Route::get('/blacky', function() {
+    return view('blacky');
+})->name('blacky');
+
 
 
 
