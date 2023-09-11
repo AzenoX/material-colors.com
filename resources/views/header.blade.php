@@ -28,11 +28,12 @@
 
         <nav class="roboto">
             <ul>
-                <li class="notHover"><a class="bold fs14">Material-Colors.com</a></li>
+                <li class="notHover"><a href="{{ route('home') }}" class="bold fs14">Material-Colors.com</a></li>
                 <li class="notHover"><a class="fs11 dropdown-trigger" data-trigger="dropdown-palette">Color Palettes <span class="fs09">▼</span></a></li>
                 <li><a href="{{ route('gradients') }}" class="fs11">Gradients</a></li>
                 <li><a href="{{ route('social') }}" class="fs11">Social Colors</a></li>
                 <li><a href="{{ route('customs.customs') }}" class="fs11">Custom Palettes</a></li>
+                <li><a href="{{ route('variants') }}" class="fs11">Variants</a></li>
                 <li><a href="{{ route('blacky') }}" target="_blank" class="fs11">Blacky</a></li>
             </ul>
         </nav>

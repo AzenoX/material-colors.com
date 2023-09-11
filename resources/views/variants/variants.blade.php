@@ -8,7 +8,7 @@
 
         <div class="flex flex-wrap flex-even w100">
             <div class="form-row w40">
-                <input id="inputColor" type="text" name="name" placeholder="Input Color ()" class="p-1 w100">
+                <input id="inputColor" type="text" name="name" placeholder="Input Color (HEX Format, e.g. #ff0000 or ff0000)" class="p-1 w100">
             </div>
         </div>
 
