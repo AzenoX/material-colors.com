@@ -149,11 +149,11 @@ class ApiController extends Controller
                         <div class="custom_content_header">
                             <div>
                                 <p class="custom_content_header__title">'.ucfirst($palette->name).'</p>
-                                <p class="custom_content_header__author">By '.$author.'</p>
+                                <!--<p class="custom_content_header__author">By '.$author.'</p>-->
                             </div>
-                            <div class="flex flex-middle">
+                            <!--<div class="flex flex-middle">
                                 '.$button.'
-                            </div>
+                            </div>-->
                             <a class="btn" href="'.(route('customs.custom', ['id' => $palette->id])).'">
                                 <span aria-hidden="true" class="btn__left" style="background: '.$colors[0]->color.';"></span>
                                 <span class="btn__text montserrat">View</span>
