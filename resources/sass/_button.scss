@@ -1,0 +1,230 @@
+/*==============================================
+
+        Button
+
+==============================================*/
+.btn{
+    position: relative;
+
+    padding: 0.8rem 2rem;
+
+    background: #333;
+    outline: none;
+    border: none;
+
+    @include font('Montserrat');
+    color: #fff;
+
+    cursor: pointer;
+
+    transform: skew(-30deg);
+
+    &__text{
+        display: flex;
+        align-items: center;
+        transform: skew(30deg);
+
+        svg{
+            fill: #fff;
+            margin-left: 0.6em;
+        }
+    }
+
+    &-small{
+        padding: 1.8rem 0.5rem 0.5rem 2rem;
+    }
+
+
+
+    &-botrightabs{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+
+        transform: skew(0);
+
+        .btn__icon{
+
+            transform: skew(0);
+        }
+    }
+
+
+    &__icon{
+        display: flex;
+        align-items: center;
+        transform: skew(30deg);
+
+        svg{
+            fill: #fff;
+        }
+    }
+
+
+    &__left{
+        position: absolute;
+        left: -25px;
+        bottom: 0;
+        height: 100%;
+        width: 15px;
+
+        background: $mainColor;
+
+        transform-origin: bottom;
+        transform: scaleY(1);
+
+        transition: transform 0.2s ease-out;
+    }
+    &__right{
+        position: absolute;
+        right: -25px;
+        top: 0;
+        height: 100%;
+        width: 15px;
+
+        background: $mainColor;
+
+        transform-origin: top;
+        transform: scaleY(1);
+
+        transition: transform 0.2s ease-out;
+    }
+
+    &-red{
+        background: #f44336;
+    }
+
+
+    &:hover{
+        .btn__left, .btn__right{
+            transform: scaleY(1.3);
+        }
+    }
+
+}
+
+.btnBotRight{
+    position: relative;
+
+    padding: 0.8rem 2rem;
+
+    background: #333;
+    outline: none;
+    border: none;
+    border-top: 8px solid #fff;
+    border-left: 8px solid #fff;
+
+    @include font('Montserrat');
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: background 0.4s ease;
+
+    &:hover{
+        background: #222;
+    }
+}
+
+
+
+
+/*==============================================
+
+        Buttons Social Login
+
+==============================================*/
+.btn_login_social{
+    width: 100%;
+    padding: 0.5em 1em;
+    margin: 1em 0;
+
+    display: flex;
+    justify-content: flex-start;
+
+    line-height: 30px;
+    font-size: 1em;
+
+    color: #fff;
+    @include font('Montserrat');
+
+
+    transition: background 0.2s ease-in-out;
+
+
+    & > span{
+
+    }
+
+
+    $buttons: (
+        "google": #F44336,
+        "github": #111111,
+        "facebook": #1877F2,
+        "twitter": #1DA1F2,
+        "reddit": #FF4500,
+        "spotify": #1ED760,
+        "deezer": #FEAA2D,
+    );
+    @each $btnClass, $btnColor in $buttons{
+        &__#{$btnClass}{
+            background: $btnColor;
+
+            &:hover{
+                background: darken($btnColor, 5%);
+            }
+        }
+    }
+
+
+    svg{
+        margin: 0 2em 0 1em;
+        height: 30px;
+
+        fill: #fff;
+
+        &.btn_login_social__svg_animated{
+            transform: translateX(0);
+
+            transition: transform 0.2s ease-out;
+        }
+    }
+    &:hover{
+        svg{
+            &.btn_login_social__svg_animated{
+                transform: translateX(10px);
+            }
+        }
+    }
+
+}
+
+
+
+/*=======================================
+*       Unique buttons
+=======================================*/
+#btnToTop{
+    position: relative;
+    bottom: 20px;
+    left: 50%;
+
+    padding: 5px 5px 5px 5px;
+
+    cursor: pointer;
+
+    fill: #fff;
+
+    border: 2px solid #fff;
+    border-radius: 50%;
+
+    transition: padding 0.2s ease;
+
+    &:hover{
+        padding: 5px 2px 5px 8px;
+    }
+}
+
+

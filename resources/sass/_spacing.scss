@@ -1,0 +1,88 @@
+/*============================
+    Widths
+=============================*/
+@for $i from 5 through 100{
+    $class: #{$i};
+    @if $i < 10{
+        $class: '0' + #{$i};
+    }
+
+    .w#{$class}{
+        width: #{$i} + '%' !important;
+    }
+}
+
+
+/*============================
+    Margins
+=============================*/
+$i: 0;
+@while $i < 10{
+    .m-#{str-replace(#{$i}, '.', '')}{
+        margin: #{$i}rem !important;
+    }
+    .mt-#{str-replace(#{$i}, '.', '')}{
+        margin-top: #{$i}rem !important;
+    }
+    .mr-#{str-replace(#{$i}, '.', '')}{
+        margin-right: #{$i}rem !important;
+    }
+    .mb-#{str-replace(#{$i}, '.', '')}{
+        margin-bottom: #{$i}rem !important;
+    }
+    .ml-#{str-replace(#{$i}, '.', '')}{
+        margin-left: #{$i}rem !important;
+    }
+
+    $i: $i + 0.5;
+}
+
+
+/*============================
+    Margins
+=============================*/
+$i: 0;
+@while $i < 10{
+    .p-#{str-replace(#{$i}, '.', '')}{
+        padding: #{$i}rem !important;
+    }
+    .pt-#{str-replace(#{$i}, '.', '')}{
+        padding-top: #{$i}rem !important;
+    }
+    .pr-#{str-replace(#{$i}, '.', '')}{
+        padding-right: #{$i}rem !important;
+    }
+    .pb-#{str-replace(#{$i}, '.', '')}{
+        padding-bottom: #{$i}rem !important;
+    }
+    .pl-#{str-replace(#{$i}, '.', '')}{
+        padding-left: #{$i}rem !important;
+    }
+
+    $i: $i + 0.5;
+}
+
+
+/*=======================================
+*       Positioning
+=======================================*/
+.center{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.in-flex-2elements{
+    & > *{
+        width: 45% !important;
+    }
+}
+
+
+/*=======================================
+*       Height
+=======================================*/
+.height-fit{
+    height: -moz-fit-content;
+    height: fit-content;
+}
+

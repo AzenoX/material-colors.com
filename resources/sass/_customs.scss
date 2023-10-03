@@ -1,0 +1,67 @@
+.custom{
+    margin-bottom: 4em;
+    width: 30%;
+    min-width: 450px;
+
+    background: #fff;
+    color: #000;
+
+    position: relative;
+
+    &_content{
+        padding: 2em;
+        margin: 10px;
+        width: calc(100% - 20px);
+
+        position: relative;
+        @include center;
+
+        background: #fff;
+
+        &_header{
+            display: flex;
+            justify-content: space-between;
+            width: 95%;
+            align-items: center;
+
+            p, div > span{
+                @include font('Montserrat');
+            }
+
+            svg{
+                cursor: pointer;
+            }
+
+
+            &__title{
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+
+            &__author{
+                font-weight: 200;
+                color: #666;
+                font-size: 0.8rem;
+            }
+        }
+
+        &_body{
+            height: 12vh;
+            width: 100%;
+            margin-top: 2em;
+
+            @include center;
+
+            display: flex;
+            justify-content: space-evenly;
+
+            & > div{
+                margin: 0 5px;
+
+                flex: 1;
+                height: 100%;
+            }
+        }
+
+    }
+}

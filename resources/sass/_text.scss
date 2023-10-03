@@ -1,0 +1,90 @@
+/*============================
+    Fonts
+=============================*/
+$fonts: (
+    "roboto": "Roboto",
+    "montserrat": "Montserrat"
+);
+@each $fontName, $fontFile in $fonts{
+    .#{$fontName}{
+        font-family: '#{$fontFile}', sans-serif;
+    }
+}
+
+
+
+/*============================
+    Positioning
+=============================*/
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+
+
+
+/*============================
+    Styles
+=============================*/
+.bold {
+    font-weight: 700;
+}
+
+
+
+/*============================
+    Sizes
+=============================*/
+@for $i from 0 through 30 {
+    @if $i < 10 {
+        .fs0#{$i}{
+            font-size: #{$i / 10}rem;
+        }
+    }
+    @else {
+        .fs#{$i}{
+            font-size: #{$i / 10}rem;
+        }
+    }
+}
+
+
+
+/*============================
+    Colors
+=============================*/
+$colors: (
+    "white": "#fff",
+    "black": "#000",
+    "red": "#F44336",
+    "green": "#4CAF50"
+);
+@each $colName, $colHex in $colors{
+    .text-#{$colName}{
+        color: #{$colHex};
+    }
+}
+
+
+
+/*============================
+    Transform
+=============================*/
+.uppercase{
+    text-transform: uppercase;
+}
+
+
+
+/*=======================================
+*       Specials
+=======================================*/
+.text-important{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
