@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.1",
         "ext-json": "*",
+        "backpack/crud": "^5.6",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "7.4.5",
@@ -20,7 +21,8 @@
         "laravel/tinker": "^2.5",
         "socialiteproviders/deezer": "^4.1",
         "socialiteproviders/reddit": "^4.1",
-        "socialiteproviders/spotify": "^4.1"
+        "socialiteproviders/spotify": "^4.1",
+        "ziming/json-field-for-backpack": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

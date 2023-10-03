@@ -7051,8 +7051,8 @@ function rgbToHsl(r, g, b) {
 
   if (delta === 0) h = 0; // Red is max
   else if (c_max === r) h = (g - b) / delta % 6; // Green is max
-  else if (c_max === g) h = (b - r) / delta + 2; // Blue is max
-  else h = (r - g) / delta + 4;
+    else if (c_max === g) h = (b - r) / delta + 2; // Blue is max
+      else h = (r - g) / delta + 4;
   h = Math.round(h * 60); // Make negative hues positive behind 360°
 
   if (h < 0) h += 360; // Calculate lightness
@@ -7095,7 +7095,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -7132,7 +7132,7 @@ function animateColorAtChange(el, fromTxt, toTxt) {
       //If we have to go down
       if (txt_from > txt_to) txt_from--; //If we have to go up
       else if (txt_from < txt_to) txt_from++; //else, stop
-      else clearInterval(interval); //Skip unwanted chars like < > ! etc...
+        else clearInterval(interval); //Skip unwanted chars like < > ! etc...
 
       if (!unwantedChars.includes(txt_from)) el.innerHTML = setCharAt(el.innerHTML, i, String.fromCharCode(txt_from));
     }, 10);
@@ -29187,8 +29187,7 @@ tippy.setDefaultProps({
 /******/ 				}
 /******/ 				if(fulfilled) {
 /******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
+/******/ 					result = fn();
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
@@ -29264,9 +29263,7 @@ tippy.setDefaultProps({
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
-/******/ 			"css/prism": 0,
-/******/ 			"css/style": 0
+/******/ 			"/js/app": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -29279,7 +29276,7 @@ tippy.setDefaultProps({
 /******/ 		
 /******/ 		// no HMR manifest
 /******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		__webpack_require__.O.j = (chunkId) => (true);
 /******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
@@ -29292,7 +29289,7 @@ tippy.setDefaultProps({
 /******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
 /******/ 				}
 /******/ 			}
-/******/ 			if(runtime) var result = runtime(__webpack_require__);
+/******/ 			if(runtime) runtime(__webpack_require__);
 /******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
 /******/ 			for(;i < chunkIds.length; i++) {
 /******/ 				chunkId = chunkIds[i];
@@ -29301,7 +29298,7 @@ tippy.setDefaultProps({
 /******/ 				}
 /******/ 				installedChunks[chunkIds[i]] = 0;
 /******/ 			}
-/******/ 			return __webpack_require__.O(result);
+/******/ 			__webpack_require__.O();
 /******/ 		}
 /******/ 		
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];

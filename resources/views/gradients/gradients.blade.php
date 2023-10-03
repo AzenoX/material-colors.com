@@ -62,7 +62,7 @@
                                     <?php endif; ?>
                                 </p>
                             </div>
-                            <div class="flex flex-middle">
+                            <!--<div class="flex flex-middle">
                                 <?php if((!Auth::guest()) && (Auth::user()->name === $gradient->name)): ?>
                                     <a class="btn btn-red btn-small delete-info btn-botrightabs" href="{{ route('account.my_gradients__delete', ['id' => $gradient->gid, 'route' => urlencode('gradients')]) }}">
                                         <span class="btn__icon">
@@ -77,7 +77,7 @@
                                     </svg>
                                     &nbsp;<span><?= $favsCount[$gradient->gid] ?? 0 ?></span>
                                 <?php endif; ?>
-                            </div>
+                            </div>-->
                             <a class="btn" href="{{ route('gradient', ['id' => $gradient->gid]) }}">
                                 <span aria-hidden="true" class="btn__left" style="background: <?= '#' . $firstColor ?>;"></span>
                                 <span class="btn__text montserrat">View</span>

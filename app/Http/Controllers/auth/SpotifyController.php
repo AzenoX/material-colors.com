@@ -31,7 +31,7 @@ class SpotifyController extends Controller
             Auth::login($finduser);
 
             //redirect
-            return redirect()->intended('/account/home');
+            return redirect()->intended('/');
 
         }
         else {
@@ -75,7 +75,7 @@ class SpotifyController extends Controller
         Auth::login($newUser);
 
         //redirect
-        return redirect()->intended('/account/home');
+        return redirect()->intended('/');
 
     }
 }

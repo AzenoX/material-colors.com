@@ -29,7 +29,7 @@ class GithubController extends Controller
             Auth::login($finduser);
 
             //redirect
-            return redirect()->intended('/account/home');
+            return redirect()->intended('/');
         }
         else{
             if(User::where('email', $user->email)->first()){
@@ -50,7 +50,7 @@ class GithubController extends Controller
             Auth::login($newUser);
 
             //redirect
-            return redirect()->intended('/account/home');
+            return redirect()->intended('/');
 
         }
     }

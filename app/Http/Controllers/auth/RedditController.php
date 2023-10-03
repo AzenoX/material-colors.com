@@ -30,7 +30,7 @@ class RedditController extends Controller
             Auth::login($finduser);
 
             //redirect
-            return redirect()->intended('/account/home');
+            return redirect()->intended('/');
         }
         else{
             if(User::where('name', $user->nickname)->first()){
@@ -71,7 +71,7 @@ class RedditController extends Controller
         Auth::login($newUser);
 
         //redirect
-        return redirect()->intended('/account/home');
+        return redirect()->intended('/');
 
     }
 }

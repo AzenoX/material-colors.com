@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
+
+
 use App\Core\Auth\VerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustMail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 
 class User extends Authenticatable implements MustMail
 {
+    use CrudTrait;
     use HasFactory, Notifiable;
 
     /**

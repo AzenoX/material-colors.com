@@ -273,7 +273,7 @@
                     const v = el.querySelector('.input-percent').value;
 
                     if(v === ''){
-                        /*let current = el;
+                        let current = el;
                         let countLeft = 0;
 
                         //Get min Percent
@@ -309,8 +309,7 @@
                         const step = (maxPercent - minPercent) / len;
 
                         const percent = step * (index + 1);
-                        percents.push(percent);*/
-                        percents.push(-1);
+                        percents.push(percent);
                     }
                     else{
                         percents.push(v);
