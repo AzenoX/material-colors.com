@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Ai;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 class TintTestController extends Controller
 {
-    public function show()
+    public function show(): View
     {
         return view('ai.tint_test.tint_test');
     }
 
-    public function tintColor(Request $request)
+    public function tintColor(Request $request): JsonResponse
     {
         $string = $request->input('data');
 

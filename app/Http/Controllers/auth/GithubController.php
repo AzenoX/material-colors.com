@@ -18,7 +18,7 @@ class GithubController extends Controller
             ->redirect();
     }
 
-    public function handle()
+    public function handle(): \Illuminate\Http\RedirectResponse
     {
         $user = Socialite::driver('github')->user();
 

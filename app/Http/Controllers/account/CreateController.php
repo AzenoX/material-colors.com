@@ -7,13 +7,14 @@ use App\Models\CustomPalettes;
 use App\Models\Gradient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class CreateController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public static function gradient()
+    public static function gradient(): View
     {
         return view('account.create_gradient');
     }
@@ -47,7 +48,7 @@ class CreateController extends Controller
 
     }
 
-    public static function custom()
+    public static function custom(): View
     {
         return view('account.create_custom');
     }

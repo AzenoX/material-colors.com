@@ -18,7 +18,7 @@ class DeezerController extends Controller
             ->redirect();
     }
 
-    public function handle()
+    public function handle(): \Illuminate\Http\RedirectResponse
     {
         $user = Socialite::driver('deezer')->user();
 

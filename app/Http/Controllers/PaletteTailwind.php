@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Palette_Tailwind;
+use Illuminate\View\View;
 
 class PaletteTailwind extends Controller
 {
-    public static function getIndex()
+    public static function getIndex(): View
     {
 
         $data = Palette_Tailwind::all()->toArray();

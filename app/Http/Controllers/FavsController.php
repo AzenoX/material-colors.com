@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Favs_Gradient;
 use App\Models\Favs_Palettes;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class FavsController extends Controller
 {
@@ -77,7 +78,7 @@ class FavsController extends Controller
     /**
      *Manage profile favs page
      */
-    public static function favsPage()
+    public static function favsPage(): View
     {
         $data = Favs_Gradient::where('favs__gradients.user_id', '=', Auth::user()->id)
             ->join('gradients', 'favs__gradients.gradient_id', '=', 'gradients.id')

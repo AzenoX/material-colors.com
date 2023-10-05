@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Palette_Flat;
+use Illuminate\View\View;
 
 class PaletteFlat extends Controller
 {
-    public static function getIndex()
+    public static function getIndex(): View
     {
 
         $data = Palette_Flat::all()->toArray();
