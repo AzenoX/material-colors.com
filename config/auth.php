@@ -114,8 +114,6 @@ return [
 
     'password_timeout' => 10800,
 
-
-
     'verification' => [
         'expire' => 525600, // One year in minutes - enter as many minutes as you would like here
     ],

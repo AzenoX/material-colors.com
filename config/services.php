@@ -30,7 +30,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-
     /*=======================================
     *       OAuth Services
     =======================================*/
@@ -55,26 +54,25 @@ return [
     'twitter' => [
         'client_id' => 'Aw5LraSq3rloSlkRyrtS21QFs',
         'client_secret' => 'DJNSKnk9EMXwDDkocenq95FJrjB0veCwyntznA4NhetygGTZhE',
-        'redirect' => 'https://beta.material-colors.com/auth/twitter/callback'
+        'redirect' => 'https://beta.material-colors.com/auth/twitter/callback',
     ],
 
     'reddit' => [
         'client_id' => 'xFB5gonT7VWOSw',
         'client_secret' => 'bhyK8lSVP-CQwKZdUIvrO70UButd0g',
-        'redirect' => 'https://beta.material-colors.com/auth/reddit/callback'
+        'redirect' => 'https://beta.material-colors.com/auth/reddit/callback',
     ],
 
     'spotify' => [
         'client_id' => 'f546eace37584db68bfaed378068ae76',
         'client_secret' => 'c5c54349d2b74a6a9886eb9095ed0fe8',
-        'redirect' => 'https://beta.material-colors.com/auth/spotify/callback'
+        'redirect' => 'https://beta.material-colors.com/auth/spotify/callback',
     ],
 
     'deezer' => [
         'client_id' => '470342',
         'client_secret' => 'c5c54349d2b74a6a9886eb9095ed0fe8',
-        'redirect' => 'https://beta.material-colors.com/auth/deezer/callback'
+        'redirect' => 'https://beta.material-colors.com/auth/deezer/callback',
     ],
-
 
 ];

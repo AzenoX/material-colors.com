@@ -10,33 +10,30 @@ use Illuminate\Support\Facades\Auth;
 
 class CreateController extends Controller
 {
-
     /**
-     *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public static function gradient(){
+    public static function gradient()
+    {
         return view('account.create_gradient');
     }
 
-
     /**
-     * @param Request $request
      * @return string
      */
-    public static function gradientCreate(Request $request){
-        if($request->get('gname') === 'null' || $request->get('gname') === '')
+    public static function gradientCreate(Request $request)
+    {
+        if ($request->get('gname') === 'null' || $request->get('gname') === '') {
             return 'You have to specify a name';
+        }
 
-
-        if($request->get('colors') === 'null' || $request->get('colors') === '')
+        if ($request->get('colors') === 'null' || $request->get('colors') === '') {
             return 'You have to specify at least 1 color';
+        }
 
         $gname = htmlspecialchars($request->get('gname'));
         $angle = htmlspecialchars($request->get('angle'));
         $colors = json_encode($request->get('colors'));
-
-
 
         $newGradient = Gradient::create([
             'user_id' => Auth::user()->id,
@@ -46,43 +43,39 @@ class CreateController extends Controller
         ]);
         $newGradient->save();
 
-        return ucfirst($gname) . " created !";
+        return ucfirst($gname).' created !';
 
     }
 
-
-
-
-    public static function custom(){
+    public static function custom()
+    {
         return view('account.create_custom');
     }
 
-
     /**
-     * @param Request $request
      * @return string
      */
-    public static function customCreate(Request $request){
-        if($request->get('pname') === 'null' || $request->get('pname') === '')
+    public static function customCreate(Request $request)
+    {
+        if ($request->get('pname') === 'null' || $request->get('pname') === '') {
             return 'You have to specify a name';
+        }
 
-
-        if($request->get('colors') === 'null' || $request->get('colors') === '')
+        if ($request->get('colors') === 'null' || $request->get('colors') === '') {
             return 'You have to specify at least 1 color';
+        }
 
         $pname = htmlspecialchars($request->get('name'));
         $colors = json_encode($request->get('colors'));
 
-
-
         $newPalette = CustomPalettes::create([
             'uid' => Auth::user()->id,
             'name' => $pname,
-            'colors' => json_encode(["colors" => json_decode($colors)]),
+            'colors' => json_encode(['colors' => json_decode($colors)]),
         ]);
         $newPalette->save();
 
-        return ucfirst($pname) . " created !";
+        return ucfirst($pname).' created !';
 
     }
 }

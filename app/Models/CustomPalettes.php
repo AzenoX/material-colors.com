@@ -14,6 +14,6 @@ class CustomPalettes extends Model
     protected $fillable = [
         'uid',
         'name',
-        'colors'
+        'colors',
     ];
 }

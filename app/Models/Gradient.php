@@ -11,7 +11,6 @@ class Gradient extends Model
     use CrudTrait;
     use HasFactory;
 
-
     protected $fillable = [
         'user_id',
         'gradient_name',
@@ -20,6 +19,6 @@ class Gradient extends Model
     ];
 
     protected $casts = [
-        'colors' => 'string'
+        'colors' => 'string',
     ];
 }

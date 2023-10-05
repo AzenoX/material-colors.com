@@ -8,7 +8,7 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
  * Class CustomPalettesCrudController
- * @package App\Http\Controllers\Admin
+ *
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
 class CustomPalettesCrudController extends CrudController
@@ -27,7 +27,7 @@ class CustomPalettesCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\CustomPalettes::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/custom-palettes');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/custom-palettes');
         CRUD::setEntityNameStrings('custom palettes', 'custom palettes');
     }
 
@@ -35,6 +35,7 @@ class CustomPalettesCrudController extends CrudController
      * Define what happens when the List operation is loaded.
      *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     *
      * @return void
      */
     protected function setupListOperation()
@@ -54,6 +55,7 @@ class CustomPalettesCrudController extends CrudController
      * Define what happens when the Create operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
+     *
      * @return void
      */
     protected function setupCreateOperation()
@@ -63,21 +65,21 @@ class CustomPalettesCrudController extends CrudController
         CRUD::addField([
             'name' => 'uid',
             'type' => 'number',
-            'default' => 23
+            'default' => 23,
         ]);
         CRUD::field('name');
         CRUD::addField([
-            'name'  => 'colors',
-            'type'  => 'json',
+            'name' => 'colors',
+            'type' => 'json',
             'view_namespace' => 'json-field-for-backpack::fields',
             'modes' => ['code', 'form', 'tree'],
             'default' => [
                 'colors' => [
                     [
                         'name' => 'Red',
-                        'color' => 'rgb(255, 0, 0)'
+                        'color' => 'rgb(255, 0, 0)',
                     ],
-                ]
+                ],
             ],
         ]);
 
@@ -92,6 +94,7 @@ class CustomPalettesCrudController extends CrudController
      * Define what happens when the Update operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
+     *
      * @return void
      */
     protected function setupUpdateOperation()

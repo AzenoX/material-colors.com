@@ -15,8 +15,8 @@ class CreateSocialsTable extends Migration
     {
         Schema::create('socials', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("color");
+            $table->string('name');
+            $table->string('color');
             $table->timestamps();
         });
     }

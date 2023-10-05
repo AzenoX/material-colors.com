@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/test-mail-alexis', function () {
-    mail("azen0x.alexis@gmail.com", "Test mail", "Test message");
+    mail('azen0x.alexis@gmail.com', 'Test mail', 'Test message');
 })->name('send-email');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

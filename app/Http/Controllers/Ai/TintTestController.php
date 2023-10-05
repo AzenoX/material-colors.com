@@ -20,7 +20,7 @@ class TintTestController extends Controller
 
         $convertedHex = $this->validateAndConvertToRGB($string);
         info($convertedHex);
-        if (!$convertedHex) {
+        if (! $convertedHex) {
             return response()->json(['error' => 'Wrong color format']);
         }
 
@@ -28,17 +28,17 @@ class TintTestController extends Controller
         $g = $convertedHex['g'];
         $b = $convertedHex['b'];
 
-//        $processOutput = shell_exec("cd /var/www/material-colors.com/python ; source /var/www/material-colors.com/python/bin/activate ; python model.py $r $g $b");
+        //        $processOutput = shell_exec("cd /var/www/material-colors.com/python ; source /var/www/material-colors.com/python/bin/activate ; python model.py $r $g $b");
 
         info(__DIR__);
         $process = new Process(
             [
-                "source " .'python/venv/bin/activate'
+                'source '.'python/venv/bin/activate',
             ]
         );
         $process->run();
 
-        if (!$process->isSuccessful()) {
+        if (! $process->isSuccessful()) {
             throw new ProcessFailedException($process);
         }
 
@@ -49,18 +49,14 @@ class TintTestController extends Controller
         return response()->json(['result' => $data]);
     }
 
-    /**
-     * @param $inputValue
-     * @return array|bool
-     */
     private function validateAndConvertToRGB($inputValue): array|bool
     {
-        $hexPattern = "/^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$/";
+        $hexPattern = '/^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$/';
         $rgbPattern = "/^(\d{1,3}),(\d{1,3}),(\d{1,3})(,(\d{1,3}))?$/";
 
         if (preg_match($hexPattern, $inputValue, $matches)) {
             // Remove potential # at the start
-            $color = ltrim($matches[0], "#");
+            $color = ltrim($matches[0], '#');
 
             $r = hexdec(substr($color, 0, 2));
             $g = hexdec(substr($color, 2, 2));
@@ -74,9 +70,9 @@ class TintTestController extends Controller
         }
 
         if (preg_match($rgbPattern, $inputValue, $matches)) {
-            $r = (int)$matches[1];
-            $g = (int)$matches[2];
-            $b = (int)$matches[3];
+            $r = (int) $matches[1];
+            $g = (int) $matches[2];
+            $b = (int) $matches[3];
 
             if ($r >= 0 && $r <= 255 && $g >= 0 && $g <= 255 && $b >= 0 && $b <= 255) {
                 return [

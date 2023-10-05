@@ -11,6 +11,6 @@ class Favs_Palettes extends Model
 
     protected $fillable = [
         'uid',
-        'pid'
+        'pid',
     ];
 }

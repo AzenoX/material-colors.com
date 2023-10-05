@@ -5,7 +5,6 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use DateTime;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
@@ -13,26 +12,26 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class FacebookController extends Controller
 {
-    public function redirect(): RedirectResponse{
+    public function redirect(): RedirectResponse
+    {
         return Socialite::driver('facebook')
             ->redirect();
     }
 
-
-    public function handle(){
+    public function handle()
+    {
         $user = Socialite::driver('facebook')->user();
 
         $finduser = User::where('facebook_id', $user->id)->first();
 
-        if($finduser){
+        if ($finduser) {
             //login
             Auth::login($finduser);
 
             //redirect
             return redirect()->intended('/');
-        }
-        else{
-            if(User::where('email', $user->email)->first()){
+        } else {
+            if (User::where('email', $user->email)->first()) {
                 return redirect()->intended('login')->with('status', 'This email is already used with another account.');
             }
 
