@@ -11,6 +11,6 @@ class Favs_Gradient extends Model
 
     protected $fillable = [
         'user_id',
-        'gradient_id'
+        'gradient_id',
     ];
 }

@@ -2,10 +2,8 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
-
-
 use App\Core\Auth\VerifyEmail;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustMail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -56,7 +54,6 @@ class User extends Authenticatable implements MustMail
         'email_verified_at' => 'datetime',
     ];
 
-
     /**
      * Send the email verification notification.
      *
@@ -66,8 +63,6 @@ class User extends Authenticatable implements MustMail
     {
         $this->notify(new VerifyEmail);
     }
-
-
 
     protected function validator(array $data)
     {
@@ -86,5 +81,4 @@ class User extends Authenticatable implements MustMail
             'deezer_id' => ['string'],
         ]);
     }
-
 }

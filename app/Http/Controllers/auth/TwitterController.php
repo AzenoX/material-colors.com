@@ -5,7 +5,6 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use DateTime;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
@@ -13,13 +12,14 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class TwitterController extends Controller
 {
-    public function redirect(): RedirectResponse{
+    public function redirect(): RedirectResponse
+    {
         return Socialite::driver('twitter')
             ->redirect();
     }
 
-
-    public function handle(){
+    public function handle()
+    {
         $preUser = Socialite::driver('twitter')->user();
 
         $token = $preUser->token;
@@ -29,15 +29,14 @@ class TwitterController extends Controller
 
         $finduser = User::where('twitter_id', $user->id)->first();
 
-        if($finduser){
+        if ($finduser) {
             //login
             Auth::login($finduser);
 
             //redirect
             return redirect()->intended('/');
-        }
-        else{
-            if(User::where('email', $user->getEmail())->first()){
+        } else {
+            if (User::where('email', $user->getEmail())->first()) {
                 return redirect()->intended('login')->with('status', 'This email is already used with another account.');
             }
 

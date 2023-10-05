@@ -11,6 +11,6 @@ class Favs_Social extends Model
 
     protected $fillable = [
         'uid',
-        'sid'
+        'sid',
     ];
 }

@@ -2,7 +2,6 @@
 
 namespace App\Core\Auth;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\URL;
 
 class VerifyEmail extends \Illuminate\Auth\Notifications\VerifyEmail

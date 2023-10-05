@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSocialsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class CreateSocialsTable extends Migration
     {
         Schema::create('socials', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("color");
+            $table->string('name');
+            $table->string('color');
             $table->timestamps();
         });
     }
@@ -30,4 +30,4 @@ class CreateSocialsTable extends Migration
     {
         Schema::dropIfExists('socials');
     }
-}
+};

@@ -11,27 +11,25 @@
         "php": "^8.1",
         "ext-json": "*",
         "backpack/crud": "^5.6",
-        "fideloper/proxy": "^4.4",
-        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "7.4.5",
         "guzzlehttp/psr7": "2.4",
-        "laravel/fortify": "^1.7",
-        "laravel/framework": "^8.12",
-        "laravel/socialite": "^5.2",
-        "laravel/tinker": "^2.5",
+        "laravel/fortify": "^1.9",
+        "laravel/framework": "^9.52",
+        "laravel/socialite": "^5.3",
+        "laravel/tinker": "^2.7",
         "socialiteproviders/deezer": "^4.1",
         "socialiteproviders/reddit": "^4.1",
         "socialiteproviders/spotify": "^4.1",
-        "symfony/process": "^5.4",
+        "symfony/process": "^6.0",
         "ziming/json-field-for-backpack": "^1.2"
     },
     "require-dev": {
-        "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "laravel/sail": "^1.15",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^6.3",
+        "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^1.4"
     },
     "config": {
         "optimize-autoloader": true,
@@ -67,6 +65,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ]
     }
 }
