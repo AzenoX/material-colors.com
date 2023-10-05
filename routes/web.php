@@ -16,43 +16,43 @@ use Illuminate\Support\Facades\Route;
 /*=======================================
 *       Palettes
 =======================================*/
-Route::get('/', '\App\Http\Controllers\PaletteMaterial@getIndex')->name('home');
-Route::get('/palette/tailwind', '\App\Http\Controllers\PaletteTailwind@getIndex')->name('p_tailwind');
-Route::get('/palette/flat', '\App\Http\Controllers\PaletteFlat@getIndex')->name('p_flat');
+Route::get('/', [\App\Http\Controllers\PaletteMaterial::class, 'getIndex'])->name('home');
+Route::get('/palette/tailwind', [\App\Http\Controllers\PaletteTailwind::class, 'getIndex'])->name('p_tailwind');
+Route::get('/palette/flat', [\App\Http\Controllers\PaletteFlat::class, 'getIndex'])->name('p_flat');
 
 /*=======================================
 *       Favorites
 =======================================*/
-Route::get('/favs/add/gradient/{uid}/{gid?}', '\App\Http\Controllers\FavsController@addingRoute')->name('favs_add');
-Route::get('/favs/add/customs/{uid}/{pid?}', '\App\Http\Controllers\FavsController@addingRouteCustoms')->name('favs_add_customs');
+Route::get('/favs/add/gradient/{uid}/{gid?}', [\App\Http\Controllers\FavsController::class, 'addingRoute'])->name('favs_add');
+Route::get('/favs/add/customs/{uid}/{pid?}', [\App\Http\Controllers\FavsController::class, 'addingRouteCustoms'])->name('favs_add_customs');
 
 /*=======================================
 *       Gradients
 =======================================*/
-Route::get('/gradients', '\App\Http\Controllers\GradientsController@getIndex')->name('gradients');
-Route::get('/gradient/{id}', '\App\Http\Controllers\GradientsController@getGradientIndex')->name('gradient');
+Route::get('/gradients', [\App\Http\Controllers\GradientsController::class, 'getIndex'])->name('gradients');
+Route::get('/gradient/{id}', [\App\Http\Controllers\GradientsController::class, 'getGradientIndex'])->name('gradient');
 
 /*=======================================
 *       Social Colors
 =======================================*/
-Route::get('/social', '\App\Http\Controllers\SocialController@getIndex')->name('social');
+Route::get('/social', [\App\Http\Controllers\SocialController::class, 'getIndex'])->name('social');
 
 /*=======================================
 *       Variants
 =======================================*/
-Route::get('/variants', '\App\Http\Controllers\VariantsController@index')->name('variants');
+Route::get('/variants', [\App\Http\Controllers\VariantsController::class, 'index'])->name('variants');
 
 /*=======================================
 *       AI Routes
 =======================================*/
-Route::get('/ai/tinttest', '\App\Http\Controllers\Ai\TintTestController@show')->name('tinttest');
-Route::post('/ai/tinttest', '\App\Http\Controllers\Ai\TintTestController@tintColor')->name('tinttest-post');
+Route::get('/ai/tinttest', [\App\Http\Controllers\Ai\TintTestController::class, 'show'])->name('tinttest');
+Route::post('/ai/tinttest', [\App\Http\Controllers\Ai\TintTestController::class, 'tintColor'])->name('tinttest-post');
 
 /*=======================================
 *       Custom Palettes
 =======================================*/
-Route::get('/customs', '\App\Http\Controllers\CustomController@getIndex')->name('customs.customs');
-Route::get('/custom/{id}', '\App\Http\Controllers\CustomController@getCustomIndex')->name('customs.custom');
+Route::get('/customs', [\App\Http\Controllers\CustomController::class, 'getIndex'])->name('customs.customs');
+Route::get('/custom/{id}', [\App\Http\Controllers\CustomController::class, 'getCustomIndex'])->name('customs.custom');
 
 /*=======================================
 *       Social Colors
@@ -70,64 +70,64 @@ Route::get('/account/home', function () {
 Route::get('/account/settings', function () {
     return view('account.settings');
 })->name('account.settings')->middleware(['auth', 'verified']);
-Route::get('/account/favs', '\App\Http\Controllers\FavsController@favsPage')->name('account.favs')->middleware(['auth', 'verified']);
+Route::get('/account/favs', [\App\Http\Controllers\FavsController::class, 'favsPage'])->name('account.favs')->middleware(['auth', 'verified']);
 
-Route::get('/account/createGradient', '\App\Http\Controllers\account\CreateController@gradient')->name('account.create_gradient')->middleware(['auth', 'verified']);
-Route::post('/account/createGradient', '\App\Http\Controllers\account\CreateController@gradientCreate')->name('account.create_gradient_post')->middleware(['auth', 'verified']);
+Route::get('/account/createGradient', [\App\Http\Controllers\account\CreateController::class, 'gradient'])->name('account.create_gradient')->middleware(['auth', 'verified']);
+Route::post('/account/createGradient', [\App\Http\Controllers\account\CreateController::class, 'gradientCreate'])->name('account.create_gradient_post')->middleware(['auth', 'verified']);
 
-Route::get('/account/createPalette', '\App\Http\Controllers\account\CreateController@custom')->name('account.create_custom')->middleware(['auth', 'verified']);
-Route::post('/account/createPalette', '\App\Http\Controllers\account\CreateController@customCreate')->name('account.create_custom_post')->middleware(['auth', 'verified']);
+Route::get('/account/createPalette', [\App\Http\Controllers\account\CreateController::class, 'custom'])->name('account.create_custom')->middleware(['auth', 'verified']);
+Route::post('/account/createPalette', [\App\Http\Controllers\account\CreateController::class, 'customCreate'])->name('account.create_custom_post')->middleware(['auth', 'verified']);
 
-Route::get('/account/gradients', '\App\Http\Controllers\account\AccountController@my_gradients')->name('account.my_gradients')->middleware(['auth', 'verified']);
+Route::get('/account/gradients', [\App\Http\Controllers\account\AccountController::class, 'my_gradients'])->name('account.my_gradients')->middleware(['auth', 'verified']);
 
-Route::get('/account/gradients/delete/{id}/{route}', '\App\Http\Controllers\account\AccountController@my_gradients__delete')->name('account.my_gradients__delete')->middleware(['auth', 'verified']);
+Route::get('/account/gradients/delete/{id}/{route}', [\App\Http\Controllers\account\AccountController::class, 'my_gradients__delete'])->name('account.my_gradients__delete')->middleware(['auth', 'verified']);
 
-Route::get('/account/customs/delete/{id}/{route}', '\App\Http\Controllers\account\AccountController@my_customs__delete')->name('account.my_customs__delete')->middleware(['auth', 'verified']);
+Route::get('/account/customs/delete/{id}/{route}', [\App\Http\Controllers\account\AccountController::class, 'my_customs__delete'])->name('account.my_customs__delete')->middleware(['auth', 'verified']);
 
 /*=======================================
 *       APIs
 =======================================*/
-Route::get('/api/social/{name?}', '\App\Http\Controllers\ApiController@getSocialColors');
-Route::get('/api/customs/{name?}', '\App\Http\Controllers\ApiController@getCustomsColors');
+Route::get('/api/social/{name?}', [\App\Http\Controllers\ApiController::class, 'getSocialColors']);
+Route::get('/api/customs/{name?}', [\App\Http\Controllers\ApiController::class, 'getCustomsColors']);
 
 /*=======================================
 *       OAuth Routes
 =======================================*/
 /*github*/
-Route::get('/auth/github/redirect', '\App\Http\Controllers\auth\GithubController@redirect')->name('auth_github__redirect');
-Route::get('/auth/github/callback', '\App\Http\Controllers\auth\GithubController@handle')->name('auth_github__callback');
+Route::get('/auth/github/redirect', [\App\Http\Controllers\auth\GithubController::class, 'redirect'])->name('auth_github__redirect');
+Route::get('/auth/github/callback', [\App\Http\Controllers\auth\GithubController::class, 'handle'])->name('auth_github__callback');
 
 /*google*/
-Route::get('/auth/google/redirect', '\App\Http\Controllers\auth\GoogleController@redirect')->name('auth_google__redirect');
-Route::get('/auth/google/callback', '\App\Http\Controllers\auth\GoogleController@handle')->name('auth_google__callback');
+Route::get('/auth/google/redirect', [\App\Http\Controllers\auth\GoogleController::class, 'redirect'])->name('auth_google__redirect');
+Route::get('/auth/google/callback', [\App\Http\Controllers\auth\GoogleController::class, 'handle'])->name('auth_google__callback');
 
 /*facebook*/
-Route::get('/auth/facebook/redirect', '\App\Http\Controllers\auth\FacebookController@redirect')->name('auth_facebook__redirect');
-Route::get('/auth/facebook/callback', '\App\Http\Controllers\auth\FacebookController@handle')->name('auth_facebook__callback');
+Route::get('/auth/facebook/redirect', [\App\Http\Controllers\auth\FacebookController::class, 'redirect'])->name('auth_facebook__redirect');
+Route::get('/auth/facebook/callback', [\App\Http\Controllers\auth\FacebookController::class, 'handle'])->name('auth_facebook__callback');
 
 /*twitter*/
-Route::get('/auth/twitter/redirect', '\App\Http\Controllers\auth\TwitterController@redirect')->name('auth_twitter__redirect');
-Route::get('/auth/twitter/callback', '\App\Http\Controllers\auth\TwitterController@handle')->name('auth_twitter__callback');
+Route::get('/auth/twitter/redirect', [\App\Http\Controllers\auth\TwitterController::class, 'redirect'])->name('auth_twitter__redirect');
+Route::get('/auth/twitter/callback', [\App\Http\Controllers\auth\TwitterController::class, 'handle'])->name('auth_twitter__callback');
 
 /*reddit*/
-Route::get('/auth/reddit/redirect', '\App\Http\Controllers\auth\RedditController@redirect')->name('auth_reddit__redirect');
-Route::get('/auth/reddit/callback', '\App\Http\Controllers\auth\RedditController@handle')->name('auth_reddit__callback');
+Route::get('/auth/reddit/redirect', [\App\Http\Controllers\auth\RedditController::class, 'redirect'])->name('auth_reddit__redirect');
+Route::get('/auth/reddit/callback', [\App\Http\Controllers\auth\RedditController::class, 'handle'])->name('auth_reddit__callback');
 Route::get('/auth/reddit/email', function () {
     return redirect()->intended();
 });
-Route::post('/auth/reddit/email', '\App\Http\Controllers\auth\RedditController@finalizeRegistration')->name('auth_reddit__email_register');
+Route::post('/auth/reddit/email', [\App\Http\Controllers\auth\RedditController::class, 'finalizeRegistration'])->name('auth_reddit__email_register');
 
 /*spotify*/
-Route::get('/auth/spotify/redirect', '\App\Http\Controllers\auth\SpotifyController@redirect')->name('auth_spotify__redirect');
-Route::get('/auth/spotify/callback', '\App\Http\Controllers\auth\SpotifyController@handle')->name('auth_spotify__callback');
+Route::get('/auth/spotify/redirect', [\App\Http\Controllers\auth\SpotifyController::class, 'redirect'])->name('auth_spotify__redirect');
+Route::get('/auth/spotify/callback', [\App\Http\Controllers\auth\SpotifyController::class, 'handle'])->name('auth_spotify__callback');
 Route::get('/auth/spotify/email', function () {
     return redirect()->intended();
 });
-Route::post('/auth/spotify/email', '\App\Http\Controllers\auth\SpotifyController@finalizeRegistration')->name('auth_spotify__email_register');
+Route::post('/auth/spotify/email', [\App\Http\Controllers\auth\SpotifyController::class, 'finalizeRegistration'])->name('auth_spotify__email_register');
 
 /*deezer*/
-Route::get('/auth/deezer/redirect', '\App\Http\Controllers\auth\DeezerController@redirect')->name('auth_deezer__redirect');
-Route::get('/auth/deezer/callback', '\App\Http\Controllers\auth\DeezerController@handle')->name('auth_deezer__callback');
+Route::get('/auth/deezer/redirect', [\App\Http\Controllers\auth\DeezerController::class, 'redirect'])->name('auth_deezer__redirect');
+Route::get('/auth/deezer/callback', [\App\Http\Controllers\auth\DeezerController::class, 'handle'])->name('auth_deezer__callback');
 
 Route::prefix('admin')->group(function () {
     Route::get('/addpalette', function () {
