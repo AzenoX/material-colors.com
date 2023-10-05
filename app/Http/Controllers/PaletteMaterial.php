@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Models\Palette_Material;
+use Illuminate\View\View;
 
 class PaletteMaterial extends Controller
 {

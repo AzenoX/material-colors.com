@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Models\Favs_Gradient;
 use App\Models\Favs_Palettes;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class FavsController extends Controller
 {

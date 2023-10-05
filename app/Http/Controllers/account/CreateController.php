@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\account;
 
-use Illuminate\View\View;
 use App\Http\Controllers\Controller;
 use App\Models\CustomPalettes;
 use App\Models\Gradient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class CreateController extends Controller
 {
