@@ -18,8 +18,9 @@
                     <p class="pane-title">-20%</p>
                     <p class="pane-color">#D3D3D3</p>
                 </div>
+                <div class="pane-bg"></div>
                 <button class="btnCopy" data-copy="#D3D3D3">
-                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke="white" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="m22 7c0-.478-.379-1-1-1h-14c-.62 0-1 .519-1 1v14c0 .621.52 1 1 1h14c.478 0 1-.379 1-1zm-20 8v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm1.5-4.363v3.363h-1.5v-3.363zm0-4.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5z" fill-rule="nonzero"/>
                     </svg>
                 </button>
@@ -29,9 +30,9 @@
                     <p class="pane-title">-10%</p>
                     <p class="pane-color">#D3D3D3</p>
                 </div>
-                <p class="pane-color"></p>
+                <div class="pane-bg"></div>
                 <button class="btnCopy" data-copy="#D3D3D3">
-                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke="white" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="m22 7c0-.478-.379-1-1-1h-14c-.62 0-1 .519-1 1v14c0 .621.52 1 1 1h14c.478 0 1-.379 1-1zm-20 8v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm1.5-4.363v3.363h-1.5v-3.363zm0-4.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5z" fill-rule="nonzero"/>
                     </svg>
                 </button>
@@ -41,9 +42,9 @@
                     <p class="pane-title">Original</p>
                     <p class="pane-color">#D3D3D3</p>
                 </div>
-                <p class="pane-color"></p>
+                <div class="pane-bg"></div>
                 <button class="btnCopy" data-copy="#D3D3D3">
-                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke="white" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="m22 7c0-.478-.379-1-1-1h-14c-.62 0-1 .519-1 1v14c0 .621.52 1 1 1h14c.478 0 1-.379 1-1zm-20 8v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm1.5-4.363v3.363h-1.5v-3.363zm0-4.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5z" fill-rule="nonzero"/>
                     </svg>
                 </button>
@@ -53,9 +54,9 @@
                     <p class="pane-title">+10%</p>
                     <p class="pane-color">#D3D3D3</p>
                 </div>
-                <p class="pane-color"></p>
+                <div class="pane-bg"></div>
                 <button class="btnCopy" data-copy="#D3D3D3">
-                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke="white" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="m22 7c0-.478-.379-1-1-1h-14c-.62 0-1 .519-1 1v14c0 .621.52 1 1 1h14c.478 0 1-.379 1-1zm-20 8v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm1.5-4.363v3.363h-1.5v-3.363zm0-4.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5z" fill-rule="nonzero"/>
                     </svg>
                 </button>
@@ -65,9 +66,9 @@
                     <p class="pane-title">+20%</p>
                     <p class="pane-color">#D3D3D3</p>
                 </div>
-                <p class="pane-color"></p>
+                <div class="pane-bg"></div>
                 <button class="btnCopy" data-copy="#D3D3D3">
-                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke="white" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="m22 7c0-.478-.379-1-1-1h-14c-.62 0-1 .519-1 1v14c0 .621.52 1 1 1h14c.478 0 1-.379 1-1zm-20 8v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm1.5-4.363v3.363h-1.5v-3.363zm0-4.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5z" fill-rule="nonzero"/>
                     </svg>
                 </button>
@@ -110,11 +111,14 @@
             padding: 2rem 0;
 
             color: #000000;
+            background: #e0e0e0;
             font-size: 1.4rem;
+            box-shadow: 5px 5px 5px 0 #000000;
         }
         .color-pane div.pane-texts {
-            background: rgba(255, 255, 255, 0.5);
-            width: fit-content;
+            background: #000000;
+            color: #ffffff;
+            width: 80%;
             padding: 0.2rem 3rem;
             text-align: center;
         }
@@ -123,21 +127,27 @@
         }
         .color-pane p.pane-color {
         }
+        .color-pane .pane-bg {
+            margin-top: 1em;
+            height: 50%;
+            width: 80%;
+            /*box-shadow: 5px 5px 5px 0 #000000;*/
+        }
 
-        #color-main {
-            background: lightgray;
+        #color-main .pane-bg {
+            background: grey;
         }
-        #color-main--1 {
-            background: lightgray;
+        #color-main--1 .pane-bg {
+            background: grey;
         }
-        #color-main--2 {
-            background: lightgray;
+        #color-main--2 .pane-bg {
+            background: grey;
         }
-        #color-main-1 {
-            background: lightgray;
+        #color-main-1 .pane-bg {
+            background: grey;
         }
-        #color-main-2 {
-            background: lightgray;
+        #color-main-2 .pane-bg {
+            background: grey;
         }
     </style>
 
@@ -188,11 +198,11 @@
 
         const input = document.querySelector('#inputColor');
 
-        const c_main__2 = document.querySelector('#color-main--2');
-        const c_main__1 = document.querySelector('#color-main--1');
-        const c_main = document.querySelector('#color-main');
-        const c_main_1 = document.querySelector('#color-main-1');
-        const c_main_2 = document.querySelector('#color-main-2');
+        const c_main__2 = document.querySelector('#color-main--2 .pane-bg');
+        const c_main__1 = document.querySelector('#color-main--1 .pane-bg');
+        const c_main = document.querySelector('#color-main .pane-bg');
+        const c_main_1 = document.querySelector('#color-main-1 .pane-bg');
+        const c_main_2 = document.querySelector('#color-main-2 .pane-bg');
 
         const c_main__2__color = document.querySelector('#color-main--2 .pane-color');
         const c_main__1__color = document.querySelector('#color-main--1 .pane-color');
