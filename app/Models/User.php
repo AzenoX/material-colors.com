@@ -56,8 +56,6 @@ class User extends Authenticatable implements MustMail
 
     /**
      * Send the email verification notification.
-     *
-     * @return void
      */
     public function sendEmailVerificationNotification(): void
     {
