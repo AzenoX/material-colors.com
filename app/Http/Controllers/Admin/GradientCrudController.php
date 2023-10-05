@@ -38,7 +38,7 @@ class GradientCrudController extends CrudController
      *
      * @return void
      */
-    protected function setupListOperation()
+    protected function setupListOperation(): void
     {
         CRUD::column('user_id');
         CRUD::column('gradient_name');
@@ -59,7 +59,7 @@ class GradientCrudController extends CrudController
      *
      * @return void
      */
-    protected function setupCreateOperation()
+    protected function setupCreateOperation(): void
     {
         CRUD::setValidation(GradientRequest::class);
 
@@ -100,7 +100,7 @@ class GradientCrudController extends CrudController
      *
      * @return void
      */
-    protected function setupUpdateOperation()
+    protected function setupUpdateOperation(): void
     {
         $this->setupCreateOperation();
     }

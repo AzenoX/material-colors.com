@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Models\Saved_Gradient;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class GradientsController extends Controller
 {
-    public static function getIndex()
+    public static function getIndex(): View
     {
         $data = DB::table('gradients')
             ->select('users.id', 'gradients.id as gid', 'users.name', 'gradients.gradient_name', 'gradients.angle', 'gradients.colors', 'gradients.favs')
@@ -30,7 +31,7 @@ class GradientsController extends Controller
         return view('gradients/gradients', ['data' => $data, 'favs' => $favsForUser, 'favsCount' => $favsCount]);
     }
 
-    public static function getGradientIndex($id)
+    public static function getGradientIndex($id): View
     {
         $data = DB::table('gradients')
             ->select('users.id as uid', 'gradients.id as gid', 'users.name', 'gradients.gradient_name as gname', 'gradients.angle', 'gradients.colors', 'gradients.favs')

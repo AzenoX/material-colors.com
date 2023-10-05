@@ -17,7 +17,7 @@ class CreateNewUser implements CreatesNewUsers
      *
      * @return User
      */
-    public function create(array $input)
+    public function create(array $input): User
     {
         Validator::make($input, [
             'uid' => ['string'],

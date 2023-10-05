@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Models\Palette_Material;
 
 class PaletteMaterial extends Controller
 {
-    public static function getIndex()
+    public static function getIndex(): View
     {
 
         $data = Palette_Material::all()->toArray();

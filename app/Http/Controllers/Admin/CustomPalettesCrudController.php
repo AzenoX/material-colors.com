@@ -38,7 +38,7 @@ class CustomPalettesCrudController extends CrudController
      *
      * @return void
      */
-    protected function setupListOperation()
+    protected function setupListOperation(): void
     {
         CRUD::column('uid');
         CRUD::column('name');
@@ -58,7 +58,7 @@ class CustomPalettesCrudController extends CrudController
      *
      * @return void
      */
-    protected function setupCreateOperation()
+    protected function setupCreateOperation(): void
     {
         CRUD::setValidation(CustomPalettesRequest::class);
 
@@ -97,7 +97,7 @@ class CustomPalettesCrudController extends CrudController
      *
      * @return void
      */
-    protected function setupUpdateOperation()
+    protected function setupUpdateOperation(): void
     {
         $this->setupCreateOperation();
     }

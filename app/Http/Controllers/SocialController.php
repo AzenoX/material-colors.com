@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 
 class SocialController extends Controller
 {
-    public static function getIndex()
+    public static function getIndex(): View
     {
 
         $socials = DB::table('socials')

@@ -18,7 +18,7 @@ class TwitterController extends Controller
             ->redirect();
     }
 
-    public function handle()
+    public function handle(): \Illuminate\Http\RedirectResponse
     {
         $preUser = Socialite::driver('twitter')->user();
 

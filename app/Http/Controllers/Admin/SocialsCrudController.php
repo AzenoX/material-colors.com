@@ -38,7 +38,7 @@ class SocialsCrudController extends CrudController
      *
      * @return void
      */
-    protected function setupListOperation()
+    protected function setupListOperation(): void
     {
         CRUD::column('name');
         CRUD::column('color');
@@ -59,7 +59,7 @@ class SocialsCrudController extends CrudController
      *
      * @return void
      */
-    protected function setupCreateOperation()
+    protected function setupCreateOperation(): void
     {
         CRUD::setValidation(SocialsRequest::class);
 
@@ -80,7 +80,7 @@ class SocialsCrudController extends CrudController
      *
      * @return void
      */
-    protected function setupUpdateOperation()
+    protected function setupUpdateOperation(): void
     {
         $this->setupCreateOperation();
     }

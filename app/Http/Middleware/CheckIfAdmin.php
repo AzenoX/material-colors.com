@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 use Closure;
@@ -27,7 +28,7 @@ class CheckIfAdmin
      * @param  \Illuminate\Contracts\Auth\Authenticatable|null  $user
      * @return bool
      */
-    private function checkIfUserIsAdmin($user)
+    private function checkIfUserIsAdmin(?Authenticatable $user): bool
     {
         return ($user->is_admin == 1) ?? false;
         //        return true;
@@ -39,7 +40,7 @@ class CheckIfAdmin
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    private function respondToUnauthorizedRequest($request)
+    private function respondToUnauthorizedRequest(Request $request)
     {
         if ($request->ajax() || $request->wantsJson()) {
             return response(trans('backpack::base.unauthorized'), 401);

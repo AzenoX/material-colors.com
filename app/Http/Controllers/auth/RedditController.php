@@ -47,7 +47,7 @@ class RedditController extends Controller
         }
     }
 
-    public function finalizeRegistration()
+    public function finalizeRegistration(): \Illuminate\Http\RedirectResponse
     {
         if (! session_id()) {
             session_start();
