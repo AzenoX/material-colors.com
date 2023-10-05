@@ -54,13 +54,13 @@
                         <div class="gradient_content_header">
                             <div>
                                 <p class="gradient_content_header__title"><?= ucfirst($gradient->gradient_name) ?></p>
-                                <p class="gradient_content_header__author">By
-                                    <?php if((!Auth::guest()) && (Auth::user()->name === $gradient->name)): ?>
-                                        <strong>You</strong>
-                                    <?php else: ?>
-                                        <?= $gradient->name ?>
-                                    <?php endif; ?>
-                                </p>
+{{--                                <p class="gradient_content_header__author">By--}}
+{{--                                    <?php if((!Auth::guest()) && (Auth::user()->name === $gradient->name)): ?>--}}
+{{--                                        <strong>You</strong>--}}
+{{--                                    <?php else: ?>--}}
+{{--                                        <?= $gradient->name ?>--}}
+{{--                                    <?php endif; ?>--}}
+{{--                                </p>--}}
                             </div>
                             <!--<div class="flex flex-middle">
                                 <?php if((!Auth::guest()) && (Auth::user()->name === $gradient->name)): ?>

@@ -22,6 +22,7 @@
         "socialiteproviders/deezer": "^4.1",
         "socialiteproviders/reddit": "^4.1",
         "socialiteproviders/spotify": "^4.1",
+        "symfony/process": "^5.4",
         "ziming/json-field-for-backpack": "^1.2"
     },
     "require-dev": {

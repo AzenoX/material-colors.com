@@ -54,9 +54,18 @@ Route::get('/social', ['as' => 'social', 'uses' => '\App\Http\Controllers\Social
 
 
 /*=======================================
-*       Social Colors
+*       Variants
 =======================================*/
 Route::get('/variants', ['as' => 'variants', 'uses' => '\App\Http\Controllers\VariantsController@index']);
+
+
+
+
+/*=======================================
+*       AI Routes
+=======================================*/
+Route::get('/ai/tinttest', ['as' => 'tinttest', 'uses' => '\App\Http\Controllers\Ai\TintTestController@show']);
+Route::post('/ai/tinttest', ['as' => 'tinttest-post', 'uses' => '\App\Http\Controllers\Ai\TintTestController@tintColor']);
 
 
 
