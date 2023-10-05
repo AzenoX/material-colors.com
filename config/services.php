@@ -18,6 +18,7 @@ return [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+        'scheme' => 'https',
     ],
 
     'postmark' => [
@@ -30,9 +31,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    /*=======================================
-    *       OAuth Services
-    =======================================*/
     'github' => [
         'client_id' => 'a40f0c884174cac83640',
         'client_secret' => '642964ea1032945c8e8aaf702c95f2e9aa19ed13',
