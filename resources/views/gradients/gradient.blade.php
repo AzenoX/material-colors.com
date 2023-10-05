@@ -176,7 +176,7 @@
     </section>
 
 
-    <svg id="btnToTop" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" style="transform: rotate(-90deg) translateX(-50%);">
+    <svg id="btnToTop" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" style="transform: rotate(-90deg) translateX(-50%) scale(0.8);">
         <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/>
     </svg>
 
