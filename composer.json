@@ -10,7 +10,8 @@
     "require": {
         "php": "^8.1",
         "ext-json": "*",
-        "backpack/crud": "^6.0",
+        "ext-pdo": "*",
+        "backpack/crud": "^6.2",
         "guzzlehttp/guzzle": "7.8.0",
         "guzzlehttp/psr7": "^2.5.1",
         "laravel/fortify": "^1.18",
@@ -20,8 +21,7 @@
         "socialiteproviders/deezer": "^4.1",
         "socialiteproviders/reddit": "^4.1",
         "socialiteproviders/spotify": "^4.1",
-        "symfony/process": "^6.3.4",
-        "ziming/json-field-for-backpack": "^1.2"
+        "symfony/process": "^6.3.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23.0",
