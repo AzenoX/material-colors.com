@@ -34,6 +34,7 @@
                 <li><a href="{{ route('social') }}" class="fs11">Social Colors</a></li>
                 <li><a href="{{ route('customs.customs') }}" class="fs11">Custom Palettes</a></li>
                 <li><a href="{{ route('variants') }}" class="fs11">Variants</a></li>
+                <li class="notHover"><a class="fs11 dropdown-trigger" data-trigger="dropdown-ai"><span style="position: relative;">AI <span class="chip chip--little">NEW</span></span><span class="fs09">▼</span></a></li>
                 <li><a href="{{ route('blacky') }}" target="_blank" class="fs11">Blacky</a></li>
             </ul>
         </nav>
@@ -43,6 +44,9 @@
         <li><a href="{{ route('p_tailwind') }}" class="roboto fs09">Tailwind</a></li>
         <li><a href="{{ route('p_flat') }}" class="roboto fs09">Flat</a></li>
         <li><a href="{{ route('p_bootstrap') }}" class="roboto fs09">Bootstrap</a></li>
+    </ul>
+    <ul class="dropdown-content" id="dropdown-ai">
+        <li><a href="{{ route('ai.tintpredictor') }}" class="roboto fs09">Tint Predictor</a></li>
     </ul>
 
     <ul class="dropdown-content" id="dropdown-account">

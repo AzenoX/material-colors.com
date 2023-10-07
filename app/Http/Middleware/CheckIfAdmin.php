@@ -3,9 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class CheckIfAdmin
 {
@@ -24,19 +21,23 @@ class CheckIfAdmin
      * when trying to access an admin route. By default it's '/home' but Backpack
      * does not have a '/home' route, use something you've built for your users
      * (again - users, not admins).
+     *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|null  $user
+     * @return bool
      */
-    private function checkIfUserIsAdmin(?Authenticatable $user): bool
+    private function checkIfUserIsAdmin($user)
     {
-        return ($user->is_admin == 1) ?? false;
-        //        return true;
+        // return ($user->is_admin == 1);
+        return true;
     }
 
     /**
      * Answer to unauthorized access request.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    private function respondToUnauthorizedRequest(Request $request)
+    private function respondToUnauthorizedRequest($request)
     {
         if ($request->ajax() || $request->wantsJson()) {
             return response(trans('backpack::base.unauthorized'), 401);
@@ -47,8 +48,12 @@ class CheckIfAdmin
 
     /**
      * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next)
     {
         if (backpack_auth()->guest()) {
             return $this->respondToUnauthorizedRequest($request);

@@ -46,8 +46,8 @@ Route::get('/variants', [\App\Http\Controllers\VariantsController::class, 'index
 /*=======================================
 *       AI Routes
 =======================================*/
-Route::get('/ai/tinttest', [\App\Http\Controllers\Ai\TintTestController::class, 'show'])->name('tinttest');
-Route::post('/ai/tinttest', [\App\Http\Controllers\Ai\TintTestController::class, 'tintColor'])->name('tinttest-post');
+Route::get('/ai/tint-predictor', [\App\Http\Controllers\Ai\TintPredictorController::class, 'show'])->name('ai.tintpredictor');
+Route::post('/ai/tint-predictor', [\App\Http\Controllers\Ai\TintPredictorController::class, 'tintColor'])->name('ai.tintpredictor.post');
 
 /*=======================================
 *       Custom Palettes

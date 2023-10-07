@@ -94,9 +94,9 @@ dropdownLI.forEach((el) => {
         target.style.display = 'flex';
 
         target.style.top = `${y}px`;
-        target.style.left = `${x - el.getBoundingClientRect().width - 50}px`;
+        target.style.left = `${x - el.getBoundingClientRect().width - (target.getBoundingClientRect().width - el.getBoundingClientRect().width)}px`;
         target.style.height = 'fit-content';
-        target.style.width = `${el.getBoundingClientRect().width + 50}px`;
+        target.style.width = `200px`;
     });
     el.addEventListener('mouseleave', () => {
         target.style.display = 'none';

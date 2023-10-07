@@ -5,15 +5,14 @@ namespace App\Http\Controllers\Ai;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
 
-class TintTestController extends Controller
+class TintPredictorController extends Controller
 {
     public function show(): View
     {
-        return view('ai.tint_test.tint_test');
+        return view('ai.tint_predictor.tint_predictor');
     }
 
     public function tintColor(Request $request): JsonResponse
@@ -21,8 +20,8 @@ class TintTestController extends Controller
         $string = $request->input('data');
 
         $convertedHex = $this->validateAndConvertToRGB($string);
-        info($convertedHex);
-        if (! $convertedHex) {
+
+        if (!$convertedHex) {
             return response()->json(['error' => 'Wrong color format']);
         }
 
@@ -30,25 +29,16 @@ class TintTestController extends Controller
         $g = $convertedHex['g'];
         $b = $convertedHex['b'];
 
-        //        $processOutput = shell_exec("cd /var/www/material-colors.com/python ; source /var/www/material-colors.com/python/bin/activate ; python model.py $r $g $b");
+        $response = Http::post(env('TINTTEST_URL'), [
+            'red' => $r,
+            'green' => $g,
+            'blue' => $b,
+        ])->json();
 
-        info(__DIR__);
-        $process = new Process(
-            [
-                'source '.'python/venv/bin/activate',
-            ]
-        );
-        $process->run();
+        $bg = 'rgb(' . $response['color'] . ')';
+        $prediction = $response['prediction'];
 
-        if (! $process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-
-        $data = $process->getOutput();
-
-        info($data);
-
-        return response()->json(['result' => $data]);
+        return response()->json(['bg' => $bg, 'prediction' => $prediction]);
     }
 
     private function validateAndConvertToRGB($inputValue): array|bool

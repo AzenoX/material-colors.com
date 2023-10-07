@@ -1,0 +1,43 @@
+/*==============================================
+
+        Chip
+
+==============================================*/
+.chip{
+    position: relative;
+
+    padding: 0.2rem 1rem;
+    border-radius: 20px / 50%;
+
+    @include font('Montserrat');
+    background: #333;
+    color: #fff;
+
+    &--little {
+        display: inline-block;
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        border-radius: 15px / 50%;
+        background: #2196f3;
+        z-index: -1;
+        scale: 0.6
+    }
+
+    &-green{
+        background: #4caf50;
+        color: #fff;
+    }
+
+    &-dark{
+        background: #212121;
+        color: #fff;
+    }
+
+    &-light{
+        background: #eeeeee;
+        color: #333;
+    }
+}
+
+
