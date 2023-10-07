@@ -243,3 +243,29 @@ form{
     }
 }
 
+
+/*==============================================
+
+        Github link
+
+==============================================*/
+.github-banner {
+    position: fixed;
+    height: 40px;
+    width: 200px;
+    top: 25px;
+    right: -50px;
+    border: 0;
+    background: #333;
+    z-index: 99999;
+    transform: rotate(45deg);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        height: 40px;
+        fill: #fff;
+    }
+}
