@@ -44,7 +44,6 @@ class TintPredictorController extends Controller
     private function validateAndConvertToRGB($inputValue): array|bool
     {
         $hexPattern = '/^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$/';
-        $rgbPattern = "/^(\d{1,3}),(\d{1,3}),(\d{1,3})(,(\d{1,3}))?$/";
 
         if (preg_match($hexPattern, $inputValue, $matches)) {
             // Remove potential # at the start
@@ -59,20 +58,6 @@ class TintPredictorController extends Controller
                 'g' => $g,
                 'b' => $b,
             ];
-        }
-
-        if (preg_match($rgbPattern, $inputValue, $matches)) {
-            $r = (int) $matches[1];
-            $g = (int) $matches[2];
-            $b = (int) $matches[3];
-
-            if ($r >= 0 && $r <= 255 && $g >= 0 && $g <= 255 && $b >= 0 && $b <= 255) {
-                return [
-                    'r' => $r,
-                    'g' => $g,
-                    'b' => $b,
-                ];
-            }
         }
 
         return false;

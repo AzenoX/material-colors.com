@@ -9,7 +9,7 @@
 
         <div class="flex flex-wrap flex-even w100">
             <div class="form-row w40">
-                <input id="inputColor" type="text" name="name" placeholder="Input Color (HEX or RGB Format, e.g. #ff0000 or ff0000 or RRR,GGG,BBB)" class="p-1 w100">
+                <input id="inputColor" type="text" name="name" placeholder="Input Color (HEX Format, e.g. #ff0000 or ff0000)" class="p-1 w100">
 
                 <div class="flex flex-beet align-items-center">
                     <div class="flex flex-middle">
@@ -78,23 +78,9 @@
          */
         function validateColor(inputValue) {
             const hexPattern = /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$/;
-            const rgbPattern = /^(\d{1,3}),(\d{1,3}),(\d{1,3})(,(\d{1,3}))?$/;
 
             if (hexPattern.test(inputValue)) {
                 return true;
-            }
-
-            if (rgbPattern.test(inputValue)) {
-                const matches = inputValue.match(rgbPattern);
-                if (!matches) return false; // This shouldn't happen due to the previous check, but it's safer to have it.
-
-                const isValidNumber = num => num >= 0 && num <= 255;
-                if (isValidNumber(Number(matches[1])) &&
-                    isValidNumber(Number(matches[2])) &&
-                    isValidNumber(Number(matches[3])) &&
-                    (!matches[5] || isValidNumber(Number(matches[5])))) {
-                    return true;
-                }
             }
 
             return false;
@@ -144,18 +130,27 @@
 
                         tintResult.classList.add('chip')
                         tintResult.textContent = response.prediction
+                        tintResult.style.backgroundColor = response.bg
                         if (response.prediction === 'Dark') {
                             tintResult.classList.add('chip-dark')
                         } else {
                             tintResult.classList.add('chip-light')
                         }
 
-                        console.log(response)
                         document.body.style.backgroundColor = response.bg
                     })
                     .catch(err => {
                         console.error('Failed to fetch:', err);
                     })
+            } else {
+                Toastify({
+                    text: `<p></p><span>Wrong Format, use HEX format instead</span>`,
+                    duration: 3000,
+                    gravity: "bottom",
+                    position: "right",
+                    backgroundColor: "#f44336",
+                    escapeMarkup: false,
+                }).showToast();
             }
         })
     </script>
