@@ -46,14 +46,21 @@ Route::get('/variants', [\App\Http\Controllers\VariantsController::class, 'index
 /*=======================================
 *       AI Routes
 =======================================*/
-Route::get('/ai/tint-predictor', [\App\Http\Controllers\Ai\TintPredictorController::class, 'show'])->name('ai.tintpredictor');
-Route::post('/ai/tint-predictor', [\App\Http\Controllers\Ai\TintPredictorController::class, 'tintColor'])->name('ai.tintpredictor.post');
+//Route::get('/ai/tint-predictor', [\App\Http\Controllers\Ai\TintPredictorController::class, 'show'])->name('ai.tintpredictor');
+//Route::post('/ai/tint-predictor', [\App\Http\Controllers\Ai\TintPredictorController::class, 'tintColor'])->name('ai.tintpredictor.post');
 
 /*=======================================
 *       Custom Palettes
 =======================================*/
 Route::get('/customs', [\App\Http\Controllers\CustomController::class, 'getIndex'])->name('customs.customs');
 Route::get('/custom/{id}', [\App\Http\Controllers\CustomController::class, 'getCustomIndex'])->name('customs.custom');
+
+/*=======================================
+*       Custom Palettes
+=======================================*/
+Route::get('/color-viewer/hex', [\App\Http\Controllers\ColorViewerController::class, 'showHex'])->name('color_viewer.hex');
+Route::get('/color-viewer/rgb', [\App\Http\Controllers\ColorViewerController::class, 'showRgb'])->name('color_viewer.rgb');
+Route::get('/color-viewer/hsl', [\App\Http\Controllers\ColorViewerController::class, 'showHsl'])->name('color_viewer.hsl');
 
 /*=======================================
 *       Social Colors
