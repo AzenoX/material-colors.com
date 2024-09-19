@@ -15,9 +15,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-wrap flex-even center w100 preview-color" style="margin-top: 10vh; height: 30vh; background: #000000;">
-
-                </div>
+                <div class="flex flex-wrap flex-even center w100 preview-color" style="margin-top: 10vh; height: 30vh; background: #000000;"></div>
             </div>
 
             <div class="w50">
